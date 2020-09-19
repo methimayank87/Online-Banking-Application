@@ -14,10 +14,8 @@ namespace OnlineBankingApplication.Models
     
     public partial class Beneficiary
     {
-        public int BenID { get; set; }
         public string Name { get; set; }
         public string AccountNumber { get; set; }
-        public string Status { get; set; }
         public string NickName { get; set; }
         public Nullable<int> UserID { get; set; }
     
