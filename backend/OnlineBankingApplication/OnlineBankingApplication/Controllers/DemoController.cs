@@ -12,6 +12,7 @@ namespace OnlineBankingApplication.Controllers
         public ActionResult Index()
         {
             //Added a comment
+            //Added Comment 2
             return View();
         }
     }
