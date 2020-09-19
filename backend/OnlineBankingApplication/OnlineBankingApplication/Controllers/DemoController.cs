@@ -13,7 +13,6 @@ namespace OnlineBankingApplication.Controllers
         {
             //Added a comment
             //Added Comment 2
-            //Added comment 3
             return View();
         }
     }
