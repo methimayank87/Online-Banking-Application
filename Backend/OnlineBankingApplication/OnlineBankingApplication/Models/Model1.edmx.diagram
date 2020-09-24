@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4abff942e9b94a368f46398c0a829afc" Name="Diagram1">
+        <EntityTypeShape EntityType="gladiatorDBModel.Account" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gladiatorDBModel.Admin" Width="1.5" PointX="3.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gladiatorDBModel.AdminApproval" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gladiatorDBModel.Beneficiary" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gladiatorDBModel.PAddress" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gladiatorDBModel.RAddress" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gladiatorDBModel.Transaction" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gladiatorDBModel.User" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="gladiatorDBModel.FK__Account__UserID__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="gladiatorDBModel.FK__AdminAppr__Admin__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="gladiatorDBModel.FK__AdminAppr__UserI__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="gladiatorDBModel.FK__beneficia__UserI__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="gladiatorDBModel.FK__PAddress__UserID__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="gladiatorDBModel.FK__RAddress__UserID__37A5467C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
