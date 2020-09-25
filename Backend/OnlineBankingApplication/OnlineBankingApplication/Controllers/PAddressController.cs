@@ -1,45 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Description;
 using OnlineBankingApplication.Models;
 using OnlineBankingApplication.Repositories;
 
 namespace OnlineBankingApplication.Controllers
 {
-    [RoutePrefix("api/users")]
-    public class UserController : ApiController
+    [RoutePrefix("api/paddresses")]
+    public class PAddressController : ApiController
     {
-        private IDataRepository<User> _userRepository;
-        public UserController()
+        private IDataRepository<PAddress> _addressRepository;
+        public PAddressController()
         {
-            this._userRepository = new UserRepository(new ProjectContext());
+            this._addressRepository = new PAddressRepository(new ProjectContext());
         }
         [HttpGet]
         [Route("")]
-        public IEnumerable<User> GetUsers()
+        public IEnumerable<PAddress> GetAddresses()
         {
-            var users = _userRepository.GetAll();
-            return users;
+            var addresses = _addressRepository.GetAll();
+            return addresses;
         }
 
         [HttpGet]
         [Route("{id}")]
-        public User GetUserById(int id)
+        public PAddress GetAddressById(int id)
         {
-            var user = _userRepository.Get(id);
-            return user;
+            var address = _addressRepository.Get(id);
+            return address;
         }
 
         [HttpPost]
         [Route("")]
-        public IHttpActionResult AddUser([FromBody] User user)
+        public IHttpActionResult AddAddress([FromBody] PAddress address)
         {
             try
             {
@@ -47,27 +43,27 @@ namespace OnlineBankingApplication.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                _userRepository.Add(user);
+                _addressRepository.Add(address);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return Ok(user);
+            return Ok(address);
         }
 
         [HttpDelete]
         [Route("{id}")]
-        public IHttpActionResult DeletUser(int id)
+        public IHttpActionResult DeletAddress(int id)
         {
             try
             {
-                User user = _userRepository.Get(id);
-                if (user == null)
+                PAddress address = _addressRepository.Get(id);
+                if (address == null)
                 {
                     return NotFound();
                 }
-                _userRepository.Delete(id);
+                _addressRepository.Delete(id);
             }
             catch (Exception ex)
             {
@@ -78,22 +74,22 @@ namespace OnlineBankingApplication.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IHttpActionResult UpdateUser(int id, [FromBody] User user)
+        public IHttpActionResult UpdateAddress(int id, [FromBody] PAddress address)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (user == null)
+            if (address == null)
             {
                 return BadRequest("User is null");
             }
-            if (id != user.UserID)
+            if (id != address.UserID)
             {
                 return BadRequest();
             }
-            _userRepository.Update(user);
-            return Ok(user);
+            _addressRepository.Update(address);
+            return Ok(address);
         }
     }
 }

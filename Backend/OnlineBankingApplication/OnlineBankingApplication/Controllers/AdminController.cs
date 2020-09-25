@@ -60,7 +60,7 @@ namespace OnlineBankingApplication.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        public IHttpActionResult DeletAdmin(int id)
+        public IHttpActionResult DeleteAdmin(int id)
         {
             try
             {

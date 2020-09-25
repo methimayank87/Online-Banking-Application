@@ -32,6 +32,10 @@ namespace OnlineBankingApplication.Repositories
         {
             return _projectContext.Users.Find(id);
         }
+        public User Get(string id)
+        {
+            throw new NotImplementedException();
+        }
 
         public IEnumerable<User> GetAll()
         {
