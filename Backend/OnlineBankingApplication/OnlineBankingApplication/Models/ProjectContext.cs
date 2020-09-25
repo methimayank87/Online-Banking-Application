@@ -17,5 +17,8 @@ namespace OnlineBankingApplication.Models
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Beneficiary> Beneficiaries { get; set; }
         public DbSet<AdminApproval> Approvals { get; set; }
+        public DbSet<PAddress> pAddresses { get; set; }
+        public DbSet<RAddress> rAddresses { get; set; }
+
     }
 }

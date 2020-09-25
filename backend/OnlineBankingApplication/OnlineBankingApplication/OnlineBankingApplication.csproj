@@ -168,6 +168,8 @@
     <Compile Include="Controllers\BeneficiaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PAddressController.cs" />
+    <Compile Include="Controllers\RAddressController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -224,6 +226,8 @@
     <Compile Include="Repositories\IDataRepository.cs" />
     <Compile Include="Repositories\ITransactionRepository.cs" />
     <Compile Include="Repositories\LoginRepository.cs" />
+    <Compile Include="Repositories\PAddressRepository.cs" />
+    <Compile Include="Repositories\RAddressRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
