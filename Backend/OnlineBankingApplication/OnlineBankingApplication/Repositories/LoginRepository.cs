@@ -8,17 +8,17 @@ namespace OnlineBankingApplication.Repositories
 {
     public class LoginRepository : ILoginRepository
     {
-        private readonly ProjectContext _accountDBContext;
-        public LoginRepository(ProjectContext accountDBContext)
+        private readonly ProjectContext _projectContext;
+        public LoginRepository(ProjectContext projectContext)
         {
-            _accountDBContext = accountDBContext;
+            this._projectContext = projectContext;
         }
         public Account VerifyLogin(int id, string password)
         {
             Account account = null;
             try
             {
-                var accountFound = _accountDBContext.Accounts
+                var accountFound = _projectContext.Accounts
                                      .Where(u => u.UserID == id && u.LoginPassword == password)
                                      .SingleOrDefault();
 

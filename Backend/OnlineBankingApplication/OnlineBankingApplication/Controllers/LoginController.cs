@@ -9,23 +9,22 @@ using OnlineBankingApplication.Repositories;
 
 namespace OnlineBankingApplication.Controllers
 {
-    [RoutePrefix("api/accounts")]
-    public class AccountController : ApiController
+    public class LoginController : ApiController
     {
-        private ILoginRepository _accountRepository;
-        public AccountController()
+        private ILoginRepository _loginRepository;
+        public LoginController()
         {
-            this._accountRepository = new LoginRepository(new ProjectContext());
+            this._loginRepository = new LoginRepository(new ProjectContext());
         }
 
         [HttpPost]
-        [Route("login")]
+        [Route("api/accounts/login")]
         public IHttpActionResult VerifyLogin(Login login)
         {
             Account account = null;
             try
             {
-                account = _accountRepository.VerifyLogin(login.UserId, login.Password);
+                account = _loginRepository.VerifyLogin(login.UserId, login.Password);
                 if (account == null)
                     return NotFound();
             }
