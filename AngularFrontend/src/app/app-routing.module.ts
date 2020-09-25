@@ -7,6 +7,7 @@ import { ChangeIdPasswordComponent } from './components/change-id-password/chang
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { FundstranferComponent} from './components/fundstranfer/fundstranfer.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path:'change', component:ChangeIdPasswordComponent},
   {path:'accountdetails', component:AccountdetailsComponent},
   {path:'accountsummary', component:AccountsummaryComponent},
-  {path:'',redirectTo:'/dashboard' ,pathMatch:"full"}
+  {path: 'admin', component:AdminComponent},
+  {path:'',redirectTo:'/dashboard' ,pathMatch:"full"},
+  
 ];
 
 @NgModule({
