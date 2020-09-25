@@ -12,6 +12,8 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
 import { ChangeIdPasswordComponent } from './components/change-id-password/change-id-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
+import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { RouterModule } from '@angular/router';
     DashboardComponent,
     FundstranferComponent,
     UserprofileComponent,
-    ChangeIdPasswordComponent
+    ChangeIdPasswordComponent,
+    UserloginComponent,
+    RegisteruserComponent
   ],
   imports: [
     BrowserModule,
