@@ -21,5 +21,8 @@ namespace OnlineBankingApplication.Models
         public int Amount { get; set; }
         public System.DateTime TransactionDate { get; set; }
         public string Remarks { get; set; }
+    
+        public virtual Account Account { get; set; }
+        public virtual Account Account1 { get; set; }
     }
 }

@@ -29,6 +29,14 @@ namespace OnlineBankingApplication.Controllers
             return users;
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public User GetUserById(int id)
+        {
+            var user = _userRepository.Get(id);
+            return user;
+        }
+
         [HttpPost]
         [Route("")]
         public IHttpActionResult AddUser([FromBody] User user)

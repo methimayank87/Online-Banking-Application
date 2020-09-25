@@ -17,8 +17,8 @@ namespace OnlineBankingApplication.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            this.Accounts = new HashSet<Account>();
             this.AdminApprovals = new HashSet<AdminApproval>();
-            this.Beneficiaries = new HashSet<Beneficiary>();
         }
     
         public int UserID { get; set; }
@@ -37,11 +37,10 @@ namespace OnlineBankingApplication.Models
         public string NetBankingOpted { get; set; }
         public System.DateTime DateOfApplication { get; set; }
     
-        public virtual Account Account { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Account> Accounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AdminApproval> AdminApprovals { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Beneficiary> Beneficiaries { get; set; }
         public virtual PAddress PAddress { get; set; }
         public virtual RAddress RAddress { get; set; }
     }

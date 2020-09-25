@@ -31,7 +31,10 @@ namespace OnlineBankingApplication.Repositories
         {
             return _projectContext.Admins.Find(id);
         }
-
+        public Admin Get(string id)
+        {
+            throw new NotImplementedException();
+        }
         public IEnumerable<Admin> GetAll()
         {
             return _projectContext.Admins.ToList();

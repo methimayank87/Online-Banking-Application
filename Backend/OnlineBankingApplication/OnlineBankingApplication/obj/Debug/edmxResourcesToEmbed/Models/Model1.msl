@@ -35,9 +35,9 @@
       <EntityTypeMapping TypeName="gladiatorDBModel.Beneficiary">
         <MappingFragment StoreEntitySet="Beneficiary">
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="BenAccountNumber" ColumnName="BenAccountNumber" />
           <ScalarProperty Name="NickName" ColumnName="NickName" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserAccountNumber" ColumnName="UserAccountNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
