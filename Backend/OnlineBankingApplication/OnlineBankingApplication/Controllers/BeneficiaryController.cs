@@ -9,5 +9,6 @@ namespace OnlineBankingApplication.Controllers
 {
     public class BeneficiaryController : ApiController
     {
+
     }
 }

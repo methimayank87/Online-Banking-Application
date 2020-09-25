@@ -2,7 +2,7 @@
 <Schema Namespace="gladiatorDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Account">
     <Key>
-      <PropertyRef Name="UserID" />
+      <PropertyRef Name="AccountNumber" />
     </Key>
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="AccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -10,6 +10,10 @@
     <Property Name="LoginPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TransactionPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK__Account__UserID__267ABA7A" FromRole="Account" ToRole="Users" />
+    <NavigationProperty Name="Beneficiary" Relationship="Self.FK__Beneficia__BenAc__2A4B4B5E" FromRole="Account" ToRole="Beneficiary" />
+    <NavigationProperty Name="Beneficiaries" Relationship="Self.FK__Beneficia__UserA__29572725" FromRole="Account" ToRole="Beneficiary" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK__Transacti__Recei__35BCFE0A" FromRole="Account" ToRole="Transactions" />
+    <NavigationProperty Name="Transactions1" Relationship="Self.FK__Transacti__Sende__34C8D9D1" FromRole="Account" ToRole="Transactions" />
   </EntityType>
   <EntityType Name="Admin">
     <Key>
@@ -17,29 +21,30 @@
     </Key>
     <Property Name="AdminID" Type="Int32" Nullable="false" />
     <Property Name="AdminPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="AdminApprovals" Relationship="Self.FK__AdminAppr__Admin__32E0915F" FromRole="Admin" ToRole="AdminApproval" />
+    <NavigationProperty Name="AdminApprovals" Relationship="Self.FK__AdminAppr__Admin__31EC6D26" FromRole="Admin" ToRole="AdminApproval" />
   </EntityType>
   <EntityType Name="AdminApproval">
     <Key>
       <PropertyRef Name="ApprovalID" />
     </Key>
-    <Property Name="ApprovalID" Type="Int32" Nullable="false" />
+    <Property Name="ApprovalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="AdminID" Type="Int32" Nullable="false" />
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="ApprovalStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ApprovalDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Admin" Relationship="Self.FK__AdminAppr__Admin__32E0915F" FromRole="AdminApproval" ToRole="Admin" />
-    <NavigationProperty Name="User" Relationship="Self.FK__AdminAppr__UserI__31EC6D26" FromRole="AdminApproval" ToRole="Users" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK__AdminAppr__Admin__31EC6D26" FromRole="AdminApproval" ToRole="Admin" />
+    <NavigationProperty Name="User" Relationship="Self.FK__AdminAppr__UserI__30F848ED" FromRole="AdminApproval" ToRole="Users" />
   </EntityType>
   <EntityType Name="Beneficiary">
     <Key>
-      <PropertyRef Name="AccountNumber" />
+      <PropertyRef Name="BenAccountNumber" />
     </Key>
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BenAccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NickName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="UserID" Type="Int32" />
-    <NavigationProperty Name="User" Relationship="Self.FK__beneficia__UserI__29572725" FromRole="Beneficiary" ToRole="Users" />
+    <Property Name="UserAccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK__Beneficia__BenAc__2A4B4B5E" FromRole="Beneficiary" ToRole="Account" />
+    <NavigationProperty Name="Account1" Relationship="Self.FK__Beneficia__UserA__29572725" FromRole="Beneficiary" ToRole="Account" />
   </EntityType>
   <EntityType Name="PAddress">
     <Key>
@@ -52,7 +57,7 @@
     <Property Name="State1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Pincode" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK__PAddress__UserID__3A81B327" FromRole="PAddress" ToRole="Users" />
+    <NavigationProperty Name="User" Relationship="Self.FK__PAddress__UserID__3B75D760" FromRole="PAddress" ToRole="Users" />
   </EntityType>
   <EntityType Name="RAddress">
     <Key>
@@ -65,7 +70,7 @@
     <Property Name="State1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Pincode" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK__RAddress__UserID__37A5467C" FromRole="RAddress" ToRole="Users" />
+    <NavigationProperty Name="User" Relationship="Self.FK__RAddress__UserID__38996AB5" FromRole="RAddress" ToRole="Users" />
   </EntityType>
   <EntityType Name="Transaction">
     <Key>
@@ -73,11 +78,13 @@
     </Key>
     <Property Name="TransactionID" Type="Int32" Nullable="false" />
     <Property Name="TransactionMode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="SenderAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ReceiverAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SenderAccount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReceiverAccount" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Amount" Type="Int32" Nullable="false" />
     <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Recei__35BCFE0A" FromRole="Transactions" ToRole="Account" />
+    <NavigationProperty Name="Account1" Relationship="Self.FK__Transacti__Sende__34C8D9D1" FromRole="Transactions" ToRole="Account" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -98,15 +105,14 @@
     <Property Name="DebitCardOpted" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NetBankingOpted" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DateOfApplication" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Account" Relationship="Self.FK__Account__UserID__267ABA7A" FromRole="Users" ToRole="Account" />
-    <NavigationProperty Name="AdminApprovals" Relationship="Self.FK__AdminAppr__UserI__31EC6D26" FromRole="Users" ToRole="AdminApproval" />
-    <NavigationProperty Name="Beneficiaries" Relationship="Self.FK__beneficia__UserI__29572725" FromRole="Users" ToRole="Beneficiary" />
-    <NavigationProperty Name="PAddress" Relationship="Self.FK__PAddress__UserID__3A81B327" FromRole="Users" ToRole="PAddress" />
-    <NavigationProperty Name="RAddress" Relationship="Self.FK__RAddress__UserID__37A5467C" FromRole="Users" ToRole="RAddress" />
+    <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__UserID__267ABA7A" FromRole="Users" ToRole="Account" />
+    <NavigationProperty Name="AdminApprovals" Relationship="Self.FK__AdminAppr__UserI__30F848ED" FromRole="Users" ToRole="AdminApproval" />
+    <NavigationProperty Name="PAddress" Relationship="Self.FK__PAddress__UserID__3B75D760" FromRole="Users" ToRole="PAddress" />
+    <NavigationProperty Name="RAddress" Relationship="Self.FK__RAddress__UserID__38996AB5" FromRole="Users" ToRole="RAddress" />
   </EntityType>
   <Association Name="FK__Account__UserID__267ABA7A">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
-    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="UserID" />
@@ -116,7 +122,55 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__AdminAppr__Admin__32E0915F">
+  <Association Name="FK__Beneficia__BenAc__2A4B4B5E">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="Beneficiary">
+        <PropertyRef Name="BenAccountNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Beneficia__UserA__29572725">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="Beneficiary">
+        <PropertyRef Name="UserAccountNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__Recei__35BCFE0A">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="ReceiverAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__Sende__34C8D9D1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountNumber" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="SenderAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AdminAppr__Admin__31EC6D26">
     <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
     <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
     <ReferentialConstraint>
@@ -128,7 +182,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__AdminAppr__UserI__31EC6D26">
+  <Association Name="FK__AdminAppr__UserI__30F848ED">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
     <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
     <ReferentialConstraint>
@@ -140,19 +194,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__beneficia__UserI__29572725">
-    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Beneficiary">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PAddress__UserID__3A81B327">
+  <Association Name="FK__PAddress__UserID__3B75D760">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
     <End Role="PAddress" Type="Self.PAddress" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -164,7 +206,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RAddress__UserID__37A5467C">
+  <Association Name="FK__RAddress__UserID__38996AB5">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
     <End Role="RAddress" Type="Self.RAddress" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -189,23 +231,35 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Account" EntitySet="Accounts" />
     </AssociationSet>
-    <AssociationSet Name="FK__AdminAppr__Admin__32E0915F" Association="Self.FK__AdminAppr__Admin__32E0915F">
+    <AssociationSet Name="FK__Beneficia__BenAc__2A4B4B5E" Association="Self.FK__Beneficia__BenAc__2A4B4B5E">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Beneficiary" EntitySet="Beneficiaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Beneficia__UserA__29572725" Association="Self.FK__Beneficia__UserA__29572725">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Beneficiary" EntitySet="Beneficiaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__Recei__35BCFE0A" Association="Self.FK__Transacti__Recei__35BCFE0A">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__Sende__34C8D9D1" Association="Self.FK__Transacti__Sende__34C8D9D1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AdminAppr__Admin__31EC6D26" Association="Self.FK__AdminAppr__Admin__31EC6D26">
       <End Role="Admin" EntitySet="Admins" />
       <End Role="AdminApproval" EntitySet="AdminApprovals" />
     </AssociationSet>
-    <AssociationSet Name="FK__AdminAppr__UserI__31EC6D26" Association="Self.FK__AdminAppr__UserI__31EC6D26">
+    <AssociationSet Name="FK__AdminAppr__UserI__30F848ED" Association="Self.FK__AdminAppr__UserI__30F848ED">
       <End Role="Users" EntitySet="Users" />
       <End Role="AdminApproval" EntitySet="AdminApprovals" />
     </AssociationSet>
-    <AssociationSet Name="FK__beneficia__UserI__29572725" Association="Self.FK__beneficia__UserI__29572725">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Beneficiary" EntitySet="Beneficiaries" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PAddress__UserID__3A81B327" Association="Self.FK__PAddress__UserID__3A81B327">
+    <AssociationSet Name="FK__PAddress__UserID__3B75D760" Association="Self.FK__PAddress__UserID__3B75D760">
       <End Role="Users" EntitySet="Users" />
       <End Role="PAddress" EntitySet="PAddresses" />
     </AssociationSet>
-    <AssociationSet Name="FK__RAddress__UserID__37A5467C" Association="Self.FK__RAddress__UserID__37A5467C">
+    <AssociationSet Name="FK__RAddress__UserID__38996AB5" Association="Self.FK__RAddress__UserID__38996AB5">
       <End Role="Users" EntitySet="Users" />
       <End Role="RAddress" EntitySet="RAddresses" />
     </AssociationSet>

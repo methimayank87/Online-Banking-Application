@@ -8,6 +8,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { FundstranferComponent} from './components/fundstranfer/fundstranfer.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
+import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -20,6 +22,9 @@ const routes: Routes = [
   {path: 'admin', component:AdminComponent},
   {path:'',redirectTo:'/dashboard' ,pathMatch:"full"},
   
+  {path: 'userlogin', component:UserloginComponent},
+  {path:'registeruser', component:RegisteruserComponent}
+
 ];
 
 @NgModule({

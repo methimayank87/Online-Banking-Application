@@ -32,6 +32,10 @@ namespace OnlineBankingApplication.Repositories
         {
             return _projectContext.Beneficiaries.Find(id);
         }
+        public Beneficiary Get(string id)
+        {
+            throw new NotImplementedException();
+        }
 
         public IEnumerable<Beneficiary> GetAll()
         {

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountdetailsComponent } from './components/accountdetails/accountdetails.component';
@@ -13,6 +13,8 @@ import { ChangeIdPasswordComponent } from './components/change-id-password/chang
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
+import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,16 @@ import { AdminComponent } from './components/admin/admin.component';
     FundstranferComponent,
     UserprofileComponent,
     ChangeIdPasswordComponent,
-    AdminComponent
+    AdminComponent,
+    UserloginComponent,
+    RegisteruserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

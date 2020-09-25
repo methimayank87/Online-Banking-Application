@@ -30,6 +30,10 @@ namespace OnlineBankingApplication.Repositories
 
         public Account Get(int id)
         {
+            throw new NotImplementedException();
+        }
+        public Account Get(string id)
+        {
             return _projectContext.Accounts.Find(id);
         }
 

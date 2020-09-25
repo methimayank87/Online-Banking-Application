@@ -1,0 +1,42 @@
+<br/>
+
+<div class="border border-info" style="margin-left:20% ; margin-right: 20%;">
+    <br/>
+    <h3 align="center">Login to your account </h3>
+
+<br/><br/>
+
+<form [formGroup]="userloginForm">
+<div class="form-group row">
+    <label for="userid" class="col-sm-2 col-form-label">UserID</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="userid" placeholder="User ID">
+    </div>
+    <div class="text-danger" *ngIf="userloginForm.controls.userid.errors.required">Password is required</div>
+</div>
+<div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <div class="text-danger" *ngIf="userloginForm.controls.inputPassword.errors.required">User ID is required</div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <label class="form-check-label"><input type="checkbox"> Remember me</label>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <button type="submit" class="btn btn-primary">Login</button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <button routerLink="/registeruser" class="btn btn-success">First time user? Register</button>
+    </div>
+</div>
+<br/>
+<ul style="text-align: center; list-style-type: none;">
+    <li><a href="#">Forgot User ID?</a></li>
+    <li><a href="#">Forgot Password?</a></li>
+</ul>
+
+</form>
+</div>
