@@ -1,0 +1,90 @@
+
+<br/>
+<div class="bgpic">
+    <div class="container">
+        <br/>
+        <br/>
+       
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+                <h3 class="text-center login-title text-black font-weight-bold">FORGOT USER ID</h3>
+                <div class="account-wall">
+                  
+                    
+                    <img class="profile-img" src="assets/images/user1.png" alt="User Icon">
+
+                    <form [formGroup]="forgotuseridForm" (ngSubmit)="onSubmit()" class="form-signin">
+                      
+                        <div class="form-group">
+                            <label for="userid" class="font-weight-bold">
+                                Enter User ID : </label>
+                            <input type="text" class="form-control" placeholder="User ID" formControlName="userid" />
+
+                            <div *ngIf="submitted  &&  forgotuseridForm.controls.userid.errors">
+                                <div class="alert alert-danger" *ngIf="forgotuseridForm.controls.userid.errors.required">
+                                    UserID is required !
+                                </div>
+                            </div>
+                           
+
+
+                        </div>
+
+                     
+                        <div class="form-group">
+                            <label for="otp" class="font-weight-bold">
+                                Enter OTP : </label>
+                            <input type="number" class="form-control" placeholder="Enter OTP" maxlength="6" [formControlName]="otp" #otp >
+
+
+                            <!-- <div *ngIf="submitted  &&  forgotuseridForm.controls.otp.errors">
+                                <div class="alert alert-danger" *ngIf="forgotuseridForm.controls.otp.errors.required">
+                                    OTP is required !
+                                </div>
+                                <div class="alert alert-danger" *ngIf="forgotuseridForm.controls.otp.errors.maxlength">
+                                    OTP must be of 6 digits!
+                                </div>
+                            </div> -->
+
+                            <div *ngIf="submitted && forgotuseridForm.get('otp').invalid  && (forgotuseridForm.get('otp').dirty || forgotuseridForm.get('otp').touched )">
+                                <div class="alert alert-danger" *ngIf="forgotuseridForm.get('otp').errors.required">
+                                    OTP is required !
+                                </div>
+                                <div class="alert alert-danger" *ngIf="forgotuseridForm.get('otp').errors.maxlength">
+                                    OTP must be of 6 digits!
+                                </div>
+                            
+                            
+                            
+                            </div>
+                            
+                        </div>
+
+                        <button class="btn btn-success" type="submit">Proceed</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                        <button class="btn btn-primary" routerLink="/homepage"> Back</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <button class="btn btn-danger" type="reset"> Cancel</button>
+                        
+                        <div class="error" *ngIf="invalidLogin">
+                            <div class="text-danger">
+                                Invalid UserID Id or OTP !
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+            <br/>
+            <br/>
+        </div>
+    </div>
+</div>
+
+
+

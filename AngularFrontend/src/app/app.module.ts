@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
+import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
     ChangeIdPasswordComponent,
     AdminComponent,
     UserloginComponent,
-    RegisteruserComponent
+    RegisteruserComponent,
+    ForgotuseridComponent
   ],
   imports: [
     BrowserModule,

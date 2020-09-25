@@ -10,6 +10,7 @@ import { FundstranferComponent} from './components/fundstranfer/fundstranfer.com
 import { AdminComponent } from './components/admin/admin.component';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
+import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:'',redirectTo:'/dashboard' ,pathMatch:"full"},
   
   {path: 'userlogin', component:UserloginComponent},
-  {path:'registeruser', component:RegisteruserComponent}
+  {path:'registeruser', component:RegisteruserComponent},
+  {path:'forgotuserid', component:ForgotuseridComponent}
 
 ];
 
