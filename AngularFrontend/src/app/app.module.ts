@@ -16,6 +16,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.co
     AdminComponent,
     UserloginComponent,
     RegisteruserComponent,
-    ForgotuseridComponent
+    ForgotuseridComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
