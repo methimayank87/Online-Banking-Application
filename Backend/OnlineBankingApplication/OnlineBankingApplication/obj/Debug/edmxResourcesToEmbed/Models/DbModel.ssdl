@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gladiatorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="AccountNumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Balance" Type="int" Nullable="false" />
+    <Property Name="LoginPassword" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TransactionPassword" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" Nullable="false" />
+    <Property Name="AdminPassword" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdminApproval">
+    <Key>
+      <PropertyRef Name="ApprovalID" />
+    </Key>
+    <Property Name="ApprovalID" Type="int" Nullable="false" />
+    <Property Name="AdminID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ApprovalStatus" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ApprovalDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="beneficiary">
+    <Key>
+      <PropertyRef Name="AccountNumber" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AccountNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NickName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+  </EntityType>
+  <EntityType Name="PAddress">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Landmark" Type="varchar" MaxLength="200" />
+    <Property Name="State1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pincode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RAddress">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Landmark" Type="varchar" MaxLength="200" />
+    <Property Name="State1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pincode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="int" Nullable="false" />
+    <Property Name="TransactionMode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SenderAccount" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReceiverAccount" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="TransactionDate" Type="date" Nullable="false" />
+    <Property Name="Remarks" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="FatherName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="OccupationType" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SourceOfIncome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AnnualIncome" Type="int" Nullable="false" />
+    <Property Name="DebitCardOpted" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NetBankingOpted" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DateOfApplication" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Account__UserID__267ABA7A">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AdminAppr__Admin__32E0915F">
+    <End Role="admin" Type="Self.admin" Multiplicity="1" />
+    <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="AdminApproval">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AdminAppr__UserI__31EC6D26">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="AdminApproval">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__beneficia__UserI__29572725">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="beneficiary" Type="Self.beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="beneficiary">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PAddress__UserID__3A81B327">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="PAddress" Type="Self.PAddress" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="PAddress">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RAddress__UserID__37A5467C">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="RAddress" Type="Self.RAddress" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="RAddress">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gladiatorDBModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdminApproval" EntityType="Self.AdminApproval" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="beneficiary" EntityType="Self.beneficiary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAddress" EntityType="Self.PAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RAddress" EntityType="Self.RAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Account__UserID__267ABA7A" Association="Self.FK__Account__UserID__267ABA7A">
+      <End Role="users" EntitySet="users" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AdminAppr__Admin__32E0915F" Association="Self.FK__AdminAppr__Admin__32E0915F">
+      <End Role="admin" EntitySet="admin" />
+      <End Role="AdminApproval" EntitySet="AdminApproval" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AdminAppr__UserI__31EC6D26" Association="Self.FK__AdminAppr__UserI__31EC6D26">
+      <End Role="users" EntitySet="users" />
+      <End Role="AdminApproval" EntitySet="AdminApproval" />
+    </AssociationSet>
+    <AssociationSet Name="FK__beneficia__UserI__29572725" Association="Self.FK__beneficia__UserI__29572725">
+      <End Role="users" EntitySet="users" />
+      <End Role="beneficiary" EntitySet="beneficiary" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PAddress__UserID__3A81B327" Association="Self.FK__PAddress__UserID__3A81B327">
+      <End Role="users" EntitySet="users" />
+      <End Role="PAddress" EntitySet="PAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RAddress__UserID__37A5467C" Association="Self.FK__RAddress__UserID__37A5467C">
+      <End Role="users" EntitySet="users" />
+      <End Role="RAddress" EntitySet="RAddress" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

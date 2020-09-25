@@ -30,24 +30,19 @@ namespace OnlineBankingApplication.Models
         public string Phone { get; set; }
         public string FatherName { get; set; }
         public System.DateTime DOB { get; set; }
-        public string PermanentAddress { get; set; }
-        public string CurrentAddress { get; set; }
         public string OccupationType { get; set; }
         public string SourceOfIncome { get; set; }
         public int AnnualIncome { get; set; }
         public string DebitCardOpted { get; set; }
         public string NetBankingOpted { get; set; }
         public System.DateTime DateOfApplication { get; set; }
-        public string Approved { get; set; }
-        public string AccountNumber { get; set; }
-        public int Balance { get; set; }
-        public string SecurityQuestion { get; set; }
-        public string SecurityAnswer { get; set; }
     
+        public virtual Account Account { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AdminApproval> AdminApprovals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Beneficiary> Beneficiaries { get; set; }
-        public virtual NetBanking NetBanking { get; set; }
+        public virtual PAddress PAddress { get; set; }
+        public virtual RAddress RAddress { get; set; }
     }
 }

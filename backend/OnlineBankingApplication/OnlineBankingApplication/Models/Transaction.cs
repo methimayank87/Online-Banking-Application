@@ -15,11 +15,11 @@ namespace OnlineBankingApplication.Models
     public partial class Transaction
     {
         public int TransactionID { get; set; }
+        public string TransactionMode { get; set; }
         public string SenderAccount { get; set; }
         public string ReceiverAccount { get; set; }
         public int Amount { get; set; }
         public System.DateTime TransactionDate { get; set; }
-        public string MaturityInstructions { get; set; }
         public string Remarks { get; set; }
     }
 }
