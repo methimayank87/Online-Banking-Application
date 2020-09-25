@@ -7,7 +7,7 @@ using OnlineBankingApplication.Models;
 
 namespace OnlineBankingApplication.Repositories
 {
-    public class BeneficiaryRepository : IDataRepository<Beneficiary>
+    public class BeneficiaryRepository : IBeneficiaryRepository<Beneficiary>
     {
         private readonly ProjectContext _projectContext;
         public BeneficiaryRepository(ProjectContext projectContext)
@@ -15,31 +15,33 @@ namespace OnlineBankingApplication.Repositories
             _projectContext = projectContext;
         }
 
-        public void Add(Beneficiary newBeneficiary)
+        public void Add(string id , Beneficiary newBeneficiary)
         {
             _projectContext.Beneficiaries.Add(newBeneficiary);
             _projectContext.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(string userAccount , string benAccount)
         {
-            Beneficiary beneficiary = _projectContext.Beneficiaries.Find(id);
+            Beneficiary beneficiary = (Beneficiary)_projectContext.Beneficiaries
+                                            .Where(u => u.UserAccountNumber == userAccount && u.BenAccountNumber == benAccount)
+                                            .FirstOrDefault();
             _projectContext.Beneficiaries.Remove(beneficiary);
             _projectContext.SaveChanges();
         }
 
-        public Beneficiary Get(int id)
+        public Beneficiary Get(string userAccount, string benAccount)
         {
-            return _projectContext.Beneficiaries.Find(id);
+            var beneficiary = _projectContext.Beneficiaries
+                                    .Where(u => u.UserAccountNumber == userAccount && u.BenAccountNumber == benAccount)
+                                    .FirstOrDefault();
+            return beneficiary;
         }
-        public Beneficiary Get(string id)
+        public IEnumerable<Beneficiary> GetAll(string number)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Beneficiary> GetAll()
-        {
-            return _projectContext.Beneficiaries.ToList();
+            var beneficiaries = _projectContext.Beneficiaries
+                                     .Where(u => u.UserAccountNumber == number);
+            return beneficiaries.ToList();
         }
 
         public void Update(Beneficiary updateBeneficiary)

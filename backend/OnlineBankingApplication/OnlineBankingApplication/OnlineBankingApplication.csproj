@@ -219,6 +219,7 @@
     <Compile Include="Repositories\ApprovalRepository.cs" />
     <Compile Include="Repositories\AdminRepository.cs" />
     <Compile Include="Repositories\BeneficiaryRepository.cs" />
+    <Compile Include="Repositories\IBeneficiaryRepository.cs" />
     <Compile Include="Repositories\ILoginRepository.cs" />
     <Compile Include="Repositories\IDataRepository.cs" />
     <Compile Include="Repositories\ITransactionRepository.cs" />
