@@ -130,6 +130,7 @@ C:\Users\user\Downloads\Backend\OnlineBankingApplication\OnlineBankingApplicatio
 C:\Users\user\Downloads\Backend\OnlineBankingApplication\OnlineBankingApplication\obj\Debug\OnlineBankingApplication.csproj.CopyComplete
 C:\Users\user\Downloads\Backend\OnlineBankingApplication\OnlineBankingApplication\obj\Debug\OnlineBankingApplication.dll
 C:\Users\user\Downloads\Backend\OnlineBankingApplication\OnlineBankingApplication\obj\Debug\OnlineBankingApplication.pdb
+<<<<<<< HEAD
 C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\OnlineBankingApplication.dll.config
 C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\OnlineBankingApplication.dll
 C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\OnlineBankingApplication.pdb
@@ -199,3 +200,99 @@ C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingAp
 C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Cors.dll
 C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Http.Cors.dll
 C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Http.Cors.xml
+=======
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\OnlineBankingApplication.dll.config
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\OnlineBankingApplication.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\OnlineBankingApplication.pdb
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\csc.exe
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\csc.exe.config
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\csc.rsp
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\csi.exe
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\csi.rsp
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\System.AppContext.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\System.Collections.Immutable.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\System.Diagnostics.StackTrace.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\System.IO.FileSystem.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\System.IO.FileSystem.Primitives.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\System.Reflection.Metadata.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\vbc.exe
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\vbc.exe.config
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\vbc.rsp
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\VBCSCompiler.exe
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\roslyn\VBCSCompiler.exe.config
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Antlr3.Runtime.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\EntityFramework.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\EntityFramework.SqlServer.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.IdentityModel.Logging.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.IdentityModel.Tokens.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Web.Infrastructure.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Newtonsoft.Json.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.IdentityModel.Tokens.Jwt.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Net.Http.Formatting.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Cors.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Helpers.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Http.Cors.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Http.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Http.WebHost.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Mvc.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Optimization.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Razor.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.WebPages.Deployment.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.WebPages.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.WebPages.Razor.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\WebGrease.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\EntityFramework.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\EntityFramework.SqlServer.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.IdentityModel.Logging.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.IdentityModel.Tokens.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.IdentityModel.Tokens.Jwt.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Http.Cors.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Newtonsoft.Json.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Net.Http.Formatting.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Helpers.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Http.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Http.WebHost.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Mvc.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Optimization.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.Razor.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.WebPages.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.WebPages.Deployment.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\System.Web.WebPages.Razor.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Antlr3.Runtime.pdb
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\obj\Debug\OnlineBankingApplication.csprojAssemblyReference.cache
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\obj\Debug\OnlineBankingApplication.csproj.CoreCompileInputs.cache
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\obj\Debug\OnlineBankingApplication.csproj.CopyComplete
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\obj\Debug\OnlineBankingApplication.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\obj\Debug\OnlineBankingApplication.pdb
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.Core.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.Owin.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Cors.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Host.SystemWeb.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.Cookies.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.OAuth.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Owin.dll
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.Core.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.Owin.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Cors.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Host.SystemWeb.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.Cookies.xml
+H:\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.OAuth.xml
+>>>>>>> e9f9522d76ac94d5923ea2b5eb3d1df513f0608e

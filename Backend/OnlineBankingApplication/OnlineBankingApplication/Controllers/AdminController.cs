@@ -9,6 +9,7 @@ using OnlineBankingApplication.Repositories;
 
 namespace OnlineBankingApplication.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/admins")]
     public class AdminController : ApiController
     {
@@ -17,6 +18,19 @@ namespace OnlineBankingApplication.Controllers
         {
             this._adminRepository = new AdminRepository(new ProjectContext());
         }
+        //[HttpGet]
+        //[Route("")]
+        //public HttpResponseMessage ValidLogin(string id,string password)
+        //{
+        //    if (id=="101" && password=="admin")
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.OK, value: TokenManager.GenerateToken(id));
+        //    }
+        //    else
+        //    { 
+        //        return Request.CreateErrorResponse(HttpStatusCode.BadGateway, message: "Id and password is invalid");
+        //    }
+        //}
         [HttpGet]
         [Route("")]
         public IEnumerable<Admin> GetAdmins()
@@ -46,7 +60,7 @@ namespace OnlineBankingApplication.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        public IHttpActionResult DeletAdmin(int id)
+        public IHttpActionResult DeleteAdmin(int id)
         {
             try
             {
