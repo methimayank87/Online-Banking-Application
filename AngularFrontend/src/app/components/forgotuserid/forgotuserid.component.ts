@@ -10,46 +10,37 @@ import { Router } from '@angular/router';
 export class ForgotuseridComponent implements OnInit {
 
   forgotuseridForm:FormGroup;
-  submitted:boolean=false;
-  invalidLogin:boolean=false;
+  //submitted:boolean=false;
+  //invalidLogin:boolean=false;
 
-  // error_messages = {
-  //   'userid': [
-  //     { type: 'required', message: 'Account Number is required.' },
-  //   ],
-  // }
+ 
 
+  constructor(private formBuilder: FormBuilder, private router: Router) { 
+    this.forgotuseridForm=this.formBuilder.group({
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+      accountnumber:new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("^[0-9]*$") ]),
 
+      otp: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(4), Validators.pattern("^[0-9]*$")])
 
-
-  onSubmit()
-  {
-    this.submitted=true;
-    if(this.forgotuseridForm.valid)
-    {
-      this.router.navigate[('/userlogin')]
-    }
-    else{
-      this.invalidLogin=true
-    }
-    
+    })
   }
 
-  ngOnInit(): void {
-
-    this.forgotuseridForm = this.formBuilder.group({
-      userid: ['', Validators.required],
-     otp: new FormControl(['', Validators.required, Validators.maxLength(6), Validators.minLength(6)])
-     //otp:(['', Validators.required])
-      
-     });
-
-    
 
 
  
+  ngOnInit(): void {
+ 
+}
+
+get f(){
+  return this.forgotuseridForm.controls;
+}
+
+
+onSubmit()
+{
+  console.log(this.forgotuseridForm.value);
+
 }
 
 }

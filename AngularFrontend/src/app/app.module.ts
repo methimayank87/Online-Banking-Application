@@ -10,15 +10,20 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FundstranferComponent } from './components/fundstranfer/fundstranfer.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { ChangeIdPasswordComponent } from './components/change-id-password/change-id-password.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+<<<<<<< HEAD
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
+=======
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+>>>>>>> d39f90fc2e1b65c9a1d085b7a2eb9847c188900e
 
 @NgModule({
   declarations: [
@@ -35,14 +40,20 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
     RegisteruserComponent,
     ForgotuseridComponent,
     HomepageComponent,
+<<<<<<< HEAD
     AdminLoginComponent
+=======
+    NavbarComponent,
+    ForgotpasswordComponent
+>>>>>>> d39f90fc2e1b65c9a1d085b7a2eb9847c188900e
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

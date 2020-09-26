@@ -41,7 +41,7 @@ namespace OnlineBankingApplication.Repositories
         }
         public IEnumerable<RAddress> GetAll()
         {
-            throw new NotImplementedException();
+            return _projectContext.rAddresses.ToList();
         }
 
         public void Update(RAddress updateAddress)
