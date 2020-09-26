@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from"@angular/forms";
 import {Router} from"@angular/router";
 import { UserService } from 'src/app/services/user.service';
-
+import { RaddressService } from 'src/app/services/raddress.service';
+import { PaddressService } from 'src/app/services/paddress.service';
 @Component({
   selector: 'app-registeruser',
   templateUrl: './registeruser.component.html',
@@ -14,7 +15,7 @@ export class RegisteruserComponent implements OnInit {
   submitted: boolean = false;
   invalidRegister: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService, private raddressService: RaddressService, private paddressService: PaddressService) { }
 
   onSubmit(form){
     this.submitted = true;
@@ -27,6 +28,9 @@ export class RegisteruserComponent implements OnInit {
     }
     console.log(form.value)
     this.userService.registerUser(form.value).subscribe(data =>{
+      console.log(data.UserID)
+      this.raddressService.registerAddress(form.value,data.UserID);
+      this.paddressService.registerAddress(form.value,data.UserID);
       alert("User added successfully");
     });
   }
