@@ -10,7 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FundstranferComponent } from './components/fundstranfer/fundstranfer.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { ChangeIdPasswordComponent } from './components/change-id-password/change-id-password.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
@@ -18,6 +18,7 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
 import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +35,16 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RegisteruserComponent,
     ForgotuseridComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
