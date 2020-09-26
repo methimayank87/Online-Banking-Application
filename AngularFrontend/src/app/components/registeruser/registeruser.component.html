@@ -1,0 +1,339 @@
+<h2 align="center">Open A Savings Account</h2>
+<br/>
+
+<div class="border border-info" style="margin-left:20% ; margin-right: 20%;">
+    <div style="background-color:lightsteelblue">  
+        <h3 align="center" style="padding-top: 20px;">Personal Details </h3><hr/>
+    </div>
+    <br/>
+
+    <form [formGroup]="openaccountForm" (ngSubmit)="onSubmit(openaccountForm)">
+        <div class="form-group row">
+            <label for="title" class="col-sm-2 col-form-label" >Title</label>
+                <div class="col-sm-10">
+                    <input list="titles" name="title" id="title" formControlName="title" placeholder="Select a title">
+                    <datalist id="titles">
+                        <option value="Ms">Ms</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                    </datalist>
+                    <div *ngIf="submitted && openaccountForm.controls.title.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.title.errors.required">Select a title</div>
+                    </div> 
+                </div>    
+        </div>
+
+        <div class="form-group row">
+            <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="firstname" formControlName="firstname"  placeholder="First Name">  
+                    <div *ngIf="submitted && openaccountForm.controls.firstname.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.firstname.errors.required">First Name is required</div>
+                    </div> 
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="middlename" class="col-sm-2 col-form-label">Middle Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="middlename" placeholder="Middle Name">      
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Last Name">      
+                    <div *ngIf="submitted && openaccountForm.controls.lastname.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.lastname.errors.required">Last Name is required</div>
+                    </div> 
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="gender" class="col-sm-2 col-form-label" >Gender</label>
+                <div class="col-sm-10">
+                    <input list="genders" name="gender" id="gender" formControlName="gender" placeholder="Select gender">
+                    <datalist id="genders">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="O">Others</option>
+                    </datalist>
+                    <div *ngIf="submitted && openaccountForm.controls.gender.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.gender.errors.required">Select a gender</div>
+                    </div> 
+                </div>    
+        </div>
+        <div class="form-group row">
+            <label for="fathername" class="col-sm-2 col-form-label">Father's Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="fathername" formControlName="fathername" placeholder="Father's Name">      
+                    <div *ngIf="submitted && openaccountForm.controls.fathername.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.fathername.errors.required">Father's Name is required</div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="mobilenumber" class="col-sm-2 col-form-label">Mobile Number</label>
+                <div class="col-sm-10">
+                    <input type="tel" class="form-control" id="mobilenumber" formControlName="mobilenumber" placeholder="Mobile Number">      
+                        <div *ngIf="submitted && openaccountForm.controls.mobilenumber.errors " class="error">
+                            <div class="text-danger" *ngIf="openaccountForm.controls.mobilenumber.errors.required">Mobile Number is required</div>
+                        </div>
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email ID</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" placeholder="Email ID">      
+                </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="aadharnumber" class="col-sm-2 col-form-label" >Aadhar Card Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="aadharnumber" formControlName="aadharnumber" maxlength="12"   placeholder="Aadhar Card Number" >      
+                    <div *ngIf="submitted && openaccountForm.controls.aadharnumber.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.aadharnumber.errors.required">Aadhar Number is required</div>
+                    </div>
+                </div>
+        </div>
+
+<div class="form-group row">
+    <label for="dob" class="col-sm-2 col-form-label">Date Of Birth</label>
+    <div class="col-sm-10">
+        <input type="date" class="form-control" id="dob" formControlName="dob" placeholder="Date Of Birth">      
+        <div *ngIf="submitted && openaccountForm.controls.dob.errors " class="error">
+            <div class="text-danger" *ngIf="openaccountForm.controls.dob.errors.required">Date Of Birth is required</div>
+        </div>
+    
+    </div>
+</div>
+
+<br/>
+<h4><p>Residential Address</p></h4>
+    <ul>
+           <li>
+                <div class="form-group row">
+                    <label for="addrline1" class="col-sm-2 col-form-label">Address Line 1</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="addrline1" formControlName="addrline1"> 
+                        <div *ngIf="submitted && openaccountForm.controls.addrline1.errors " class="error">
+                            <div class="text-danger" *ngIf="openaccountForm.controls.addrline1.errors.required">Address is required</div>
+                        </div>   
+                    </div>
+                </div> 
+            </li>
+           <li>
+            <div class="form-group row">
+                <label for="addrline2" class="col-sm-2 col-form-label">Address Line 2</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="addrline2" formControlName="addrline2"> 
+                    <div *ngIf="submitted && openaccountForm.controls.addrline2.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.addrline2.errors.required">Address is required</div>
+                    </div>
+                </div>
+            </div>         
+           </li>
+           <li>
+            <div class="form-group row">
+                <label for="landmark" class="col-sm-2 col-form-label">Landmark</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="landmark" formControlName="landmark">
+                    <div *ngIf="submitted && openaccountForm.controls.landmark.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.landmark.errors.required">Landmark is required</div>
+                    </div>
+                </div>
+            </div>           
+           </li>
+           <li>
+            <div class="form-group row">
+                <label for="state" class="col-sm-2 col-form-label">State</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="state" formControlName="state"> 
+                    <div *ngIf="submitted && openaccountForm.controls.state.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.state.errors.required">State is required</div>
+                    </div>
+                </div>
+              </div>               
+           </li>
+           <li>
+            <div class="form-group row">
+                <label for="city" class="col-sm-2 col-form-label">City</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="city" formControlName="city">  
+                    <div *ngIf="submitted && openaccountForm.controls.city.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.city.errors.required">City is required</div>
+                    </div> 
+                </div>
+            </div>       
+           </li>
+           <li>
+            <div class="form-group row">
+                <label for="city" class="col-sm-2 col-form-label">Pincode</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="pincode" formControlName="pincode"> 
+                    <div *ngIf="submitted && openaccountForm.controls.pincode.errors " class="error">
+                        <div class="text-danger" *ngIf="openaccountForm.controls.pincode.errors.required">Pincode is required</div>
+                    </div>  
+                </div>
+            </div>      
+            </li>
+        </ul>
+
+
+           
+    <br/>
+   <h4> <p>Permanent Address</p></h4>
+
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <label class="form-check-label"><input type="checkbox" id="peraddress" name="peraddress" formControlName="peraddress" onclick="permanent(this.FormData)"> Permanent Address same as Mailing Address</label>
+        </div>
+    </div>
+    <ul>
+        <li>
+             <div class="form-group row">
+                 <label for="addrline1" class="col-sm-2 col-form-label">Address Line 1</label>
+                 <div class="col-sm-10">
+                    <input type="text" class="form-control" id="peraddrline1" formControlName="peraddrline1"> 
+                     <div *ngIf="submitted && openaccountForm.controls.peraddrline1.errors " class="error">
+                         <div class="text-danger" *ngIf="openaccountForm.controls.peraddrline1.errors.required">Address is required</div>
+                     </div>   
+                 </div>
+             </div> 
+         </li>
+        <li>
+         <div class="form-group row">
+             <label for="addrline2" class="col-sm-2 col-form-label">Address Line 2</label>
+             <div class="col-sm-10">
+                <input type="text" class="form-control" id="peraddrline2" formControlName="peraddrline2"> 
+                 <div *ngIf="submitted && openaccountForm.controls.peraddrline2.errors " class="error">
+                     <div class="text-danger" *ngIf="openaccountForm.controls.peraddrline2.errors.required">Address is required</div>
+                 </div>
+             </div>
+         </div>         
+        </li>
+        <li>
+         <div class="form-group row">
+             <label for="landmark" class="col-sm-2 col-form-label">Landmark</label>
+             <div class="col-sm-10">
+                <input type="text" class="form-control" id="perlandmark" formControlName="perlandmark">
+                 <div *ngIf="submitted && openaccountForm.controls.perlandmark.errors " class="error">
+                     <div class="text-danger" *ngIf="openaccountForm.controls.perlandmark.errors.required">Landmark is required</div>
+                 </div>
+             </div>
+         </div>           
+        </li>
+        <li>
+         <div class="form-group row">
+             <label for="state" class="col-sm-2 col-form-label">State</label>
+             <div class="col-sm-10">
+                <input type="text" class="form-control" id="perstate" formControlName="perstate"> 
+                 <div *ngIf="submitted && openaccountForm.controls.perstate.errors " class="error">
+                     <div class="text-danger" *ngIf="openaccountForm.controls.perstate.errors.required">State is required</div>
+                 </div>
+             </div>
+           </div>               
+        </li>
+        <li>
+         <div class="form-group row">
+             <label for="city" class="col-sm-2 col-form-label">City</label>
+             <div class="col-sm-10">
+                <input type="text" class="form-control" id="percity" formControlName="percity">  
+                 <div *ngIf="submitted && openaccountForm.controls.percity.errors " class="error">
+                     <div class="text-danger" *ngIf="openaccountForm.controls.percity.errors.required">City is required</div>
+                 </div> 
+             </div>
+         </div>       
+        </li>
+        <li>
+         <div class="form-group row">
+             <label for="city" class="col-sm-2 col-form-label">Pincode</label>
+             <div class="col-sm-10">
+                <input type="number" class="form-control" id="perpincode" formControlName="perpincode"> 
+                 <div *ngIf="submitted && openaccountForm.controls.perpincode.errors " class="error">
+                     <div class="text-danger" *ngIf="openaccountForm.controls.perpincode.errors.required">Pincode is required</div>
+                 </div>  
+             </div>
+         </div>      
+         </li>
+     </ul>    
+<br/>
+ <h4><p>Occupation Details</p></h4>
+                     
+
+<ul>
+    <li>
+        <div class="form-group row">
+            <label for="occupationtype" class="col-sm-2 col-form-label">Occupation Type</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="occupationtype" formControlName="occupationtype">
+                <div *ngIf="submitted && openaccountForm.controls.occupationtype.errors " class="error">
+                    <div class="text-danger" *ngIf="openaccountForm.controls.occupationtype.errors.required">Occupation Type is required</div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="form-group row">
+            <label for="sourceofincome" class="col-sm-2 col-form-label">Source Of Income</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="sourceofincome" formControlName="sourceofincome">
+                <div *ngIf="submitted && openaccountForm.controls.sourceofincome.errors " class="error">
+                    <div class="text-danger" *ngIf="openaccountForm.controls.sourceofincome.errors.required">Source Of Income is required</div>
+                </div> 
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="form-group row">
+            <label for="annualincome" class="col-sm-2 col-form-label">Gross Annual Income</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="annualincome" formControlName="annualincome"> 
+                <div *ngIf="submitted && openaccountForm.controls.annualincome.errors " class="error">
+                    <div class="text-danger" *ngIf="openaccountForm.controls.annualincome.errors.required">Gross Annual Income is required</div>
+                </div>
+            </div> 
+        </div>  
+    </li>
+</ul>
+
+<h4><p>Debit/ATM Card</p></h4>
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <label class="form-check-label"><input type="checkbox" id="debitCard" name="debitCard"  formControlName="debitCard" value="yes"> Do you want a debit card ?</label>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <label class="form-check-label" ><input type="checkbox" id="netbanking" name="netbanking" formControlName="netbanking" value="yes"> Opt for Net Banking</label> <br>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <label class="form-check-label "><input type="checkbox" id="agree" required> I agree to have read all the <a href="#">terms and conditions</a> properly and to entering all the information correctly</label>
+    </div>
+</div>
+
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <button type="submit" class="btn btn-primary">Submit</button> 
+      
+    </div>
+</div>
+
+<div *ngIf="invalidRegister" class="error">
+   
+    <div class="text-danger">Invalid credentials.</div> 
+</div>
+
+
+</form>
+</div>
+
+
