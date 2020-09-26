@@ -4,6 +4,7 @@ import {Router} from"@angular/router";
 import { UserService } from 'src/app/services/user.service';
 import { RaddressService } from 'src/app/services/raddress.service';
 import { PaddressService } from 'src/app/services/paddress.service';
+import { AdminApprovalService } from 'src/app/services/admin-approval.service';
 @Component({
   selector: 'app-registeruser',
   templateUrl: './registeruser.component.html',
@@ -14,8 +15,8 @@ export class RegisteruserComponent implements OnInit {
   openaccountForm:FormGroup;
   submitted: boolean = false;
   invalidRegister: boolean = false;
-
-  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService, private raddressService: RaddressService, private paddressService: PaddressService) { }
+  currentUserId:number = 0;
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService, private raddressService: RaddressService, private paddressService: PaddressService, private adminApprovalService: AdminApprovalService) { }
 
   onSubmit(form){
     this.submitted = true;
@@ -28,11 +29,14 @@ export class RegisteruserComponent implements OnInit {
     }
     console.log(form.value)
     this.userService.registerUser(form.value).subscribe(data =>{
-      console.log(data.UserID)
+      this.currentUserId = data.UserID
       this.raddressService.registerAddress(form.value,data.UserID);
       this.paddressService.registerAddress(form.value,data.UserID);
       alert("User added successfully");
     });
+    this.adminApprovalService.sendRequest(this.currentUserId).subscribe(data => {
+      alert("Account Creation Request Generated");
+    })
   }
 
   ngOnInit(): void {
