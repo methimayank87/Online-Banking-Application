@@ -68,4 +68,21 @@ export class RegisteruserComponent implements OnInit {
 
   }
 
+
+  checkAddress(form)
+  {
+    console.log(form.value);
+    // if(this.peraddrline2=""){
+    // this.peraddrline2= ((document.getElementById("addrline1")as HTMLInputElement).value);
+    // }
+
+    ((document.getElementById("peraddrline1")as HTMLInputElement).value)=((document.getElementById("addrline1")as HTMLInputElement).value);
+    ((document.getElementById("peraddrline2")as HTMLInputElement).value)=((document.getElementById("addrline2")as HTMLInputElement).value);
+    ((document.getElementById("perlandmark")as HTMLInputElement).value)=((document.getElementById("landmark")as HTMLInputElement).value);
+    ((document.getElementById("perstate")as HTMLInputElement).value)=((document.getElementById("state")as HTMLInputElement).value);
+    ((document.getElementById("percity")as HTMLInputElement).value)=((document.getElementById("city")as HTMLInputElement).value);
+    ((document.getElementById("perpincode")as HTMLInputElement).value)=((document.getElementById("pincode")as HTMLInputElement).value);
+    
+  }
+
 }
