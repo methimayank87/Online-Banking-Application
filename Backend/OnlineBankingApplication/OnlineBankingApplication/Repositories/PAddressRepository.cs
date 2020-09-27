@@ -44,6 +44,11 @@ namespace OnlineBankingApplication.Repositories
             return _projectContext.pAddresses.ToList();
         }
 
+        public PAddress GetByAccount(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public string SendMail(string entity)
         {
             throw new NotImplementedException();

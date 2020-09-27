@@ -9,7 +9,7 @@ namespace OnlineBankingApplication.Repositories
     {
         IEnumerable<TEntity> GetAll();
         TEntity Get(int id);
-        TEntity Get(string id);
+        TEntity GetByAccount(long id);
         void Add(TEntity entity);
         void Update(TEntity dbEntity);
         void Delete(int entity);

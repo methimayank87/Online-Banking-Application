@@ -77,5 +77,17 @@ namespace OnlineBankingApplication.Repositories
                 return "error:" + ex.ToString();
             }
         }
+        public string getMailByID(int id)
+        {
+            var mail = from u in _projectContext.Users
+                          where u.UserID == id
+                          select u.Email;
+            return mail.ToString();
+        }
+
+        public User GetByAccount(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
