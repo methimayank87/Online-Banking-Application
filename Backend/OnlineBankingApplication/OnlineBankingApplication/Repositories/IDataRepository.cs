@@ -13,5 +13,6 @@ namespace OnlineBankingApplication.Repositories
         void Add(TEntity entity);
         void Update(TEntity dbEntity);
         void Delete(int entity);
+        string SendMail(string entity);
     }
 }

@@ -43,6 +43,11 @@ namespace OnlineBankingApplication.Repositories
             return _projectContext.Approvals.ToList();
         }
 
+        public string SendMail(string entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(AdminApproval updateApproval)
         {
             _projectContext.Entry(updateApproval).State = EntityState.Modified;

@@ -15,9 +15,9 @@ namespace OnlineBankingApplication.Models
     public partial class Beneficiary
     {
         public string Name { get; set; }
-        public string BenAccountNumber { get; set; }
+        public long BenAccountNumber { get; set; }
         public string NickName { get; set; }
-        public string UserAccountNumber { get; set; }
+        public Nullable<long> UserAccountNumber { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual Account Account1 { get; set; }

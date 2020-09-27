@@ -42,6 +42,11 @@ namespace OnlineBankingApplication.Repositories
             return _projectContext.Accounts.ToList();
         }
 
+        public string SendMail(string entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Account updateAccount)
         {
             _projectContext.Entry(updateAccount).State = EntityState.Modified;

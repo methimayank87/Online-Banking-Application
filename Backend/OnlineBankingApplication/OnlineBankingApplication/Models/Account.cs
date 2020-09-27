@@ -23,8 +23,8 @@ namespace OnlineBankingApplication.Models
         }
     
         public int UserID { get; set; }
-        public string AccountNumber { get; set; }
-        public int Balance { get; set; }
+        public long AccountNumber { get; set; }
+        public long Balance { get; set; }
         public string LoginPassword { get; set; }
         public string TransactionPassword { get; set; }
     

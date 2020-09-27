@@ -9,7 +9,6 @@ using OnlineBankingApplication.Repositories;
 
 namespace OnlineBankingApplication.Controllers
 {
-    [Authorize]
     [RoutePrefix("api/admins")]
     public class AdminController : ApiController
     {

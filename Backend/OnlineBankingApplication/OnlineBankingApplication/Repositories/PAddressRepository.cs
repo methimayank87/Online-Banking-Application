@@ -44,6 +44,11 @@ namespace OnlineBankingApplication.Repositories
             return _projectContext.pAddresses.ToList();
         }
 
+        public string SendMail(string entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(PAddress updateAddress)
         {
             _projectContext.Entry(updateAddress).State = EntityState.Modified;

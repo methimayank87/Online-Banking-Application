@@ -8,10 +8,10 @@ namespace OnlineBankingApplication.Repositories
 {
     interface IBeneficiaryRepository<TEntity>
     {
-        IEnumerable<TEntity> GetAll(string entity);
-        TEntity Get(string entity , string entity1);
-        void Add(string entity , TEntity entity1);
+        IEnumerable<TEntity> GetAll(long entity);
+        TEntity Get(long entity , long entity1);
+        void Add(long entity , TEntity entity1);
         void Update(TEntity dbEntity);
-        void Delete(string entity , string entity1);
+        void Delete(long entity , long entity1);
     }
 }

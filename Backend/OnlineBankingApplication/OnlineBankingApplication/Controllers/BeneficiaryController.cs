@@ -19,20 +19,20 @@ namespace OnlineBankingApplication.Controllers
         }
         [HttpGet]
         [Route("")]
-        public IEnumerable<Beneficiary> GetBeneficiaries(string id)
+        public IEnumerable<Beneficiary> GetBeneficiaries(long id)
         {
             return _beneficiaryRepository.GetAll(id);
         }
         [HttpGet]
         [Route("{benid}")]
-        public Beneficiary GetBeneficiaryByID(string id, string benid)
+        public Beneficiary GetBeneficiaryByID(long id, long benid)
         {
             return _beneficiaryRepository.Get(id , benid);
         }
 
         [HttpPost]
         [Route("")]
-        public IHttpActionResult AddBeneficiary(string id , [FromBody] Beneficiary beneficiary)
+        public IHttpActionResult AddBeneficiary(long id , [FromBody] Beneficiary beneficiary)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace OnlineBankingApplication.Controllers
 
         [HttpDelete]
         [Route("{benid}")]
-        public IHttpActionResult DeletBeneficiary(string id , string benid)
+        public IHttpActionResult DeletBeneficiary(long id , long benid)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace OnlineBankingApplication.Controllers
 
         [HttpPut]
         [Route("{benid}")]
-        public IHttpActionResult UpdateAccount(string id, string benid, [FromBody] Beneficiary beneficiary)
+        public IHttpActionResult UpdateAccount(long id, long benid, [FromBody] Beneficiary beneficiary)
         {
             if (!ModelState.IsValid)
             {
