@@ -21,7 +21,7 @@ namespace OnlineBankingApplication.App_Start
 
                 TokenEndpointPath = new PathString("/token"),
                 Provider = new ApplicationAuthProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(60),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
                 AllowInsecureHttp = true
             };
             app.UseOAuthAuthorizationServer(option);

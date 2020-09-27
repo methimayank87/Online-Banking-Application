@@ -10,7 +10,7 @@ namespace OnlineBankingApplication.Models
         public bool ValidateUser(string Username, string Password)
         {
 
-            return Username == "bhushan" && Password == "demo";
+            return Username == "admin@gmail.com" && Password == "demo";
         }
     }
 }
