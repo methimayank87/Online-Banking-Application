@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="middlename" class="font-weight-bold">Middle Name</label>
                                
-                                    <input type="text" class="form-control" id="middlename"  placeholder="Middle Name" />  
+                                    <input type="text" class="form-control" id="middlename" formControlName="middlename" placeholder="Middle Name" />  
                                    
                         </div>
 
@@ -60,6 +60,12 @@
                                     </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="gender" class="font-weight-bold">Gender</label>
+                               
+                                    <input type="gender" class="form-control" id="gender" formControlName="gender"  placeholder="Gender" />  
+                            
+                        </div>
 
 
                         <div class="form-group">
@@ -85,7 +91,7 @@
                         <div class="form-group">
                             <label for="email" class="font-weight-bold">Email ID</label>
                                
-                                    <input type="email" class="form-control" id="email"  placeholder="Email" />  
+                                    <input type="email" class="form-control" id="email" formControlName="email"  placeholder="Email" />  
                             
                         </div>
 
@@ -279,7 +285,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="debitCard" class="font-weight-bold"><input type="checkbox" id="netbanking" name="netbanking"  value="yes"> Opt for Net Banking</label>
+                    <label for="netbanking" class="font-weight-bold"><input type="checkbox" id="netbanking" name="netbanking"  value="yes"> Opt for Net Banking</label>
                        
                 </div>
                 <br/>
@@ -293,7 +299,7 @@
                  &nbsp; &nbsp;   
                 <button class="btn btn-success" routerLink="/homepage"> Back</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary" type="submit" [disabled]="!openaccountForm.valid">Submit</button>
+                        <button class="btn btn-primary" type="submit" >Submit</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                        
 
