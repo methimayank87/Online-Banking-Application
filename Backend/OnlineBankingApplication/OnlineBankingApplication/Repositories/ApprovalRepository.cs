@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using OnlineBankingApplication.Models;
@@ -44,9 +45,8 @@ namespace OnlineBankingApplication.Repositories
 
         public void Update(AdminApproval updateApproval)
         {
-            //_projectContext.Entry(updateUser).State = EntityState.Modified;
-            //_projectContext.SaveChanges();
-            throw new NotImplementedException();
+            _projectContext.Entry(updateApproval).State = EntityState.Modified;
+            _projectContext.SaveChanges();
         }
     }
 }
