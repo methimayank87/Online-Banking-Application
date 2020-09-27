@@ -41,7 +41,11 @@ import { NetbankingComponent } from './components/netbanking/netbanking.componen
     HomepageComponent,
     AdminLoginComponent,
     NavbarComponent,
+<<<<<<< HEAD
    
+=======
+    ForgotpasswordComponent,
+>>>>>>> 8d418d64a8bf0b34d9c7c89bcb7b318c4c84b5f9
     ForgotpasswordComponent,
     NetbankingComponent
   ],

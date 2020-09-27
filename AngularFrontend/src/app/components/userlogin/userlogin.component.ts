@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from"@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from"@angular/forms";
 import {Router} from"@angular/router";
 
 @Component({
@@ -11,14 +11,27 @@ export class UserloginComponent implements OnInit {
 
   userloginForm:FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+
+    this.userloginForm = this.formBuilder.group({
+      userid:new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+    });
+   }
 
   ngOnInit(): void {
-    this.userloginForm = this.formBuilder.group({
-      userid: [Validators.required],
-      inputPassword: [Validators.required]
-    });
-
+   
   }
+
+  onSubmit(form)
+  {
+    alert("Successfully logged in!");
+    this.router.navigate(['dashboard']);
+  }
+
+  get f(){
+    return this.userloginForm.controls;
+  }
+
 
 }

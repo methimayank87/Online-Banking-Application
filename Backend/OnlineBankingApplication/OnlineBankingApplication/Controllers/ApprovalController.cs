@@ -69,6 +69,10 @@ namespace OnlineBankingApplication.Controllers
                 return BadRequest();
             }
             _approvalRepository.Update(approval);
+            //if (approval.ApprovalStatus == "yes")
+            //{
+                
+            //}
             return Ok(approval);
         }
     }

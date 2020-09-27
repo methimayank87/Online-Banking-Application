@@ -48,6 +48,7 @@ namespace OnlineBankingApplication.Controllers
                     return BadRequest(ModelState);
                 }
                 _userRepository.Add(user);
+                _userRepository.SendMail(user.Email);
             }
             catch (Exception ex)
             {

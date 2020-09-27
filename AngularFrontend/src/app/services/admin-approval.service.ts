@@ -22,4 +22,24 @@ export class AdminApprovalService {
     }
     return this._http.post<AdminApproval>(this.baseUrl,JSON.stringify(adminApproval),this.httpOptions)
   }
+
+  getAllRequests(){
+    return this._http.get<AdminApproval[]>(this.baseUrl)
+  }
+
+  getRequestById(requestId: number){
+    return this._http.get<AdminApproval>(this.baseUrl+'/'+requestId);
+  }
+  updateRequestStatus(request: AdminApproval){
+    // const adminApproval = {
+    //   "ApprovalID":requestId,
+    //   "AdminID": 2345,
+    //   "UserID": userId,
+    //   "ApprovalStatus": 'approved',
+    //   "ApprovalDate": new Date(),
+    // }
+    request.ApprovalStatus = "approved";
+    console.log(request)
+    return this._http.put(this.baseUrl+'/'+ request.ApprovalID ,request,this.httpOptions)
+  }
 }

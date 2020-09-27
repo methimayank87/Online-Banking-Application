@@ -30,9 +30,11 @@ namespace OnlineBankingApplication.Repositories
 
         public Account Get(int id)
         {
-            throw new NotImplementedException();
+            var account = _projectContext.Accounts
+                                .Where(u => u.UserID == id);
+            return (Account)account;
         }
-        public Account Get(string id)
+        public Account GetByAccount(long id)
         {
             return _projectContext.Accounts.Find(id);
         }
@@ -40,6 +42,11 @@ namespace OnlineBankingApplication.Repositories
         public IEnumerable<Account> GetAll()
         {
             return _projectContext.Accounts.ToList();
+        }
+
+        public string SendMail(string entity)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Account updateAccount)

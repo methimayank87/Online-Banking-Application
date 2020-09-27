@@ -15,13 +15,13 @@ namespace OnlineBankingApplication.Repositories
             _projectContext = projectContext;
         }
 
-        public void Add(string id , Beneficiary newBeneficiary)
+        public void Add(long id , Beneficiary newBeneficiary)
         {
             _projectContext.Beneficiaries.Add(newBeneficiary);
             _projectContext.SaveChanges();
         }
 
-        public void Delete(string userAccount , string benAccount)
+        public void Delete(long userAccount , long benAccount)
         {
             Beneficiary beneficiary = (Beneficiary)_projectContext.Beneficiaries
                                             .Where(u => u.UserAccountNumber == userAccount && u.BenAccountNumber == benAccount)
@@ -30,14 +30,14 @@ namespace OnlineBankingApplication.Repositories
             _projectContext.SaveChanges();
         }
 
-        public Beneficiary Get(string userAccount, string benAccount)
+        public Beneficiary Get(long userAccount, long benAccount)
         {
             var beneficiary = _projectContext.Beneficiaries
                                     .Where(u => u.UserAccountNumber == userAccount && u.BenAccountNumber == benAccount)
                                     .FirstOrDefault();
             return beneficiary;
         }
-        public IEnumerable<Beneficiary> GetAll(string number)
+        public IEnumerable<Beneficiary> GetAll(long number)
         {
             var beneficiaries = _projectContext.Beneficiaries
                                      .Where(u => u.UserAccountNumber == number);
