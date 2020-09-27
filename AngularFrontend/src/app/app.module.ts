@@ -21,6 +21,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { NetbankingComponent } from './components/netbanking/netbanking.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
     HomepageComponent,
     AdminLoginComponent,
     NavbarComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    NetbankingComponent
   ],
   imports: [
     BrowserModule,
