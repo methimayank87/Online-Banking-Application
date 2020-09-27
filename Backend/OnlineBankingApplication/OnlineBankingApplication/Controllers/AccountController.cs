@@ -27,11 +27,20 @@ namespace OnlineBankingApplication.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public Account GetAccountById(string id)
+        public Account GetAccountById(long id)
+        {
+            var account = _accountRepository.GetByAccount(id);
+            return account;
+        }
+
+        [HttpGet]
+        [Route("getbyid/{id}")]
+        public Account GetAccountById(int id)
         {
             var account = _accountRepository.Get(id);
             return account;
         }
+
         [HttpPost]
         [Route("")]
         public IHttpActionResult AddAccount([FromBody] Account account)

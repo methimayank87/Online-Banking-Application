@@ -40,6 +40,11 @@ namespace OnlineBankingApplication.Repositories
             return _projectContext.Admins.ToList();
         }
 
+        public Admin GetByAccount(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public string SendMail(string entity)
         {
             throw new NotImplementedException();

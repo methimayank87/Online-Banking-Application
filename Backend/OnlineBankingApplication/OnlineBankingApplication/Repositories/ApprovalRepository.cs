@@ -43,6 +43,11 @@ namespace OnlineBankingApplication.Repositories
             return _projectContext.Approvals.ToList();
         }
 
+        public AdminApproval GetByAccount(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public string SendMail(string entity)
         {
             throw new NotImplementedException();
