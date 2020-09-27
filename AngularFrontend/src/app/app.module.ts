@@ -17,13 +17,11 @@ import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-<<<<<<< HEAD
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
-=======
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
->>>>>>> d39f90fc2e1b65c9a1d085b7a2eb9847c188900e
+import {AuthserviceService} from 'src/app/services/authservice.service';
 
 @NgModule({
   declarations: [
@@ -40,12 +38,9 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
     RegisteruserComponent,
     ForgotuseridComponent,
     HomepageComponent,
-<<<<<<< HEAD
-    AdminLoginComponent
-=======
+    AdminLoginComponent,
     NavbarComponent,
     ForgotpasswordComponent
->>>>>>> d39f90fc2e1b65c9a1d085b7a2eb9847c188900e
   ],
   imports: [
     BrowserModule,
@@ -55,7 +50,7 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
