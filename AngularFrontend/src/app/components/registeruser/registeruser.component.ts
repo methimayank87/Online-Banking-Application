@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from"@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from"@angular/forms";
 import {Router} from"@angular/router";
 import { UserService } from 'src/app/services/user.service';
 import { RaddressService } from 'src/app/services/raddress.service';
@@ -20,13 +20,13 @@ export class RegisteruserComponent implements OnInit {
 
   onSubmit(form){
     this.submitted = true;
-    if(this.openaccountForm.invalid)
-    {
-      return;
-    }
-    else{
-    this.invalidRegister = true;
-    }
+    // if(this.openaccountForm.invalid)
+    // {
+    //   return;
+    // }
+    // else{
+    // this.invalidRegister = true;
+    // }
     console.log(form.value)
     this.userService.registerUser(form.value).subscribe(data =>{
       this.currentUserId = data.UserID
@@ -40,35 +40,34 @@ export class RegisteruserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.openaccountForm = this.formBuilder.group({
-      title: ['',Validators.required],
-      firstname: ['',Validators.required],
-      middlename:[''],
-      lastname: ['',Validators.required],
-      gender: ['',Validators.required],
-      fathername: ['',Validators.required],
-      mobilenumber: ['',Validators.required],
-      aadharnumber: ['',Validators.required],
-      dob: ['',Validators.required],
-      addrline1: ['',Validators.required],
-      addrline2: ['',Validators.required],
-      landmark: ['',Validators.required],
-      state: ['',Validators.required],
-      city: ['',Validators.required],
-      pincode: ['',Validators.required],
-      peraddress: [''],
-      peraddrline1: ['',Validators.required],
-      peraddrline2: ['',Validators.required],
-      perlandmark: ['',Validators.required],
-      perstate: ['',Validators.required],
-      percity: ['',Validators.required],
-      perpincode: ['',Validators.required],
-      occupationtype: ['',Validators.required],
-      sourceofincome: ['',Validators.required],
-      annualincome: ['',Validators.required],
-      debitCard: [''],
-      netbanking: ['']
-    });
+    this.openaccountForm=this.formBuilder.group({
+
+      title:new FormControl('', Validators.required),
+      firstname: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
+      lastname: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
+      fathername: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
+      mobilenumber: new FormControl ('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
+      aadharnumber: new FormControl ('',[Validators.required, Validators.pattern("^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$")]),
+      dob: new FormControl ('',Validators.required),
+      addrline1: new FormControl ('',Validators.required),
+      addrline2: new FormControl ('',Validators.required),
+      landmark: new FormControl ('',Validators.required),
+      state: new FormControl ('',Validators.required),
+      city: new FormControl ('',Validators.required),
+      pincode: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6), Validators.pattern("^[0-9]*$")]),
+
+      peraddrline1: new FormControl ('',Validators.required),
+      peraddrline2: new FormControl ('',Validators.required),
+      perlandmark: new FormControl ('',Validators.required),
+      perstate: new FormControl ('',Validators.required),
+      percity: new FormControl ('',Validators.required),
+      perpincode: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(6), Validators.pattern("^[0-9]*$")]),
+      occupationtype: new FormControl ('',Validators.required),
+      sourceofincome: new FormControl ('',Validators.required),
+      annualincome: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+      debitCard: new FormControl ('',Validators.required),
+
+    })
 
   }
 
@@ -87,6 +86,10 @@ export class RegisteruserComponent implements OnInit {
     ((document.getElementById("percity")as HTMLInputElement).value)=((document.getElementById("city")as HTMLInputElement).value);
     ((document.getElementById("perpincode")as HTMLInputElement).value)=((document.getElementById("pincode")as HTMLInputElement).value);
     
+  }
+
+  get f(){
+    return this.openaccountForm.controls;
   }
 
 }

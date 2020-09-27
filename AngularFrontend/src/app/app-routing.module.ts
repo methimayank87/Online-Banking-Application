@@ -13,6 +13,7 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
 import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { NetbankingComponent } from './components/netbanking/netbanking.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:'registeruser', component:RegisteruserComponent},
   {path:'forgotuserid', component:ForgotuseridComponent},
   {path:'homepage' , component:HomepageComponent},
-  {path:'forgotpassword', component:ForgotpasswordComponent}
+  {path:'forgotpassword', component:ForgotpasswordComponent},
+  {path:'netbanking', component:NetbankingComponent}
 
 ];
 

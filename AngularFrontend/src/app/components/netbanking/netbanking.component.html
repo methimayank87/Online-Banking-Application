@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+
+
+<div class="bgpic">
+    <div class="container">
+        <br/>
+        <br/>
+       
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+                <h3 class="text-center login-title text-white font-weight-bold">REGISTER FOR INTERNET BANKING</h3>
+                <div class="account-wall">
+                  
+                    
+                    <img class="profile-img" src="https://th.bing.com/th/id/OIP.EV9O0-9C_d7CP4fzopwl-AHaHa?pid=Api&rs=1" alt="User Icon">
+
+                    <form [formGroup]="netbankingForm" (ngSubmit)="onSubmit(netbankingForm)" class="form-signin">
+                      
+                        <div class="form-group">
+                            <label for="accountnumber" class="font-weight-bold">
+                                Account Number : </label>
+                            <input type="text" class="form-control" placeholder="Account Number" formControlName="accountnumber" />
+
+                            <div *ngIf="f.accountnumber.touched && f.accountnumber.invalid" class="alert alert-danger">
+                                <div *ngIf="f.accountnumber.errors.required">Account number is required.</div>
+                                <div *ngIf="f.accountnumber.errors.minlength">Account number should be of 12 digits</div>
+                                <div *ngIf="f.accountnumber.errors.maxlength">Account number should be of 12 digits</div>
+                            </div>
+                           
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginpwd" class="font-weight-bold">
+                               Set Login Password : </label>
+                            <input type="text" class="form-control" placeholder="Set Login Password" formControlName="loginpwd" />
+
+                            <div *ngIf="f.loginpwd.touched && f.loginpwd.invalid" class="alert alert-danger">
+                                <div *ngIf="f.loginpwd.errors.required">Login password is required.</div>
+                                <div *ngIf="f.loginpwd.errors.pattern">Password should be of minimum 8 characters and must contain at least 1 alphabet, 1 numeric and 1 special character</div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmloginpwd" class="font-weight-bold">
+                               Confirm Login Password : </label>
+                            <input type="text" class="form-control" placeholder="Confirm Login Password" formControlName="confirmloginpwd" />
+                            <div *ngIf="f.confirmloginpwd.touched && f.confirmloginpwd.invalid" class="alert alert-danger">
+                                <div *ngIf="f.confirmloginpwd.errors.required">Transaction password is required.</div>
+                                <div *ngIf="f.confirmloginpwd.errors.confirmedValidator">Password is not matching.</div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transactionpwd" class="font-weight-bold">
+                               Set Transaction Password : </label>
+                            <input type="text" class="form-control" placeholder="Set Transaction Password" formControlName="transactionpwd" id="transactionpwd"/>
+
+                            <div *ngIf="f.transactionpwd.touched && f.transactionpwd.invalid" class="alert alert-danger">
+                                <div *ngIf="f.transactionpwd.errors.required">Transaction password is required.</div>
+                                <div *ngIf="f.transactionpwd.errors.pattern">Password should be of minimum 8 characters and must contain at least 1 alphabet, 1 numeric and 1 special character</div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmtransactionpwd" class="font-weight-bold">
+                               Confirm Transaction Password : </label>
+                            <input type="text" class="form-control" placeholder="Confirm Transaction Password" formControlName="confirmtransactionpwd" id="confirmtransactionpwd" />
+
+                            <div *ngIf="f.confirmtransactionpwd.touched && f.confirmtransactionpwd.invalid" class="alert alert-danger">
+                                <div *ngIf="f.confirmtransactionpwd.errors.required">Confirm .</div>
+                                <div *ngIf="f.confirmtransactionpwd.errors.conf">hohl .</div>
+                               
+                                
+                            </div>
+                        </div> 
+                        <div class="form-group">
+                            <label for="otp" class="font-weight-bold">
+                                Enter OTP : </label>
+                            <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
+
+                            <div *ngIf="f.otp.touched && f.otp.invalid" class="alert alert-danger">
+                                <div *ngIf="f.otp.errors.required">OTP is required.</div>
+                                <div *ngIf="f.otp.errors.minlength">OTP should be of 4 digits.</div>
+                                <div *ngIf="f.otp.errors.maxlength">OTP should be of 4 digits.</div>
+                                <div *ngIf="f.otp.errors.pattern">Enter only numbers.</div>
+                            </div>                           
+                            
+                        </div>                      
+
+                        &nbsp; &nbsp;   
+                <button class="btn btn-success" routerLink="/homepage"> Back</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-primary" type="submit" [disabled]="!netbankingForm.valid">Submit</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                       
+
+                        <button class="btn btn-danger" type="reset"> Cancel</button>
+                    </form>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+            <br/>
+            <br/>
+        </div>
+    </div>
+</div>
+
