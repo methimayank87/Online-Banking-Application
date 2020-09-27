@@ -21,11 +21,8 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
-<<<<<<< HEAD
 import {AuthserviceService} from 'src/app/services/authservice.service';
-=======
 import { NetbankingComponent } from './components/netbanking/netbanking.component';
->>>>>>> b10b6c5f4ac831302f51e9d90e9a86ce2fb6f308
 
 @NgModule({
   declarations: [
@@ -44,12 +41,9 @@ import { NetbankingComponent } from './components/netbanking/netbanking.componen
     HomepageComponent,
     AdminLoginComponent,
     NavbarComponent,
-<<<<<<< HEAD
-    ForgotpasswordComponent
-=======
+    ForgotpasswordComponent,
     ForgotpasswordComponent,
     NetbankingComponent
->>>>>>> b10b6c5f4ac831302f51e9d90e9a86ce2fb6f308
   ],
   imports: [
     BrowserModule,
