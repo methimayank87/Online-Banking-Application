@@ -17,10 +17,12 @@ export class AdminLoginComponent implements OnInit {
   constructor(private router:Router,private formBuilder: FormBuilder,private authservice:AuthserviceService) { }
   DoLogin():void
 {
-  this.authservice.login(this.username,this.password).subscribe(data =>
+  this.authservice.login(this.username,this.password).subscribe((data:any )=>
     {
       this.tokenparam=data;
-      this.authservice.AccessToken=this.tokenparam.access_token;
+      localStorage.setItem('userToken',this.tokenparam.access_token);
+      // this.tokenparam=data;
+      // this.authservice.AccessToken=this.tokenparam.access_token;
       this.router.navigate(['/admin']);
     });
   

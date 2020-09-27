@@ -24,4 +24,7 @@ export class AccountService {
     console.log(account)
     return this._http.post<Account>(this.baseUrl,JSON.stringify(account),this.httpOptions)
   }
+  getAccountById(id : number){
+    return this._http.get<Account>(this.baseUrl + '/getbyid/' + id,this.httpOptions);
+  }
 }

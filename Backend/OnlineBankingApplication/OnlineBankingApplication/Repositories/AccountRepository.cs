@@ -30,9 +30,11 @@ namespace OnlineBankingApplication.Repositories
 
         public Account Get(int id)
         {
-            var account = _projectContext.Accounts
-                                .Where(u => u.UserID == id);
-            return (Account)account;
+            Account account = (Account)_projectContext.Accounts
+                                .Where(u => u.UserID == id)
+                                .FirstOrDefault();
+
+            return account;
         }
         public Account GetByAccount(long id)
         {

@@ -15,11 +15,11 @@ export class AuthserviceService {
   AccessToken:string="";
 
   constructor(private _http:HttpClient) { }
-  private TokenAPI='https://localhost:44306/token';
+  private TokenAPI='https://localhost:44306';
   login(Username:string, Password:string):Observable<TokenParams>
   {
     var headersforTokenAPI=new HttpHeaders({'Content-Type':'application/x-www-form-urlencoded'});
     var data="grant-type=password&username" + Username + "&password=" + Password;
-    return this._http.post(this.TokenAPI,data, {headers :headersforTokenAPI}).pipe(map((res:any)=>res.json()));
+    return this._http.post(this.TokenAPI+'/token',data, {headers :headersforTokenAPI}).pipe(map((res:any)=>res.json()));
   }
 }
