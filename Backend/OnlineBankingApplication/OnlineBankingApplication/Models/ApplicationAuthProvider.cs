@@ -12,10 +12,7 @@ namespace OnlineBankingApplication.Models
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ApplicationAuthProvider: OAuthAuthorizationServerProvider
     {
-        public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
-        {
-            context.Validated();
-        }
+        
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             AuthRepository authRepository = new AuthRepository();
@@ -33,6 +30,10 @@ namespace OnlineBankingApplication.Models
                 context.SetError("invalid_grant", "The user name or password is      incorrect.");
                 return;
             }
+        }
+        public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
+        {
+            context.Validated();
         }
     }
 }

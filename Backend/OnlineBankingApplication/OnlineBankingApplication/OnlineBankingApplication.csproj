@@ -204,6 +204,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PAddressController.cs" />
     <Compile Include="Controllers\RAddressController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
