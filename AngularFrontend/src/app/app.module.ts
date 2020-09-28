@@ -25,6 +25,8 @@ import {AuthserviceService} from 'src/app/services/authservice.service';
 import { NetbankingComponent } from './components/netbanking/netbanking.component';
 import { AddpayeeComponent } from './components/addpayee/addpayee.component';
 import { ImpsComponent } from './components/imps/imps.component';
+import { NeftComponent } from './components/neft/neft.component';
+import { RtgsComponent } from './components/rtgs/rtgs.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { ImpsComponent } from './components/imps/imps.component';
     ForgotpasswordComponent,
     NetbankingComponent,
     AddpayeeComponent,
-    ImpsComponent
+    ImpsComponent,
+    NeftComponent,
+    RtgsComponent
   ],
   imports: [
     BrowserModule,
