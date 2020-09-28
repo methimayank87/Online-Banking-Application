@@ -90,12 +90,15 @@ namespace OnlineBankingApplication.Repositories
         }
         public User getUserByAccount(long num)
         {
-            var user = _projectContext.Accounts
-                            .Where(u => u.AccountNumber == num)
+            var account = _projectContext.Accounts
+                        .Where(u => u.AccountNumber == num)
+                        .FirstOrDefault();
+
+            var user = _projectContext.Users
+                            .Where(u => u.UserID == account.UserID)
                             .FirstOrDefault();
             return user;
         }
-
         public User GetByAccount(long id)
         {
             throw new NotImplementedException();
@@ -110,7 +113,7 @@ namespace OnlineBankingApplication.Repositories
             {
                 byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
                 {
-                    {"apikey" , "DIxUCj3h3Kc-U9R0hDslA2ZrR4wDSN7XYxLfMISpdz" },
+                    {"apikey" , "MSae+2yG/vw-OfpiUYe8iuNy8x1HRBaixXbogdibBe" },
                     {"numbers", number},
                     {"message", msg1 },
                     {"sender", "TXTLCL" }
@@ -123,6 +126,38 @@ namespace OnlineBankingApplication.Repositories
 
                 return "Ok";
             }
+            catch (Exception ex)
+            {
+                return "error:" + ex.ToString();
+            }
+        }
+
+        public string postSendOtp(User user)
+        {
+            Random rnd = new Random();
+            int otp = rnd.Next(1000, 9999);
+            string number = user.Phone;
+            string msg = "Verification code for your application is " + otp.ToString() + ". This code is only for your identity verification purpose.";
+            string result;
+            string msg1 = System.Web.HttpUtility.UrlEncode(msg);
+            using (var wb = new WebClient())
+            {
+                byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
+                {
+                    {"apikey" , "MSae+2yG/vw-OfpiUYe8iuNy8x1HRBaixXbogdibBe" },
+                    {"numbers", number},
+                    {"message", msg1 },
+                    {"sender", "TXTLCL" }
+
+                });
+                result = System.Text.Encoding.UTF8.GetString(response);
+            }
+            try
+            {
+
+                return otp.ToString();
+            }
+
             catch (Exception ex)
             {
                 return "error:" + ex.ToString();

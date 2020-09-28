@@ -28,12 +28,10 @@ const routes: Routes = [
   {path: 'userlogin', component:UserloginComponent},
   {path:'registeruser', component:RegisteruserComponent},
   {path:'forgotuserid', component:ForgotuseridComponent},
-  {path:'homepage' , component:HomepageComponent},
+  {path:'' , component:HomepageComponent},
   {path:'forgotpassword', component:ForgotpasswordComponent},
   {path:'netbanking', component:NetbankingComponent},
   {path:'adminlogin', component:AdminLoginComponent}
-
-
 ];
 
 @NgModule({
