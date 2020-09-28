@@ -42,14 +42,14 @@
                         <div class="form-group">
                             <label for="otp" class="font-weight-bold">
                                 Enter OTP : </label>
-                            <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
+                            <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" >
 
 
-                            <div *ngIf="f.otp.touched && f.otp.invalid" class="alert alert-danger">
-                                <div *ngIf="f.otp.errors.required">OTP is required.</div>
-                                <div *ngIf="f.otp.errors.minlength">OTP should be of 4 digits.</div>
-                                <div *ngIf="f.otp.errors.maxlength">OTP should be of 4 digits.</div>
-                                <div *ngIf="f.otp.errors.pattern">Enter only numbers.</div>
+                            <div *ngIf="f2.otp.touched && f2.otp.invalid" class="alert alert-danger">
+                                <div *ngIf="f2.otp.errors.required">OTP is required.</div>
+                                <div *ngIf="f2.otp.errors.minlength">OTP should be of 4 digits.</div>
+                                <div *ngIf="f2.otp.errors.maxlength">OTP should be of 4 digits.</div>
+                                <div *ngIf="f2.otp.errors.pattern">Enter only numbers.</div>
                             </div>
                         </div>
 

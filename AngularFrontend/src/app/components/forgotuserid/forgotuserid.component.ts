@@ -35,14 +35,9 @@ export class ForgotuseridComponent implements OnInit {
  
 }
 
-get f(){
-  return this.forgotuseridForm.controls;
-}
-
 
 onSubmit(form)
 {
-  console.log("hello")
   this.userService.forgotUserId(form.value.accountnumber).subscribe(data => {
     console.log(data);
       this.requestSent = true;
@@ -59,6 +54,13 @@ onSubmit2(form){
   }catch{
     alert("Incorrect OTP");
   }
+}
+
+get f(){
+  return this.forgotuseridForm.controls;
+}
+get f2(){
+  return this.otpForm.controls;
 }
 
 }

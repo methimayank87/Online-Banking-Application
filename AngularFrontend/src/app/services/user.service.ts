@@ -39,4 +39,8 @@ export class UserService {
   forgotUserId(account){
     return this._http.post<Number>(this.baseUrl + '/forgotid/' + account,JSON.stringify(account),this.httpOptions)
   }
+
+  forgotUserPassword(userid){
+    return this._http.post<Number>(this.baseUrl + '/forgotpass/' + userid,JSON.stringify(userid),this.httpOptions)
+  }
 }

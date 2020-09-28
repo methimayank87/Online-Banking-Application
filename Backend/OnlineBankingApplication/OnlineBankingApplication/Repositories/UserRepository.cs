@@ -131,7 +131,6 @@ namespace OnlineBankingApplication.Repositories
                 return "error:" + ex.ToString();
             }
         }
-
         public string postSendOtp(User user)
         {
             Random rnd = new Random();
