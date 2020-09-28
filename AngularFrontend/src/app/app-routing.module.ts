@@ -14,6 +14,7 @@ import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.co
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { NetbankingComponent } from './components/netbanking/netbanking.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -29,7 +30,9 @@ const routes: Routes = [
   {path:'forgotuserid', component:ForgotuseridComponent},
   {path:'homepage' , component:HomepageComponent},
   {path:'forgotpassword', component:ForgotpasswordComponent},
-  {path:'netbanking', component:NetbankingComponent}
+  {path:'netbanking', component:NetbankingComponent},
+  {path:'adminlogin', component:AdminLoginComponent}
+
 
 ];
 
