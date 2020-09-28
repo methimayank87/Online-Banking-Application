@@ -103,7 +103,7 @@ namespace OnlineBankingApplication.Controllers
         public IHttpActionResult ForgotId(long id)
         {
             var user = _userRepository.getUserByAccount(id);
-            var otp = _userRepository.postSendMsg(user);
+            var otp = _userRepository.postSendOtp(user);
             return Ok(otp);
         }
 
@@ -112,7 +112,7 @@ namespace OnlineBankingApplication.Controllers
         public IHttpActionResult ForgotPassId(int id)
         {
             var user = _userRepository.Get(id);
-            var otp = _userRepository.postSendMsg(user);
+            var otp = _userRepository.postSendOtp(user);
             return Ok(otp);
         }
     }
