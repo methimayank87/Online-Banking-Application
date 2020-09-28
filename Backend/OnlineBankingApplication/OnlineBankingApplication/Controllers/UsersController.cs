@@ -97,5 +97,23 @@ namespace OnlineBankingApplication.Controllers
             _userRepository.Update(user);
             return Ok(user);
         }
+
+        [HttpPost]
+        [Route("forgotid/{id}")]
+        public IHttpActionResult ForgotId(long id)
+        {
+            var user = _userRepository.getUserByAccount(id);
+            var otp = _userRepository.postSendMsg(user);
+            return Ok(otp);
+        }
+
+        [HttpPost]
+        [Route("forgotpass/{id}")]
+        public IHttpActionResult ForgotPassId(int id)
+        {
+            var user = _userRepository.Get(id);
+            var otp = _userRepository.postSendMsg(user);
+            return Ok(otp);
+        }
     }
 }
