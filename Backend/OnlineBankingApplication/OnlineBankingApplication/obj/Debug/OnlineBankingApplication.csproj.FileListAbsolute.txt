@@ -209,3 +209,10 @@ C:\Users\user\Downloads\GladiatorProject\OnlineBankingApplication\backend\Online
 C:\Users\user\Downloads\GladiatorProject\OnlineBankingApplication\backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.xml
 C:\Users\user\Downloads\GladiatorProject\OnlineBankingApplication\backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.xml
 C:\Users\user\Downloads\GladiatorProject\OnlineBankingApplication\backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.dll
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.dll
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Owin.dll
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.xml
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.xml
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.Owin.Security.OAuth.xml

@@ -27,4 +27,14 @@ export class AccountService {
   getAccountById(id : number){
     return this._http.get<Account>(this.baseUrl + '/getbyid/' + id,this.httpOptions);
   }
+  updateAccount(account : Account,data){
+    const newAccount = {
+      "AccountNumber": account.AccountNumber,
+      "UserID": account.UserID,
+      "Balance": account.Balance,
+      "LoginPassword": data.loginpwd,
+      "TransactionPassword": account.TransactionPassword
+    }
+    return this._http.put(this.baseUrl + '/' + account.UserID,JSON.stringify(newAccount),this.httpOptions);
+  }
 }

@@ -99,7 +99,6 @@ namespace OnlineBankingApplication.Repositories
                             .FirstOrDefault();
             return user;
         }
-
         public User GetByAccount(long id)
         {
             throw new NotImplementedException();
@@ -114,7 +113,7 @@ namespace OnlineBankingApplication.Repositories
             {
                 byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
                 {
-                    {"apikey" , "DIxUCj3h3Kc-U9R0hDslA2ZrR4wDSN7XYxLfMISpdz" },
+                    {"apikey" , "MSae+2yG/vw-OfpiUYe8iuNy8x1HRBaixXbogdibBe" },
                     {"numbers", number},
                     {"message", msg1 },
                     {"sender", "TXTLCL" }
@@ -144,7 +143,7 @@ namespace OnlineBankingApplication.Repositories
             {
                 byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
                 {
-                    {"apikey" , "DIxUCj3h3Kc-U9R0hDslA2ZrR4wDSN7XYxLfMISpdz" },
+                    {"apikey" , "MSae+2yG/vw-OfpiUYe8iuNy8x1HRBaixXbogdibBe" },
                     {"numbers", number},
                     {"message", msg1 },
                     {"sender", "TXTLCL" }
