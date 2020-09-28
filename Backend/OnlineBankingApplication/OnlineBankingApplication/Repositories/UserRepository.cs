@@ -88,6 +88,13 @@ namespace OnlineBankingApplication.Repositories
                           select u.Email;
             return mail.ToString();
         }
+        public User getUserByAccount(long num)
+        {
+            var user = _projectContext.Accounts
+                            .Where(u => u.AccountNumber == num)
+                            .FirstOrDefault();
+            return user;
+        }
 
         public User GetByAccount(long id)
         {

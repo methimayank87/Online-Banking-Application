@@ -67,6 +67,7 @@ namespace OnlineBankingApplication.Repositories
 
                 return otp.ToString();
             }
+
             catch (Exception ex)
             {
                 return "error:" + ex.ToString();
