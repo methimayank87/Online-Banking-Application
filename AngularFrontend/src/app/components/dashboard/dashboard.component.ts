@@ -11,11 +11,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-      //Toggle Click Function
-      $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+    
   }
 
 }
