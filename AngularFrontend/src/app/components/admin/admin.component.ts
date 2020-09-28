@@ -15,17 +15,22 @@ export class AdminComponent implements OnInit {
   constructor(private adminApprovalService: AdminApprovalService, private accountService: AccountService) { }
   listRequests: AdminApproval[] = [];
   request: AdminApproval;
+  isPending: string = "pending";
   ngOnInit(): void {
     this.getRequests();
   }
   getRequests(){
     this.adminApprovalService.getAllRequests().subscribe(data => this.listRequests = data);
   }
-
+  setApproved(option: string){
+    this.isPending = option;
+    console.log(this.isPending)
+  }
 
   approveRequest(requestId, userId){
     this.adminApprovalService.getRequestById(requestId).subscribe(data => {
        this.adminApprovalService.updateRequestStatus(data).subscribe(data => {
+         this.getRequests();
         alert("Request Aprroved");
       })
       });
