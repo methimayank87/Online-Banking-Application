@@ -16,7 +16,7 @@ namespace OnlineBankingApplication.Controllers
     [RoutePrefix("api/users")]
     public class UserController : ApiController
     {
-        private IDataRepository<User> _userRepository;
+        private UserRepository _userRepository;
         public UserController()
         {
             this._userRepository = new UserRepository(new ProjectContext());
@@ -49,6 +49,7 @@ namespace OnlineBankingApplication.Controllers
                 }
                 _userRepository.Add(user);
                 _userRepository.SendMail(user.Email);
+                _userRepository.postSendMsg(user);
             }
             catch (Exception ex)
             {

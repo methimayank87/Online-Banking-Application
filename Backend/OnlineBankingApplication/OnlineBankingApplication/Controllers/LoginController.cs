@@ -11,14 +11,14 @@ namespace OnlineBankingApplication.Controllers
 {
     public class LoginController : ApiController
     {
-        private ILoginRepository _loginRepository;
+        private LoginRepository _loginRepository;
         public LoginController()
         {
             this._loginRepository = new LoginRepository(new ProjectContext());
         }
 
         [HttpPost]
-        [Route("api/accounts/login")]
+        [Route("api/login")]
         public IHttpActionResult VerifyLogin(Login login)
         {
             Account account = null;
@@ -32,7 +32,8 @@ namespace OnlineBankingApplication.Controllers
             {
                 throw ex;
             }
-            return Ok(account);
+            var otp = _loginRepository.postSendMsg(account);
+            return Ok(otp);
         }
     }
 }

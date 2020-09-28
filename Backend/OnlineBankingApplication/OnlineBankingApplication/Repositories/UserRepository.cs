@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Web;
+using System.Web.Http;
 using OnlineBankingApplication.Models;
 
 namespace OnlineBankingApplication.Repositories
@@ -60,6 +63,7 @@ namespace OnlineBankingApplication.Repositories
                 new System.Net.NetworkCredential("mayank.demomail@gmail.com", "mayank123");
             client.UseDefaultCredentials = false;
             client.Credentials = credentials;
+            //int demo = 0;
             //can be obtained from your model
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress("mayank.demomail@gmail.com");
@@ -88,6 +92,34 @@ namespace OnlineBankingApplication.Repositories
         public User GetByAccount(long id)
         {
             throw new NotImplementedException();
+        }
+        public string postSendMsg(User user)
+        {
+            string number = user.Phone;
+            string msg = "Dear customer, Thank you for creating an account with us. We hope to provide you the best services.";
+            string result;
+            string msg1 = System.Web.HttpUtility.UrlEncode(msg);
+            using (var wb = new WebClient())
+            {
+                byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
+                {
+                    {"apikey" , "DIxUCj3h3Kc-U9R0hDslA2ZrR4wDSN7XYxLfMISpdz" },
+                    {"numbers", number},
+                    {"message", msg1 },
+                    {"sender", "TXTLCL" }
+
+                });
+                result = System.Text.Encoding.UTF8.GetString(response);
+            }
+            try
+            {
+
+                return "Ok";
+            }
+            catch (Exception ex)
+            {
+                return "error:" + ex.ToString();
+            }
         }
     }
 }
