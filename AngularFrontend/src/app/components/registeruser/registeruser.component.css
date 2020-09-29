@@ -1,5 +1,5 @@
  
-.login-title
+/* .login-title
 {
     color: #555;
     font-size: 18px;
@@ -30,12 +30,7 @@
 .bgpic{
 
     
-   /* background-position: center; */
-    /* background-image: url("/assets/images/online_banking_login.jpg");*/
     background-image: url("https://1635839773.rsc.cdn77.org/sites/default/files/6Spring.jpg");
-    /*background-repeat: no-repeat;  Do not repeat the image */
-    /*background-size: cover; /* Resize the background image to cover the entire container */
-    /* background-size: cover; */
    
     background-repeat: repeat-y;
     background-size: contain;
@@ -71,6 +66,7 @@
       padding-right: 80px;
   } 
  
+  */
  
  
  
@@ -86,8 +82,7 @@
  
  
  
- 
- /* .form-signin
+  .form-signin
 {
     max-width: 330px;
     padding: 10px;
@@ -185,4 +180,4 @@
 	right: 0;
   	
 	margin: auto;
-}  */
+}  

@@ -1,7 +1,7 @@
 
 
 
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar>
 <div class="bgpic">
     <br/>
     <h4 class="text-center login-title text-white font-weight-bold">OPEN A SAVINGS ACCOUNT</h4>
@@ -102,7 +102,7 @@
             <div class="form-group">
                 <label for="dob" class="font-weight-bold">Date of birth<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
                    
-                        <input type="date" class="form-control" id="dob" formControlName="dob"  placeholder="Date of Birth" />  
+                        <input type="date" class="form-control" id="dob" formControlName="dob"  placeholder="Date of Birth" [max]="maxDate"/>  
                         <div *ngIf="f.dob.touched && f.dob.invalid" class="alert alert-danger">
                             <div *ngIf="f.dob.errors.required">Date of Birth is required.</div>
                         </div>
@@ -274,7 +274,7 @@
     <br/>
 
     <div class="form-group">
-        <label for="debitCard" class="font-weight-bold"><input type="checkbox" id="debitCard" name="debitCard"  formControlName="debitCard" value="yes"> Do you want a debit card ?</label>
+        <label for="debitCard" class="font-weight-bold"><input type="checkbox" id="debitCard" name="debitCard"   value="yes"> Do you want a debit card ?</label>
            
     </div>
 
@@ -305,7 +305,7 @@
         </form>
 
         </div>
-</div>
+</div> -->
 
 
 
@@ -324,7 +324,7 @@
 
 
 
-<!-- <app-navbar></app-navbar>
+ <app-navbar></app-navbar>
 
 
 
@@ -643,6 +643,6 @@
             <br/>
         </div>
     </div>
-</div> -->
+</div> 
 
 
