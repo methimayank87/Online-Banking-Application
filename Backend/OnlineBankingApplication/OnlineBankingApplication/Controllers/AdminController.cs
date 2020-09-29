@@ -12,7 +12,7 @@ namespace OnlineBankingApplication.Controllers
     [RoutePrefix("api/admins")]
     public class AdminController : ApiController
     {
-        private IDataRepository<Admin> _adminRepository;
+        private AdminRepository _adminRepository;
         public AdminController()
         {
             this._adminRepository = new AdminRepository(new ProjectContext());
@@ -42,6 +42,32 @@ namespace OnlineBankingApplication.Controllers
                 throw ex;
             }
             return Ok(admin);
+        }
+
+        [HttpPost]
+        [Route("bulksms")]
+        public IHttpActionResult BulkSms([FromBody] string message)
+        {
+            var users = _adminRepository.GetUsers();
+            foreach(var u in users)
+            {
+                var otp = _adminRepository.postSendMsg(u , message);
+                return Ok(otp);
+            }
+            return Ok("Message not sent.");
+        }
+
+        [HttpPost]
+        [Route("bulkmail")]
+        public IHttpActionResult BulkMail([FromBody] string message)
+        {
+            var users = _adminRepository.GetUsers();
+            foreach (var u in users)
+            {
+                var msg = _adminRepository.PostSendMail(u, message);
+                return Ok(msg);
+            }
+            return Ok("Message not sent.");
         }
 
         [HttpDelete]
