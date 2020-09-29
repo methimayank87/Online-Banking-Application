@@ -1,4 +1,88 @@
-.form-signin
+ 
+/* .login-title
+{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+.profile-img
+{
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.need-help
+{
+    margin-top: 10px;
+}
+.new-account
+{
+    display: block;
+   margin-top: 10px; 
+}
+
+
+.bgpic{
+
+    
+    background-image: url("https://1635839773.rsc.cdn77.org/sites/default/files/6Spring.jpg");
+   
+    background-repeat: repeat-y;
+    background-size: contain;
+  
+   
+}
+#login {
+	width: 100px;
+	height: 100px;	
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: auto;
+}
+
+.admin-body{
+    margin-left: 28%;
+     padding-top: 20px;
+    height: auto;
+    width: 45%;
+    background-color: rgb(166, 166, 182);
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    
+  }
+
+  .form-signin{
+      padding-left: 80px;
+      padding-right: 80px;
+  } 
+ 
+  */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  .form-signin
 {
     max-width: 330px;
     padding: 10px;
@@ -43,7 +127,6 @@
 {
     margin-top: 20px;
     padding: 40px 0px 20px 0px;
-    /*background-color: #f7f7f7;*/
     background-color: rgb(166, 166, 182);
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -81,10 +164,8 @@
 
     
    background-position: center;
-    /* background-image: url("/assets/images/online_banking_login.jpg");*/
     background-image: url("https://1635839773.rsc.cdn77.org/sites/default/files/6Spring.jpg");
-    background-repeat: no-repeat; /* Do not repeat the image */
-    /*background-size: cover; /* Resize the background image to cover the entire container */
+    background-repeat: no-repeat;
     background-size: cover;
   
  
@@ -99,4 +180,4 @@
 	right: 0;
   	
 	margin: auto;
-}
+}  
