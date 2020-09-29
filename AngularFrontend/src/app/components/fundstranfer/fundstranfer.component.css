@@ -1,0 +1,92 @@
+.user-body
+{
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: rgb(209, 209, 228);
+ 
+
+    margin-left: 20px;
+    margin-right: 20px ;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    height: auto;
+    text-align: center;
+}
+
+.bgpic{
+
+    position: relative;
+     background-position: center;
+     background-repeat: no-repeat; 
+     background-size: cover;
+
+     background-image: url("https://1635839773.rsc.cdn77.org/sites/default/files/6Spring.jpg"); 
+
+     height: 600px;
+
+     
+     /* background-color: darkcyan;
+
+     height: 600;
+
+     width:100%; */
+
+   
+  
+ }
+
+
+ .first-div {
+    width:300px;
+    height:200px;
+    float:left;
+    margin-left: 12%;
+    text-align: center;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: rgb(209, 209, 228);
+    padding-top: 15px;
+  }
+  
+  .second-div {
+    width:300px;
+    height:200px;
+    float:left;
+    margin-left: 5%;
+    text-align: center;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: rgb(209, 209, 228);
+    padding-top: 15px;
+  }
+  
+  .third-div {
+    width:300px;
+    height:200px;
+    float:left;
+     margin-left: 5%;
+    text-align: center;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: rgb(209, 209, 228);
+    padding-top: 15px;
+  }
+
+  .profile-img
+{
+    padding-top: 6px;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    
+}

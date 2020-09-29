@@ -38,4 +38,9 @@ export class AccountService {
     const accno = localStorage.getItem('Accno')
     return this._http.post<Beneficiary>(this.baseUrl + '/' + accno + '/beneficiaries',JSON.stringify(data),this.httpOptions);
   }
+
+  getAllBeneficiaries(){
+    const accno = localStorage.getItem('Accno')
+    return this._http.get<Beneficiary[]>(this.baseUrl + '/' + accno + '/beneficiaries')
+  }
 }
