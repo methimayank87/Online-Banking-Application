@@ -18,7 +18,7 @@ export class NetbankingComponent implements OnInit {
         loginpwd: new FormControl('', [Validators.required,Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{8,}')]),      
         transactionpwd: new FormControl('', [Validators.required, Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{8,}')]),
         confirmtransactionpwd: new FormControl('', [Validators.required]),
-        otp: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(4), Validators.pattern("^[0-9]*$")]),
+        otp: new FormControl('', [Validators.required,  Validators.min(1000), Validators.max(9999), Validators.pattern("^[0-9]*$")]),
         confirmloginpwd: new FormControl('',Validators.required)}, { 
           validators: this.confirmedValidator('loginpwd', 'confirmloginpwd') 
       });

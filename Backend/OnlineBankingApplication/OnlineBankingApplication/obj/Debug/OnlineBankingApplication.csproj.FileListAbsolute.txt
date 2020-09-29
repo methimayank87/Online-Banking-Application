@@ -206,3 +206,7 @@ C:\Users\user\Downloads\GladiatorProject\OnlineBankingApplication\backend\Online
 C:\Users\user\Downloads\GladiatorProject\OnlineBankingApplication\backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\user\Downloads\GladiatorProject\OnlineBankingApplication\backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\user\Downloads\GladiatorProject\OnlineBankingApplication\backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Niharika Gupta\Desktop\OnlineBankingApplication\Backend\OnlineBankingApplication\OnlineBankingApplication\bin\Microsoft.AspNet.Identity.EntityFramework.xml
