@@ -7,7 +7,7 @@ using System.Web;
 
 namespace OnlineBankingApplication.Repositories
 {
-    public class TransactionRepository : ITransactionRepository<Transaction>
+    public class TransactionRepository
     {
         private readonly ProjectContext _projectContext;
         public TransactionRepository(ProjectContext projectContext)
@@ -20,28 +20,38 @@ namespace OnlineBankingApplication.Repositories
             _projectContext.transactions.Add(newtransaction);
             _projectContext.SaveChanges();
         }
-
-        public void Delete(int transactionid)
-        {
-            Transaction trans = _projectContext.transactions.Find(transactionid);
-            _projectContext.transactions.Remove(trans);
-            _projectContext.SaveChanges();
-        }
-
         public Transaction Get(int id)
         {
             return _projectContext.transactions.Find(id);
         }
 
-        public IEnumerable<Transaction> GetAll()
+        public IEnumerable<Transaction> GetAll(long id)
         {
-            return _projectContext.transactions.ToList();
+            var transactions = from trans in _projectContext.transactions
+                        where (trans.SenderAccount == id || trans.ReceiverAccount == id)
+                        select trans;
+            return transactions.ToList();
         }
 
-        public void Update(Transaction updatetrans)
+        public int UpdateBalance(Transaction transaction)
         {
-            _projectContext.Entry(updatetrans).State = EntityState.Modified;
-            _projectContext.SaveChanges();
+            var sendAcc = _projectContext.Accounts
+                                .Where(acc => acc.AccountNumber == transaction.SenderAccount)
+                                .FirstOrDefault();
+            var recAcc = _projectContext.Accounts
+                                .Where(acc => acc.AccountNumber == transaction.ReceiverAccount)
+                                .FirstOrDefault();
+            if(sendAcc.Balance >= transaction.Amount)
+            {
+                sendAcc.Balance -= transaction.Amount;
+                recAcc.Balance += transaction.Amount;
+                _projectContext.SaveChanges();
+            }
+            else
+            {
+                return 500;
+            }
+            return 200;
         }
     }
 }

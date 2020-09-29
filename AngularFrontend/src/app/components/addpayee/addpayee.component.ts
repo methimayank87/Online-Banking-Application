@@ -21,7 +21,6 @@ export class AddpayeeComponent implements OnInit {
       savebeneficiarynumber: new FormControl('',Validators.required),
       rebeneficiarynumber: new FormControl('',Validators.required),
       nickname: new FormControl('',Validators.required)
-
     },
     { 
       validators: this.confirmedValidator('beneficiarynumber', 'rebeneficiarynumber') 

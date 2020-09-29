@@ -18,6 +18,7 @@ import { ImpsComponent } from './components/imps/imps.component';
 import { AddpayeeComponent } from './components/addpayee/addpayee.component';
 import { NeftComponent } from './components/neft/neft.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
+import { ViewbeneficiarydetailsComponent } from './components/viewbeneficiarydetails/viewbeneficiarydetails.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -37,7 +38,9 @@ const routes: Routes = [
   {path:'addpayee', component:AddpayeeComponent},
   {path:'imps', component:ImpsComponent},
   {path:'neft',component:NeftComponent},
-  {path:'rtgs',component: RtgsComponent}
+  {path:'rtgs',component: RtgsComponent},
+  {path: 'viewbeneficiarydetails', component:ViewbeneficiarydetailsComponent}
+
 
 ];
 

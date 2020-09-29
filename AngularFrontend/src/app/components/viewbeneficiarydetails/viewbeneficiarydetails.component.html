@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(75, 75, 134);">
+    
+    <a href="#" class="navbar-brand">Online Banking Application</a>
+    
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Accounts </a>
+            </li>
+           
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Transfers</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Bill Payments</a>
+              </li>
+            <!-- <li class="nav-item dropdown nav-item active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a routerLink="/adminlogin" class="dropdown-item" >Login as Admin</a>
+                <a  routerLink="/adminlogin" class="dropdown-item" >Login as User</a>
+                <a  routerLink="/registeruser" class="dropdown-item" >Open new account</a>
+
+                
+              </div>
+            </li> -->
+           
+          </ul>
+        </div>
+
+</nav>
+
+<div class="bgpic">
+
+        <br/><br/>
+        <h4 class="text-left login-title text-white font-weight-bold" style="padding-left: 20px; ">VIEW BENEFICIARY DETAILS</h4>
+
+
+            <div class="user-body">
+            <br/>
+            <button type="submit" class="btn btn-success" style="float: left;">Add new beneficiary</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" style="float:right;">LogOut</button>
+            <br/><br/>
+                <table class="table table-striped" style="margin-left:auto;margin-right:auto; width:50%; background-color: rgb(218, 201, 201);">
+                  <thead>
+                        <tr>
+                            <th class="text-hide">Id</th>
+                            <th>Beneficiary name</th>
+                            <th>Beneficiary account number</th>
+                            <th>Nickname</th>
+                            
+                           
+                        </tr>
+                 </thead>
+                  
+                    <!-- <tbody>
+                        <tr *ngFor="let user of users">
+                             <td class="text-hide">{{user.id}}</td>
+                            <td>{{user.beneficiarynumber }}</td>
+                            <td>{{user.beneficiaryaccountnumber }}</td>
+                            <td>{{user.nickname  }}</td>
+            
+                        </tr>
+                        <tr *ngIf="!users || users.length==0">
+                            <th colspan="5">
+                                <p class="text-right text-danger">Sorry no beneficiary details available</p>
+                            </th>
+                        </tr>
+                    </tbody> -->
+                </table>
+            </div>
+            
+       
+
+<br/><br/><br/>
+
+
+
+
+
+<h5 class="text-center login-title  font-weight-bold" style="padding-left: 20px; color:rgb(111, 111, 189); "><mark>FUNDS TRANSFER OPTIONS</mark></h5><br/><br/>
+
+
+
+          
+            <div class="first-div" >
+               
+                <img class="profile-img" src="https://images.assettype.com/swarajya/2018-09/dad96140-8d75-43c4-9be3-d363c41261b5/7a72036a_94b9_4e79_879e_0e5cce435683.jpg?w=1280&q=100&fmt=pjpeg&auto=format" alt="User Icon"><br/>
+               <button type="button" class="btn btn-primary">Initiate IMPS Payment</button> 
+            </div> 
+            <div class="second-div">
+              
+                <img class="profile-img" src="https://www.bhavnagardcb.in/images/service/rtgs.png"  alt="User Icon"><br/>
+                <button type="button" class="btn btn-success">Initiate RTGS Payment</button> 
+
+
+            </div>  
+            <div class="third-div">
+                <img class="profile-img"  src="https://indiamls.com/assets/images/NEFT_icon.png" alt="User Icon"><br/>
+                <button type="button" class="btn btn-info">Initiate NEFT Payment</button> 
+
+            </div>
+        
+</div>
+
