@@ -73,7 +73,14 @@ onSubmit2(form){
 
 onSubmit3(form){
   this.accountService.getAccountById(this.currentUserId).subscribe(data => {
-    this.accountService.updateAccount(data,form.value).subscribe(data => {
+    const newAccount = {
+      "AccountNumber": data.AccountNumber,
+      "UserID": data.UserID,
+      "Balance": data.Balance,
+      "LoginPassword": form.value.loginpwd,
+      "TransactionPassword": data.TransactionPassword
+    }
+    this.accountService.updateAccount(newAccount).subscribe(data => {
       alert("Password changed successfully");
       this.router.navigate(['userlogin']);
     })

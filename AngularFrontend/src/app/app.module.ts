@@ -9,7 +9,6 @@ import { AccountsummaryComponent } from './components/accountsummary/accountsumm
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FundstranferComponent } from './components/fundstranfer/fundstranfer.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
-import { ChangeIdPasswordComponent } from './components/change-id-password/change-id-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './components/admin/admin.component';
@@ -37,7 +36,6 @@ import { RtgsComponent } from './components/rtgs/rtgs.component';
     DashboardComponent,
     FundstranferComponent,
     UserprofileComponent,
-    ChangeIdPasswordComponent,
     AdminComponent,
     UserloginComponent,
     RegisteruserComponent,
