@@ -15,6 +15,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { NetbankingComponent } from './components/netbanking/netbanking.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { ImpsComponent } from './components/imps/imps.component';
+import { AddpayeeComponent } from './components/addpayee/addpayee.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -28,10 +30,12 @@ const routes: Routes = [
   {path: 'userlogin', component:UserloginComponent},
   {path:'registeruser', component:RegisteruserComponent},
   {path:'forgotuserid', component:ForgotuseridComponent},
-  {path:'homepage' , component:HomepageComponent},
+  {path:'' , component:HomepageComponent},
   {path:'forgotpassword', component:ForgotpasswordComponent},
   {path:'netbanking', component:NetbankingComponent},
-  {path:'adminlogin', component:AdminLoginComponent}
+  {path:'adminlogin', component:AdminLoginComponent},
+  {path:'addpayee', component:AddpayeeComponent},
+  {path:'imps', component:ImpsComponent}
 
 
 ];
