@@ -102,7 +102,7 @@
             <div class="form-group">
                 <label for="dob" class="font-weight-bold">Date of birth<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
                    
-                        <input type="date" class="form-control" id="dob" formControlName="dob"  placeholder="Date of Birth" />  
+                        <input type="date" class="form-control" id="dob" formControlName="dob"  placeholder="Date of Birth" [max]="maxDate"/>  
                         <div *ngIf="f.dob.touched && f.dob.invalid" class="alert alert-danger">
                             <div *ngIf="f.dob.errors.required">Date of Birth is required.</div>
                         </div>
