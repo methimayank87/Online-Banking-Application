@@ -47,9 +47,9 @@
 
                             <div *ngIf="f2.otp.touched && f2.otp.invalid" class="alert alert-danger">
                                 <div *ngIf="f2.otp.errors.required">OTP is required.</div>
-                                <div *ngIf="f2.otp.errors.minlength">OTP should be of 4 digits.</div>
-                                <div *ngIf="f2.otp.errors.maxlength">OTP should be of 4 digits.</div>
-                                <div *ngIf="f2.otp.errors.pattern">Enter only numbers.</div>
+                                <div *ngIf="f2.otp.errors.min">OTP is not valid.</div>
+                                <div *ngIf="f2.otp.errors.max">OTP is not valid.</div>
+                                <div *ngIf="f2.otp.errors.pattern">OTP is not valid.</div>
                             </div>
                         </div>
 
