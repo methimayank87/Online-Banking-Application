@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2c6ae6ff29584ebba076ff11bc58809f" Name="Diagram1" ZoomLevel="47">
+      <Diagram DiagramId="a5e6355231ad4ef3b995c641b5ff030f" Name="Diagram1">
         <EntityTypeShape EntityType="gladiatorDBModel.Account" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="gladiatorDBModel.Admin" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="gladiatorDBModel.AdminApproval" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
@@ -16,8 +16,8 @@
         <AssociationConnector Association="gladiatorDBModel.FK__Account__UserID__267ABA7A" ManuallyRouted="false" />
         <AssociationConnector Association="gladiatorDBModel.FK__Beneficia__BenAc__2A4B4B5E" ManuallyRouted="false" />
         <AssociationConnector Association="gladiatorDBModel.FK__Beneficia__UserA__29572725" ManuallyRouted="false" />
-        <AssociationConnector Association="gladiatorDBModel.FK__Transacti__Recei__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="gladiatorDBModel.FK__Transacti__Sende__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="gladiatorDBModel.FK__Transacti__Recei__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="gladiatorDBModel.FK__Transacti__Sende__49C3F6B7" ManuallyRouted="false" />
         <AssociationConnector Association="gladiatorDBModel.FK__AdminAppr__Admin__31EC6D26" ManuallyRouted="false" />
         <AssociationConnector Association="gladiatorDBModel.FK__AdminAppr__UserI__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="gladiatorDBModel.FK__PAddress__UserID__3B75D760" ManuallyRouted="false" />

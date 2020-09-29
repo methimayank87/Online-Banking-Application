@@ -13,17 +13,17 @@ namespace OnlineBankingApplication.Controllers
     [RoutePrefix("api/transactions")]
     public class TransactionController : ApiController
     {
-        private ITransactionRepository<Transaction> _transrepository;
+        private TransactionRepository _transrepository;
         public TransactionController()
         {
             this._transrepository = new TransactionRepository(new ProjectContext());
         }
 
         [HttpGet]
-        [Route("")]
-        public IEnumerable<Transaction> Gettransactions()
+        [Route("accounts/{id}")]
+        public IEnumerable<Transaction> Gettransactions(long id)
         {
-            var trans = _transrepository.GetAll();
+            var trans = _transrepository.GetAll(id);
             return trans;
         }
 
@@ -51,47 +51,8 @@ namespace OnlineBankingApplication.Controllers
             {
                 throw ex;
             }
-            return Ok(transaction);
-        }
-
-        [HttpDelete]
-        [Route("{id}")]
-        public IHttpActionResult DeletUser(int id)
-        {
-            try
-            {
-                Transaction trans = _transrepository.Get(id);
-                if (trans == null)
-                {
-                    return NotFound();
-                }
-                _transrepository.Delete(id);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return Ok("Record is deleted!");
-        }
-
-        [HttpPut]
-        [Route("{id}")]
-        public IHttpActionResult UpdateTransaction(int id, [FromBody] Transaction trans)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            if (trans == null)
-            {
-                return BadRequest("Transaction cannot null");
-            }
-            if (id != trans.TransactionID)
-            {
-                return BadRequest();
-            }
-            _transrepository.Update(trans);
-            return Ok(trans);
+            int res = _transrepository.UpdateBalance(transaction);
+            return Ok(res);
         }
     }
 }

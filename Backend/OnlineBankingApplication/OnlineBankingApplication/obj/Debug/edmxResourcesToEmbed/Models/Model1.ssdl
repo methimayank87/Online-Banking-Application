@@ -64,7 +64,7 @@
     <Key>
       <PropertyRef Name="TransactionID" />
     </Key>
-    <Property Name="TransactionID" Type="int" Nullable="false" />
+    <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TransactionMode" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="SenderAccount" Type="bigint" Nullable="false" />
     <Property Name="ReceiverAccount" Type="bigint" Nullable="false" />
@@ -176,7 +176,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Transacti__Recei__35BCFE0A">
+  <Association Name="FK__Transacti__Recei__4AB81AF0">
     <End Role="Account" Type="Self.Account" Multiplicity="1" />
     <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -188,7 +188,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Transacti__Sende__34C8D9D1">
+  <Association Name="FK__Transacti__Sende__49C3F6B7">
     <End Role="Account" Type="Self.Account" Multiplicity="1" />
     <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -237,11 +237,11 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="RAddress" EntitySet="RAddress" />
     </AssociationSet>
-    <AssociationSet Name="FK__Transacti__Recei__35BCFE0A" Association="Self.FK__Transacti__Recei__35BCFE0A">
+    <AssociationSet Name="FK__Transacti__Recei__4AB81AF0" Association="Self.FK__Transacti__Recei__4AB81AF0">
       <End Role="Account" EntitySet="Account" />
       <End Role="Transactions" EntitySet="Transactions" />
     </AssociationSet>
-    <AssociationSet Name="FK__Transacti__Sende__34C8D9D1" Association="Self.FK__Transacti__Sende__34C8D9D1">
+    <AssociationSet Name="FK__Transacti__Sende__49C3F6B7" Association="Self.FK__Transacti__Sende__49C3F6B7">
       <End Role="Account" EntitySet="Account" />
       <End Role="Transactions" EntitySet="Transactions" />
     </AssociationSet>

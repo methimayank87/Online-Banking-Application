@@ -69,7 +69,7 @@
           <Key>
             <PropertyRef Name="TransactionID" />
           </Key>
-          <Property Name="TransactionID" Type="int" Nullable="false" />
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TransactionMode" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SenderAccount" Type="bigint" Nullable="false" />
           <Property Name="ReceiverAccount" Type="bigint" Nullable="false" />
@@ -181,7 +181,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__Recei__35BCFE0A">
+        <Association Name="FK__Transacti__Recei__4AB81AF0">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
           <ReferentialConstraint>
@@ -193,7 +193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__Sende__34C8D9D1">
+        <Association Name="FK__Transacti__Sende__49C3F6B7">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
           <ReferentialConstraint>
@@ -242,11 +242,11 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="RAddress" EntitySet="RAddress" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Recei__35BCFE0A" Association="Self.FK__Transacti__Recei__35BCFE0A">
+          <AssociationSet Name="FK__Transacti__Recei__4AB81AF0" Association="Self.FK__Transacti__Recei__4AB81AF0">
             <End Role="Account" EntitySet="Account" />
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Sende__34C8D9D1" Association="Self.FK__Transacti__Sende__34C8D9D1">
+          <AssociationSet Name="FK__Transacti__Sende__49C3F6B7" Association="Self.FK__Transacti__Sende__49C3F6B7">
             <End Role="Account" EntitySet="Account" />
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
@@ -268,8 +268,8 @@
           <NavigationProperty Name="User" Relationship="Self.FK__Account__UserID__267ABA7A" FromRole="Account" ToRole="Users" />
           <NavigationProperty Name="Beneficiary" Relationship="Self.FK__Beneficia__BenAc__2A4B4B5E" FromRole="Account" ToRole="Beneficiary" />
           <NavigationProperty Name="Beneficiaries" Relationship="Self.FK__Beneficia__UserA__29572725" FromRole="Account" ToRole="Beneficiary" />
-          <NavigationProperty Name="Transactions" Relationship="Self.FK__Transacti__Recei__35BCFE0A" FromRole="Account" ToRole="Transactions" />
-          <NavigationProperty Name="Transactions1" Relationship="Self.FK__Transacti__Sende__34C8D9D1" FromRole="Account" ToRole="Transactions" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK__Transacti__Recei__4AB81AF0" FromRole="Account" ToRole="Transactions" />
+          <NavigationProperty Name="Transactions1" Relationship="Self.FK__Transacti__Sende__49C3F6B7" FromRole="Account" ToRole="Transactions" />
         </EntityType>
         <EntityType Name="Admin">
           <Key>
@@ -332,15 +332,15 @@
           <Key>
             <PropertyRef Name="TransactionID" />
           </Key>
-          <Property Name="TransactionID" Type="Int32" Nullable="false" />
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TransactionMode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SenderAccount" Type="Int64" Nullable="false" />
           <Property Name="ReceiverAccount" Type="Int64" Nullable="false" />
           <Property Name="Amount" Type="Int32" Nullable="false" />
           <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Recei__35BCFE0A" FromRole="Transactions" ToRole="Account" />
-          <NavigationProperty Name="Account1" Relationship="Self.FK__Transacti__Sende__34C8D9D1" FromRole="Transactions" ToRole="Account" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Recei__4AB81AF0" FromRole="Transactions" ToRole="Account" />
+          <NavigationProperty Name="Account1" Relationship="Self.FK__Transacti__Sende__49C3F6B7" FromRole="Transactions" ToRole="Account" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -402,7 +402,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__Recei__35BCFE0A">
+        <Association Name="FK__Transacti__Recei__4AB81AF0">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -414,7 +414,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Transacti__Sende__34C8D9D1">
+        <Association Name="FK__Transacti__Sende__49C3F6B7">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -495,11 +495,11 @@
             <End Role="Account" EntitySet="Accounts" />
             <End Role="Beneficiary" EntitySet="Beneficiaries" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Recei__35BCFE0A" Association="Self.FK__Transacti__Recei__35BCFE0A">
+          <AssociationSet Name="FK__Transacti__Recei__4AB81AF0" Association="Self.FK__Transacti__Recei__4AB81AF0">
             <End Role="Account" EntitySet="Accounts" />
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Transacti__Sende__34C8D9D1" Association="Self.FK__Transacti__Sende__34C8D9D1">
+          <AssociationSet Name="FK__Transacti__Sende__49C3F6B7" Association="Self.FK__Transacti__Sende__49C3F6B7">
             <End Role="Account" EntitySet="Accounts" />
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
