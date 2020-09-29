@@ -18,9 +18,9 @@
               <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: white;">Filters</a> 
                     <div class="dropdown-menu">
-                        <button class="dropdown-item" (click)="setApproved('approved')">Approved</button>
-                        <button class="dropdown-item" (click)="setApproved('pending')">Pending</button>
-                        <button class="dropdown-item">Others</button>
+                        <a  href="#" class="dropdown-item">Approved</a>
+                        <a  href="#" class="dropdown-item">Pending</a>
+                        <a  href="#" class="dropdown-item">Others</a>
                     </div>
             </div>
             
@@ -34,7 +34,7 @@
             <br/>
             <div class="admin-body">
         <h3 align="center">Requests</h3><br/>
-        <table border="1px" style="width: 90%;" align="center" >
+        <table border="1px" style="width: 80%;" align="center" >
             <tr align="center">
                 <th>Reference Number</th>
                 <th>User Id</th>
@@ -42,16 +42,17 @@
                 <th>Approval Date</th>
                 <th>Action</th>
             </tr>
-             <tr *ngFor="let request of listRequests">
-                <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalID}}</td>
-                <td *ngIf="request.ApprovalStatus===isPending">{{request.UserID}}</td>
-                <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalStatus}}</td>
-                <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalDate}}</td>
+             <tr height=20px *ngFor="let request of listRequests">
+                <td>{{request.ApprovalID}}</td>
+                <td>{{request.UserID}}</td>
+                <td>{{request.ApprovalStatus}}</td>
+                <td>{{request.ApprovalDate}}</td>
                 
-                <td *ngIf="request.ApprovalStatus===isPending">
-                    <button class="btn btn-primary">View Details</button>
+                <td>
+                    <button class="btn btn-primary">View Details</button>&nbsp;&nbsp;
                     <button class="btn btn-success" (click)="approveRequest(request.ApprovalID,request.UserID)">Approve</button>
                 </td>
+
             </tr> 
         </table>
         </div> 

@@ -12,6 +12,7 @@ import { AdminApprovalService } from 'src/app/services/admin-approval.service';
 })
 export class RegisteruserComponent implements OnInit {
 
+  maxDate = "2010-12-31"
   openaccountForm:FormGroup;
   submitted: boolean = false;
   invalidRegister: boolean = false;
@@ -47,10 +48,10 @@ export class RegisteruserComponent implements OnInit {
        middlename: new FormControl (''),
       lastname: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
       gender: new FormControl('',Validators.required),
-       email: new FormControl ('',[Validators.required]),
-      fathername: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
+       email: new FormControl ('',[Validators.required , Validators.pattern("^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$")]),
+      fathername: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z][a-zA-Z\\s]+$")]),
       mobilenumber: new FormControl ('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-      aadharnumber: new FormControl ('',[Validators.required, Validators.pattern("^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$")]),
+      aadharnumber: new FormControl ('',[Validators.required, Validators.pattern("^[1-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$")]),
       dob: new FormControl ('',Validators.required),
       addrline1: new FormControl ('',Validators.required),
       addrline2: new FormControl ('',Validators.required),
