@@ -26,6 +26,7 @@ import { AddpayeeComponent } from './components/addpayee/addpayee.component';
 import { ImpsComponent } from './components/imps/imps.component';
 import { NeftComponent } from './components/neft/neft.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
+import { ViewbeneficiarydetailsComponent } from './components/viewbeneficiarydetails/viewbeneficiarydetails.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { RtgsComponent } from './components/rtgs/rtgs.component';
     AddpayeeComponent,
     ImpsComponent,
     NeftComponent,
-    RtgsComponent
+    RtgsComponent,
+    ViewbeneficiarydetailsComponent
   ],
   imports: [
     BrowserModule,
