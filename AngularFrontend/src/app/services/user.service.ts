@@ -43,4 +43,8 @@ export class UserService {
   forgotUserPassword(userid){
     return this._http.post<Number>(this.baseUrl + '/forgotpass/' + userid,JSON.stringify(userid),this.httpOptions)
   }
+
+  getUserById(userid){
+    return this._http.get<User>(this.baseUrl + '/' + userid,this.httpOptions);
+  }
 }
