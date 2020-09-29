@@ -43,7 +43,7 @@
 
                 <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
         
-                            <form [formGroup]="addpayeeForm" class="form-signin">
+                            <form [formGroup]="addpayeeForm" class="form-signin" (ngSubmit)="onSubmit(addpayeeForm)">
                               
                                 <div class="form-group">
                                     <label for="beneficiaryname" class="font-weight-bold">
@@ -93,7 +93,7 @@
                                 <div class="form-group">
                                     <label for="nickname" class="font-weight-bold">
                                         Nickname : </label>
-                                    <input type="text" class="form-control" placeholder="Nickname" >
+                                    <input type="text" class="form-control" placeholder="Nickname" id="nickname" name="nickname" formControlName="nickname">
         
                                    
         

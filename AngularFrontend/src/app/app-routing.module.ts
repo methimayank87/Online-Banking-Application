@@ -16,6 +16,8 @@ import { NetbankingComponent } from './components/netbanking/netbanking.componen
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ImpsComponent } from './components/imps/imps.component';
 import { AddpayeeComponent } from './components/addpayee/addpayee.component';
+import { NeftComponent } from './components/neft/neft.component';
+import { RtgsComponent } from './components/rtgs/rtgs.component';
 
 const routes: Routes = [
   {path:'dashboard', component:DashboardComponent},
@@ -33,8 +35,9 @@ const routes: Routes = [
   {path:'netbanking', component:NetbankingComponent},
   {path:'adminlogin', component:AdminLoginComponent},
   {path:'addpayee', component:AddpayeeComponent},
-  {path:'imps', component:ImpsComponent}
-
+  {path:'imps', component:ImpsComponent},
+  {path:'neft',component:NeftComponent},
+  {path:'rtgs',component: RtgsComponent}
 
 ];
 
