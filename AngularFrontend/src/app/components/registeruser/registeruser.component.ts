@@ -5,6 +5,8 @@ import { UserService } from 'src/app/services/user.service';
 import { RaddressService } from 'src/app/services/raddress.service';
 import { PaddressService } from 'src/app/services/paddress.service';
 import { AdminApprovalService } from 'src/app/services/admin-approval.service';
+import { UploadImageService } from 'src/app/services/upload-image.service';
+
 @Component({
   selector: 'app-registeruser',
   templateUrl: './registeruser.component.html',
@@ -17,7 +19,24 @@ export class RegisteruserComponent implements OnInit {
   submitted: boolean = false;
   invalidRegister: boolean = false;
   currentUserId:number = 0;
-  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService, private raddressService: RaddressService, private paddressService: PaddressService, private adminApprovalService: AdminApprovalService) { }
+  //image
+  imageUrl: string = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
+  fileToUpload: File = null;
+  imageForm: FormGroup;
+  //image
+  constructor(private formBuilder: FormBuilder,
+              private router: Router, 
+              private userService: UserService, 
+              private raddressService: RaddressService, 
+              private paddressService: PaddressService, 
+              private adminApprovalService: AdminApprovalService,
+              private imageService: UploadImageService
+             ) {
+              this.imageForm = new FormGroup({
+                // Income_ID:new FormControl('',[Validators.required]),
+                Caption: new FormControl('')
+              })
+              }
 
   onSubmit(form){
     this.submitted = true;
@@ -75,7 +94,28 @@ export class RegisteruserComponent implements OnInit {
 
   }
 
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
 
+    //Show image preview
+    var reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
+
+  OnSubmit2(Caption, Image) {
+    alert("Hello")
+    this.imageService.postFile(Caption.value, this.fileToUpload).subscribe(
+      data => {
+        console.log('done');
+        Caption.value = null;
+        Image.value = null;
+        this.imageUrl = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
+      }
+    );
+  }
   checkAddress(form)
   {
     // if(this.peraddrline2=""){
@@ -101,5 +141,9 @@ export class RegisteruserComponent implements OnInit {
   get f(){
     return this.openaccountForm.controls;
   }
+
+  //image
+
+
 
 }

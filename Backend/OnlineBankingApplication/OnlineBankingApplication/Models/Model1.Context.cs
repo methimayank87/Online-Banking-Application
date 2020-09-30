@@ -25,10 +25,12 @@ namespace OnlineBankingApplication.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AadharFile> AadharFiles { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<AdminApproval> AdminApprovals { get; set; }
         public virtual DbSet<Beneficiary> Beneficiaries { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<PAddress> PAddresses { get; set; }
         public virtual DbSet<RAddress> RAddresses { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
