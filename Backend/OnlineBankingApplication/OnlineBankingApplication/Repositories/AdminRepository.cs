@@ -91,7 +91,7 @@ namespace OnlineBankingApplication.Repositories
                 return "error:" + ex.ToString();
             }
         }
-        public string PostSendMail(User user, string message)
+        public string PostSendMail(User user,MailClass temp)
         {
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -108,9 +108,9 @@ namespace OnlineBankingApplication.Repositories
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress("mayank.demomail@gmail.com");
             msg.To.Add(new MailAddress(user.Email));
-            msg.Subject = "User Registration Successful";
+            msg.Subject = temp.subject;
             msg.IsBodyHtml = true;
-            msg.Body = message;
+            msg.Body = temp.message;
             try
             {
                 client.Send(msg);
