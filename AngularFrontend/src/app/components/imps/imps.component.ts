@@ -51,7 +51,12 @@ export class ImpsComponent implements OnInit {
       "Remarks": form.value.remark
     }
     this.transactionService.addTransaction(transaction).subscribe(data => {
-      alert("Transaction successful")
+      if(data === 200){
+        alert("Transaction successful")
+      }else{
+        alert("Transaction failed")
+      }
+      
     })
   }
   get f(){

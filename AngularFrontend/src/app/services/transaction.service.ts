@@ -16,6 +16,6 @@ export class TransactionService {
   constructor(private _http : HttpClient) { }
 
   addTransaction(data){
-    return this._http.post<Transaction>(this.baseUrl,JSON.stringify(data),this.httpOptions);
+    return this._http.post<Number>(this.baseUrl,JSON.stringify(data),this.httpOptions);
   }
 }
