@@ -1,5 +1,95 @@
 
 <div class="d-flex" id="wrapper">
+    <app-sidebar></app-sidebar>
+    <div id="page-content-wrapper" >
+         <app-dashboardnavbar></app-dashboardnavbar>
+         <div class="bg">
+            <br/>
+            <h4 class="text-center login-title text-white font-weight-bold">ADD NEW BENEFICIARY</h4>
+
+           
+           
+            <div class="admin-body">
+               
+
+                <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
+        
+                            <form [formGroup]="addpayeeForm" class="form-signin" (ngSubmit)="onSubmit(addpayeeForm)">
+                              
+                                <div class="form-group">
+                                    <label for="beneficiaryname" class="font-weight-bold">
+                                        Beneficiary Name : </label>
+                                    <input type="text" class="form-control" placeholder="Beneficiary Name" formControlName="beneficiaryname" />
+        
+                                     <div *ngIf="f.beneficiaryname.touched && f.beneficiaryname.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.beneficiaryname.errors.required">Beneficiary name is required.</div>
+                                        </div> 
+                                   
+        
+        
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="beneficiarynumber" class="font-weight-bold">
+                                        Beneficiary Account Number : </label>
+                                    <input type="text" class="form-control" placeholder="Beneficiary Account Number" formControlName="beneficiarynumber" />
+        
+                                     <div *ngIf="f.beneficiarynumber.touched && f.beneficiarynumber.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.beneficiarynumber.errors.required">Beneficiary number is required.</div>
+                                        <div *ngIf="f.beneficiarynumber.errors.pattern">Only numbers are allowed.</div>
+
+                                        </div> 
+                                   
+        
+        
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="rebeneficiarynumber" class="font-weight-bold">
+                                        Re-enter Beneficiary Number : </label>
+                                    <input type="text" class="form-control" placeholder=" Re-enter Beneficiary Number" formControlName="rebeneficiarynumber" />
+                                    <div *ngIf="f.rebeneficiarynumber.touched && f.rebeneficiarynumber.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.rebeneficiarynumber.errors.required">Re entering Beneficiary number is required.</div>
+                                        <div *ngIf="f.rebeneficiarynumber.errors.confirmedValidator">Beneficiary number is not matching.</div>
+
+                                        </div> 
+        
+        
+                                </div>
+                                <div class="form-group">
+                                    <label for="savebeneficiarynumber" class="font-weight-bold"><input type="checkbox" id="savebeneficiarynumber" name="savebeneficiarynumber"  formControlName="savebeneficiarynumber">
+                                        Save Beneficiary Number : </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nickname" class="font-weight-bold">
+                                        Nickname : </label>
+                                    <input type="text" class="form-control" placeholder="Nickname" id="nickname" name="nickname" formControlName="nickname">
+        
+                                   
+        
+        
+                                </div>
+                               
+                                 &nbsp;&nbsp;
+                                
+                               
+                                <button class="btn btn-primary" type="submit"  [disabled]="!addpayeeForm.valid" >Save as beneficiary</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                               
+        
+                                <button class="btn btn-danger" type="reset"> Cancel</button><br/><br/>
+        
+                               
+                            </form>
+                </div>
+           </div>
+    </div>
+  </div> 
+
+
+
+<!-- <div class="d-flex" id="wrapper">
     <div  id="sidebar-wrapper" style="background-color: rgb(158, 180, 190);">
         <div class="sidebar-heading" style="color: black;" align="center">Dashboard</div>
         <div class="list-group list-group-flush" >
@@ -119,7 +209,7 @@
     </div>
   </div>
   
-  
+   -->
   
   
   
