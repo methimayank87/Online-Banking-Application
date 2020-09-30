@@ -32,7 +32,10 @@ export class AdminComponent implements OnInit {
     this.getRequests();
   }
   getRequests(){
-    this.adminApprovalService.getAllRequests().subscribe(data => this.listRequests = data);
+    this.adminApprovalService.getAllRequests().subscribe(data => {
+      console.log(data)
+      this.listRequests = data
+    });
   }
   setApproved(option: string){
     this.isPending = option;

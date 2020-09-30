@@ -26,6 +26,8 @@ import { AddpayeeComponent } from './components/addpayee/addpayee.component';
 import { ImpsComponent } from './components/imps/imps.component';
 import { NeftComponent } from './components/neft/neft.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DashboardnavbarComponent } from './components/dashboardnavbar/dashboardnavbar.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { RtgsComponent } from './components/rtgs/rtgs.component';
     AddpayeeComponent,
     ImpsComponent,
     NeftComponent,
-    RtgsComponent
+    RtgsComponent,
+    SidebarComponent,
+    DashboardnavbarComponent
   ],
   imports: [
     BrowserModule,
