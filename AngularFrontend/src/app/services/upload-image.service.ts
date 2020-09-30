@@ -13,11 +13,15 @@ export class UploadImageService {
   
   baseUrl:string = "https://localhost:44306/api/UploadImage";
   constructor(private _http: HttpClient) { }
-  postFile(caption: string, fileToUpload: File) {
+  postFile(caption: string, fileToUpload: File, userid) {
     console.log('Hello')
     const formData: FormData = new FormData();
-    formData.append('Image', fileToUpload, fileToUpload.name);
+    formData.append('UserID',userid)
     formData.append('ImageCaption', caption);
+    formData.append('ImageName', fileToUpload, fileToUpload.name);
+    
+
     return this._http.post(this.baseUrl, formData,this.httpOptions);
+
   }
 }

@@ -10,16 +10,19 @@ using OnlineBankingApplication.Models;
 
 namespace OnlineBankingApplication.Controllers
 {
+    [RoutePrefix("api/UploadImage")]
     public class ImageController : ApiController
     {
         [HttpPost]
-        [Route("api/UploadImage")]
-        public HttpResponseMessage UploadImage(int userId)
+        [Route("")]
+        public HttpResponseMessage UploadImage()
         {
             string imageName = null;
             var httpRequest = HttpContext.Current.Request;
             //Upload Image
             var postedFile = httpRequest.Files["Image"];
+           
+
             //Create custom filename
             //imageName = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
             imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
@@ -31,7 +34,7 @@ namespace OnlineBankingApplication.Controllers
             {
                 Image image = new Image()
                 {
-                    UserID = userId,
+                    UserID = Convert.ToInt32(httpRequest["UserID"]),
                     ImageCaption = httpRequest["ImageCaption"],
                     ImageName = imageName
                 };

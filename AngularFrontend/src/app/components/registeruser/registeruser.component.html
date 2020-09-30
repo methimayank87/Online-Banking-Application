@@ -338,7 +338,7 @@
                 <h3 class="text-center login-title text-white font-weight-bold">OPEN A SAVINGS ACCOUNT</h3>
                 <div class="account-wall">
 
-                    <div class="col s8 offset-2">
+                    <div class="col s8 offset-2" *ngIf="uploadImage">
                         <div class="card-panel teal lighten-2">
                             <h4 class="center white-text">Files To Upload</h4>
                         </div>
@@ -363,7 +363,7 @@
                     
                    <!-- <img class="profile-img" src="https://image.flaticon.com/icons/png/512/72/72648.png" alt="User Icon">-->
 
-                    <form [formGroup]="openaccountForm" (ngSubmit)="onSubmit(openaccountForm)" class="form-signin">
+                    <form [formGroup]="openaccountForm" (ngSubmit)="onSubmit(openaccountForm)" class="form-signin" *ngIf="!uploadImage">
                       
                         <div class="form-group">
                             <label for="title" class="font-weight-bold">Title</label><br/>

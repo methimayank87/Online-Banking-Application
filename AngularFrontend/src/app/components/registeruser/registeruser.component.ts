@@ -23,6 +23,7 @@ export class RegisteruserComponent implements OnInit {
   imageUrl: string = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
   fileToUpload: File = null;
   imageForm: FormGroup;
+  uploadImage: boolean = false;
   //image
   constructor(private formBuilder: FormBuilder,
               private router: Router, 
@@ -50,13 +51,14 @@ export class RegisteruserComponent implements OnInit {
     console.log(form.value)
     this.userService.registerUser(form.value).subscribe(data =>{
       this.currentUserId = data.UserID
-      this.raddressService.registerAddress(form.value,data.UserID);
-      this.paddressService.registerAddress(form.value,data.UserID);
+      //this.raddressService.registerAddress(form.value,data.UserID);
+      //this.paddressService.registerAddress(form.value,data.UserID);
       alert("User added successfully");
+      this.adminApprovalService.sendRequest(data.UserID).subscribe(data => {
+        alert("Account Creation Request Generated");
+        this.uploadImage = true;
+      })
     });
-    this.adminApprovalService.sendRequest(this.currentUserId).subscribe(data => {
-      alert("Account Creation Request Generated");
-    })
   }
 
   ngOnInit(): void {
@@ -107,12 +109,14 @@ export class RegisteruserComponent implements OnInit {
 
   OnSubmit2(Caption, Image) {
     alert("Hello")
-    this.imageService.postFile(Caption.value, this.fileToUpload).subscribe(
+    //debugger
+    this.imageService.postFile(Caption.value, this.fileToUpload,this.currentUserId).subscribe(
       data => {
         console.log('done');
         Caption.value = null;
         Image.value = null;
         this.imageUrl = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
+        this.router.navigate(['userlogin']);
       }
     );
   }
