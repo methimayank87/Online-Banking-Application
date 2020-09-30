@@ -51,14 +51,13 @@ export class RegisteruserComponent implements OnInit {
     console.log(form.value)
     this.userService.registerUser(form.value).subscribe(data =>{
       this.currentUserId = data.UserID
-      //this.raddressService.registerAddress(form.value,data.UserID);
-      //this.paddressService.registerAddress(form.value,data.UserID);
+      this.raddressService.registerAddress(form.value,data.UserID);
+      this.paddressService.registerAddress(form.value,data.UserID);
       alert("User added successfully");
-      this.adminApprovalService.sendRequest(data.UserID).subscribe(data => {
-        alert("Account Creation Request Generated");
-        this.uploadImage = true;
-      })
     });
+    this.adminApprovalService.sendRequest(this.currentUserId).subscribe(data => {
+      alert("Account Creation Request Generated");
+    })
   }
 
   ngOnInit(): void {
@@ -69,7 +68,7 @@ export class RegisteruserComponent implements OnInit {
        middlename: new FormControl (''),
       lastname: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
       gender: new FormControl('',Validators.required),
-       email: new FormControl ('',[Validators.required , Validators.pattern("^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$")]),
+       email: new FormControl ('',[Validators.required , Validators.pattern("^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$")]),
       fathername: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z][a-zA-Z\\s]+$")]),
       mobilenumber: new FormControl ('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       aadharnumber: new FormControl ('',[Validators.required, Validators.pattern("^[1-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$")]),
@@ -109,14 +108,12 @@ export class RegisteruserComponent implements OnInit {
 
   OnSubmit2(Caption, Image) {
     alert("Hello")
-    //debugger
-    this.imageService.postFile(Caption.value, this.fileToUpload,this.currentUserId).subscribe(
+    this.imageService.postFile(Caption.value, this.fileToUpload).subscribe(
       data => {
         console.log('done');
         Caption.value = null;
         Image.value = null;
         this.imageUrl = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
-        this.router.navigate(['userlogin']);
       }
     );
   }

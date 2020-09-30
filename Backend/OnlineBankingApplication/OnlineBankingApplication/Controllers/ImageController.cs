@@ -21,10 +21,8 @@ namespace OnlineBankingApplication.Controllers
             var httpRequest = HttpContext.Current.Request;
             //Upload Image
             var postedFile = httpRequest.Files["Image"];
-           
-
             //Create custom filename
-            //imageName = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
+            imageName = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
             imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
             var filePath = HttpContext.Current.Server.MapPath("~/Image/" + imageName);
             postedFile.SaveAs(filePath);
