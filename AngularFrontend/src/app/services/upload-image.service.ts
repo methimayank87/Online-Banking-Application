@@ -16,8 +16,9 @@ export class UploadImageService {
   postFile(caption: string, fileToUpload: File) {
     console.log('Hello')
     const formData: FormData = new FormData();
+    formData.append('UserID' , '10000');
     formData.append('Image', fileToUpload, fileToUpload.name);
     formData.append('ImageCaption', caption);
-    return this._http.post(this.baseUrl, formData,this.httpOptions);
+    return this._http.post(this.baseUrl, formData);
   }
 }

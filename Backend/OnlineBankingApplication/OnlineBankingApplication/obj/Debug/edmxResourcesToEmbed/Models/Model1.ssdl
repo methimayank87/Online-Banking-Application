@@ -108,7 +108,7 @@
     <Property Name="NetBankingOpted" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="DateOfApplication" Type="date" Nullable="false" />
   </EntityType>
-  <Association Name="FK__AadharFil__UserI__46B27FE2">
+  <Association Name="FK__AadharFil__UserI__619B8048">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="AadharFile" Type="Self.AadharFile" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -120,7 +120,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Account__UserID__2BFE89A6">
+  <Association Name="FK__Account__UserID__267ABA7A">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Account" Type="Self.Account" Multiplicity="*" />
     <ReferentialConstraint>
@@ -132,7 +132,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__AdminAppr__Admin__37703C52">
+  <Association Name="FK__AdminAppr__Admin__31EC6D26">
     <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
     <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
     <ReferentialConstraint>
@@ -144,7 +144,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__AdminAppr__UserI__367C1819">
+  <Association Name="FK__AdminAppr__UserI__30F848ED">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
     <ReferentialConstraint>
@@ -156,7 +156,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Beneficia__BenAc__2FCF1A8A">
+  <Association Name="FK__Beneficia__BenAc__2A4B4B5E">
     <End Role="Account" Type="Self.Account" Multiplicity="1" />
     <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -168,7 +168,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Beneficia__UserA__2EDAF651">
+  <Association Name="FK__Beneficia__UserA__29572725">
     <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
     <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="*" />
     <ReferentialConstraint>
@@ -180,7 +180,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Image__UserID__43D61337">
+  <Association Name="FK__Image__UserID__5EBF139D">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -192,7 +192,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PAddress__UserID__40F9A68C">
+  <Association Name="FK__PAddress__UserID__3B75D760">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="PAddress" Type="Self.PAddress" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -204,7 +204,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RAddress__UserID__3E1D39E1">
+  <Association Name="FK__RAddress__UserID__38996AB5">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="RAddress" Type="Self.RAddress" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -216,7 +216,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Transacti__Recei__3B40CD36">
+  <Association Name="FK__Transacti__Recei__4AB81AF0">
     <End Role="Account" Type="Self.Account" Multiplicity="1" />
     <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -228,7 +228,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Transacti__Sende__3A4CA8FD">
+  <Association Name="FK__Transacti__Sende__49C3F6B7">
     <End Role="Account" Type="Self.Account" Multiplicity="1" />
     <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
     <ReferentialConstraint>
@@ -251,47 +251,47 @@
     <EntitySet Name="RAddress" EntityType="Self.RAddress" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__AadharFil__UserI__46B27FE2" Association="Self.FK__AadharFil__UserI__46B27FE2">
+    <AssociationSet Name="FK__AadharFil__UserI__619B8048" Association="Self.FK__AadharFil__UserI__619B8048">
       <End Role="Users" EntitySet="Users" />
       <End Role="AadharFile" EntitySet="AadharFile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Account__UserID__2BFE89A6" Association="Self.FK__Account__UserID__2BFE89A6">
+    <AssociationSet Name="FK__Account__UserID__267ABA7A" Association="Self.FK__Account__UserID__267ABA7A">
       <End Role="Users" EntitySet="Users" />
       <End Role="Account" EntitySet="Account" />
     </AssociationSet>
-    <AssociationSet Name="FK__AdminAppr__Admin__37703C52" Association="Self.FK__AdminAppr__Admin__37703C52">
+    <AssociationSet Name="FK__AdminAppr__Admin__31EC6D26" Association="Self.FK__AdminAppr__Admin__31EC6D26">
       <End Role="Admin" EntitySet="Admin" />
       <End Role="AdminApproval" EntitySet="AdminApproval" />
     </AssociationSet>
-    <AssociationSet Name="FK__AdminAppr__UserI__367C1819" Association="Self.FK__AdminAppr__UserI__367C1819">
+    <AssociationSet Name="FK__AdminAppr__UserI__30F848ED" Association="Self.FK__AdminAppr__UserI__30F848ED">
       <End Role="Users" EntitySet="Users" />
       <End Role="AdminApproval" EntitySet="AdminApproval" />
     </AssociationSet>
-    <AssociationSet Name="FK__Beneficia__BenAc__2FCF1A8A" Association="Self.FK__Beneficia__BenAc__2FCF1A8A">
+    <AssociationSet Name="FK__Beneficia__BenAc__2A4B4B5E" Association="Self.FK__Beneficia__BenAc__2A4B4B5E">
       <End Role="Account" EntitySet="Account" />
       <End Role="Beneficiary" EntitySet="Beneficiary" />
     </AssociationSet>
-    <AssociationSet Name="FK__Beneficia__UserA__2EDAF651" Association="Self.FK__Beneficia__UserA__2EDAF651">
+    <AssociationSet Name="FK__Beneficia__UserA__29572725" Association="Self.FK__Beneficia__UserA__29572725">
       <End Role="Account" EntitySet="Account" />
       <End Role="Beneficiary" EntitySet="Beneficiary" />
     </AssociationSet>
-    <AssociationSet Name="FK__Image__UserID__43D61337" Association="Self.FK__Image__UserID__43D61337">
+    <AssociationSet Name="FK__Image__UserID__5EBF139D" Association="Self.FK__Image__UserID__5EBF139D">
       <End Role="Users" EntitySet="Users" />
       <End Role="Image" EntitySet="Image" />
     </AssociationSet>
-    <AssociationSet Name="FK__PAddress__UserID__40F9A68C" Association="Self.FK__PAddress__UserID__40F9A68C">
+    <AssociationSet Name="FK__PAddress__UserID__3B75D760" Association="Self.FK__PAddress__UserID__3B75D760">
       <End Role="Users" EntitySet="Users" />
       <End Role="PAddress" EntitySet="PAddress" />
     </AssociationSet>
-    <AssociationSet Name="FK__RAddress__UserID__3E1D39E1" Association="Self.FK__RAddress__UserID__3E1D39E1">
+    <AssociationSet Name="FK__RAddress__UserID__38996AB5" Association="Self.FK__RAddress__UserID__38996AB5">
       <End Role="Users" EntitySet="Users" />
       <End Role="RAddress" EntitySet="RAddress" />
     </AssociationSet>
-    <AssociationSet Name="FK__Transacti__Recei__3B40CD36" Association="Self.FK__Transacti__Recei__3B40CD36">
+    <AssociationSet Name="FK__Transacti__Recei__4AB81AF0" Association="Self.FK__Transacti__Recei__4AB81AF0">
       <End Role="Account" EntitySet="Account" />
       <End Role="Transactions" EntitySet="Transactions" />
     </AssociationSet>
-    <AssociationSet Name="FK__Transacti__Sende__3A4CA8FD" Association="Self.FK__Transacti__Sende__3A4CA8FD">
+    <AssociationSet Name="FK__Transacti__Sende__49C3F6B7" Association="Self.FK__Transacti__Sende__49C3F6B7">
       <End Role="Account" EntitySet="Account" />
       <End Role="Transactions" EntitySet="Transactions" />
     </AssociationSet>

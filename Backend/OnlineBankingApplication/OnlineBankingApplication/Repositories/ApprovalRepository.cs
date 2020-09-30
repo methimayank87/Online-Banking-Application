@@ -40,7 +40,8 @@ namespace OnlineBankingApplication.Repositories
 
         public IEnumerable<AdminApproval> GetAll()
         {
-            return _projectContext.Approvals.ToList();
+            var approvals = _projectContext.Approvals.ToList();
+            return approvals;
         }
 
         public AdminApproval GetByAccount(long id)
