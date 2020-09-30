@@ -28,6 +28,14 @@ namespace OnlineBankingApplication.Controllers
         }
 
         [HttpGet]
+        [Route("accounts/{id}/getbydate")]
+        public IEnumerable<Transaction> GettransactionsByDate([FromBody] DateClass date, long id)
+        {
+            var trans = _transrepository.GetByDate(date,id);
+            return trans;
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public Transaction GetTransactionsbyId(int id)
         {

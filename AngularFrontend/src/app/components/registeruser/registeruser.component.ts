@@ -54,10 +54,10 @@ export class RegisteruserComponent implements OnInit {
       this.raddressService.registerAddress(form.value,data.UserID);
       this.paddressService.registerAddress(form.value,data.UserID);
       alert("User added successfully");
+      this.adminApprovalService.sendRequest(this.currentUserId).subscribe(data => {
+        alert("Account Creation Request Generated");
+      })
     });
-    this.adminApprovalService.sendRequest(this.currentUserId).subscribe(data => {
-      alert("Account Creation Request Generated");
-    })
   }
 
   ngOnInit(): void {

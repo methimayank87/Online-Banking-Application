@@ -32,6 +32,15 @@ namespace OnlineBankingApplication.Repositories
                         select trans;
             return transactions.ToList();
         }
+        public IEnumerable<Transaction> GetByDate(DateClass date,long id)
+        {
+            var transactions = from trans in _projectContext.transactions
+                               where ((trans.SenderAccount == id && (trans.TransactionDate >= date.startDate && trans.TransactionDate <= date.endDate)) || (trans.ReceiverAccount == id && (trans.TransactionDate >= date.startDate && trans.TransactionDate <= date.endDate)))
+                               orderby trans.TransactionDate descending
+                               select trans;
+            return transactions.ToList();
+        }
+
 
         public int UpdateBalance(Transaction transaction)
         {

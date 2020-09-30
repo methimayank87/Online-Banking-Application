@@ -205,6 +205,7 @@
     <Compile Include="Models\Beneficiary.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DateClass.cs" />
     <Compile Include="Models\Demo.cs" />
     <Compile Include="Models\Image.cs">
       <DependentUpon>Model1.tt</DependentUpon>

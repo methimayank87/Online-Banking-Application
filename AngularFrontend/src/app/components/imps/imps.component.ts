@@ -42,6 +42,7 @@ export class ImpsComponent implements OnInit {
 
   onSubmit(form){
     const sender = localStorage.getItem('Accno');
+    console.log(this.beneficiary);
     const transaction = {
       "TransactionMode": "IMPS",
       "SenderAccount": sender,
