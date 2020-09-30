@@ -23,6 +23,7 @@ export class RegisteruserComponent implements OnInit {
   imageUrl: string = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
   fileToUpload: File = null;
   imageForm: FormGroup;
+  uploadImage: boolean = false;
   //image
   constructor(private formBuilder: FormBuilder,
               private router: Router, 
@@ -67,7 +68,7 @@ export class RegisteruserComponent implements OnInit {
        middlename: new FormControl (''),
       lastname: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
       gender: new FormControl('',Validators.required),
-       email: new FormControl ('',[Validators.required , Validators.pattern("^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$")]),
+       email: new FormControl ('',[Validators.required , Validators.pattern("^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$")]),
       fathername: new FormControl ('',[Validators.required, Validators.pattern("^[a-zA-Z][a-zA-Z\\s]+$")]),
       mobilenumber: new FormControl ('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       aadharnumber: new FormControl ('',[Validators.required, Validators.pattern("^[1-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$")]),
