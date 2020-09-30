@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="gladiatorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AadharFile">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FileCaption" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="AccountNumber" />
@@ -40,6 +48,14 @@
           <Property Name="BenAccountNumber" Type="bigint" Nullable="false" />
           <Property Name="NickName" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="UserAccountNumber" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ImageCaption" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageName" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="PAddress">
           <Key>
@@ -97,6 +113,18 @@
           <Property Name="NetBankingOpted" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="DateOfApplication" Type="date" Nullable="false" />
         </EntityType>
+        <Association Name="FK__AadharFil__UserI__619B8048">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="AadharFile" Type="Self.AadharFile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AadharFile">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Account__UserID__267ABA7A">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
@@ -157,6 +185,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Image__UserID__5EBF139D">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__PAddress__UserID__3B75D760">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="PAddress" Type="Self.PAddress" Multiplicity="0..1" />
@@ -206,14 +246,20 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="gladiatorDBModelStoreContainer">
+          <EntitySet Name="AadharFile" EntityType="Self.AadharFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AdminApproval" EntityType="Self.AdminApproval" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Beneficiary" EntityType="Self.Beneficiary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAddress" EntityType="Self.PAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RAddress" EntityType="Self.RAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AadharFil__UserI__619B8048" Association="Self.FK__AadharFil__UserI__619B8048">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AadharFile" EntitySet="AadharFile" />
+          </AssociationSet>
           <AssociationSet Name="FK__Account__UserID__267ABA7A" Association="Self.FK__Account__UserID__267ABA7A">
             <End Role="Users" EntitySet="Users" />
             <End Role="Account" EntitySet="Account" />
@@ -233,6 +279,10 @@
           <AssociationSet Name="FK__Beneficia__UserA__29572725" Association="Self.FK__Beneficia__UserA__29572725">
             <End Role="Account" EntitySet="Account" />
             <End Role="Beneficiary" EntitySet="Beneficiary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Image__UserID__5EBF139D" Association="Self.FK__Image__UserID__5EBF139D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Image" EntitySet="Image" />
           </AssociationSet>
           <AssociationSet Name="FK__PAddress__UserID__3B75D760" Association="Self.FK__PAddress__UserID__3B75D760">
             <End Role="Users" EntitySet="Users" />
@@ -256,6 +306,15 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="gladiatorDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AadharFile">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FileCaption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__AadharFil__UserI__619B8048" FromRole="AadharFile" ToRole="Users" />
+        </EntityType>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="AccountNumber" />
@@ -301,6 +360,15 @@
           <Property Name="UserAccountNumber" Type="Int64" />
           <NavigationProperty Name="Account" Relationship="Self.FK__Beneficia__BenAc__2A4B4B5E" FromRole="Beneficiary" ToRole="Account" />
           <NavigationProperty Name="Account1" Relationship="Self.FK__Beneficia__UserA__29572725" FromRole="Beneficiary" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ImageCaption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Image__UserID__5EBF139D" FromRole="Image" ToRole="Users" />
         </EntityType>
         <EntityType Name="PAddress">
           <Key>
@@ -361,11 +429,25 @@
           <Property Name="DebitCardOpted" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NetBankingOpted" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateOfApplication" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="AadharFile" Relationship="Self.FK__AadharFil__UserI__619B8048" FromRole="Users" ToRole="AadharFile" />
           <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__UserID__267ABA7A" FromRole="Users" ToRole="Account" />
           <NavigationProperty Name="AdminApprovals" Relationship="Self.FK__AdminAppr__UserI__30F848ED" FromRole="Users" ToRole="AdminApproval" />
+          <NavigationProperty Name="Image" Relationship="Self.FK__Image__UserID__5EBF139D" FromRole="Users" ToRole="Image" />
           <NavigationProperty Name="PAddress" Relationship="Self.FK__PAddress__UserID__3B75D760" FromRole="Users" ToRole="PAddress" />
           <NavigationProperty Name="RAddress" Relationship="Self.FK__RAddress__UserID__38996AB5" FromRole="Users" ToRole="RAddress" />
         </EntityType>
+        <Association Name="FK__AadharFil__UserI__619B8048">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="AadharFile" Type="Self.AadharFile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AadharFile">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Account__UserID__267ABA7A">
           <End Role="Users" Type="Self.User" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
@@ -450,6 +532,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Image__UserID__5EBF139D">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__PAddress__UserID__3B75D760">
           <End Role="Users" Type="Self.User" Multiplicity="1" />
           <End Role="PAddress" Type="Self.PAddress" Multiplicity="0..1" />
@@ -475,14 +569,20 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="gladiatorDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AadharFiles" EntityType="Self.AadharFile" />
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="AdminApprovals" EntityType="Self.AdminApproval" />
           <EntitySet Name="Beneficiaries" EntityType="Self.Beneficiary" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
           <EntitySet Name="PAddresses" EntityType="Self.PAddress" />
           <EntitySet Name="RAddresses" EntityType="Self.RAddress" />
           <EntitySet Name="Transactions" EntityType="Self.Transaction" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__AadharFil__UserI__619B8048" Association="Self.FK__AadharFil__UserI__619B8048">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AadharFile" EntitySet="AadharFiles" />
+          </AssociationSet>
           <AssociationSet Name="FK__Account__UserID__267ABA7A" Association="Self.FK__Account__UserID__267ABA7A">
             <End Role="Users" EntitySet="Users" />
             <End Role="Account" EntitySet="Accounts" />
@@ -511,6 +611,10 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="AdminApproval" EntitySet="AdminApprovals" />
           </AssociationSet>
+          <AssociationSet Name="FK__Image__UserID__5EBF139D" Association="Self.FK__Image__UserID__5EBF139D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
           <AssociationSet Name="FK__PAddress__UserID__3B75D760" Association="Self.FK__PAddress__UserID__3B75D760">
             <End Role="Users" EntitySet="Users" />
             <End Role="PAddress" EntitySet="PAddresses" />
@@ -526,6 +630,15 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="gladiatorDBModelStoreContainer" CdmEntityContainer="gladiatorDBEntities">
+          <EntitySetMapping Name="AadharFiles">
+            <EntityTypeMapping TypeName="gladiatorDBModel.AadharFile">
+              <MappingFragment StoreEntitySet="AadharFile">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FileCaption" ColumnName="FileCaption" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="gladiatorDBModel.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -563,6 +676,15 @@
                 <ScalarProperty Name="BenAccountNumber" ColumnName="BenAccountNumber" />
                 <ScalarProperty Name="NickName" ColumnName="NickName" />
                 <ScalarProperty Name="UserAccountNumber" ColumnName="UserAccountNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="gladiatorDBModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="gladiatorDBModelStoreContainer" CdmEntityContainer="gladiatorDBEntities">
+    <EntitySetMapping Name="AadharFiles">
+      <EntityTypeMapping TypeName="gladiatorDBModel.AadharFile">
+        <MappingFragment StoreEntitySet="AadharFile">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FileCaption" ColumnName="FileCaption" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="gladiatorDBModel.Account">
         <MappingFragment StoreEntitySet="Account">
@@ -38,6 +47,15 @@
           <ScalarProperty Name="BenAccountNumber" ColumnName="BenAccountNumber" />
           <ScalarProperty Name="NickName" ColumnName="NickName" />
           <ScalarProperty Name="UserAccountNumber" ColumnName="UserAccountNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="gladiatorDBModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

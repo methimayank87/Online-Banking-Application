@@ -37,10 +37,12 @@ namespace OnlineBankingApplication.Models
         public string NetBankingOpted { get; set; }
         public System.DateTime DateOfApplication { get; set; }
     
+        public virtual AadharFile AadharFile { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AdminApproval> AdminApprovals { get; set; }
+        public virtual Image Image { get; set; }
         public virtual PAddress PAddress { get; set; }
         public virtual RAddress RAddress { get; set; }
     }

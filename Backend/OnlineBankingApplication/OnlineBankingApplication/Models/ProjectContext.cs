@@ -20,6 +20,8 @@ namespace OnlineBankingApplication.Models
         public DbSet<PAddress> pAddresses { get; set; }
         public DbSet<RAddress> rAddresses { get; set; }
         public DbSet<Transaction> transactions { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<AadharFile> AadharFiles { get; set; }
 
     }
 }
