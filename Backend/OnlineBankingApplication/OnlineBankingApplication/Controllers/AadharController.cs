@@ -14,14 +14,14 @@ namespace OnlineBankingApplication.Controllers
     {
         [HttpPost]
         [Route("api/UploadAadhar")]
-        public HttpResponseMessage UploadImage(int userId)
+        public HttpResponseMessage UploadImage()
         {
             string imageName = null;
             var httpRequest = HttpContext.Current.Request;
             //Upload Image
             var postedFile = httpRequest.Files["AadharFile"];
             //Create custom filename
-            //imageName = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
+            imageName = new String(Path.GetFileNameWithoutExtension(postedFile.FileName).Take(10).ToArray()).Replace(" ", "-");
             imageName = imageName + DateTime.Now.ToString("yymmssfff") + Path.GetExtension(postedFile.FileName);
             var filePath = HttpContext.Current.Server.MapPath("~/Image/" + imageName);
             postedFile.SaveAs(filePath);
@@ -31,7 +31,7 @@ namespace OnlineBankingApplication.Controllers
             {
                 AadharFile file = new AadharFile()
                 {
-                    UserID = userId,
+                    UserID = Convert.ToInt32(httpRequest["UserID"]),
                     FileCaption = httpRequest["ImageCaption"],
                     FileName = imageName
                 };
