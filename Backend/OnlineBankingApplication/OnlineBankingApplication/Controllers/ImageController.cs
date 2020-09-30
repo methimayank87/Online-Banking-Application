@@ -10,11 +10,12 @@ using OnlineBankingApplication.Models;
 
 namespace OnlineBankingApplication.Controllers
 {
+    [RoutePrefix("api/UploadImage")]
     public class ImageController : ApiController
     {
         [HttpPost]
-        [Route("api/UploadImage")]
-        public HttpResponseMessage UploadImage(int userId)
+        [Route("")]
+        public HttpResponseMessage UploadImage()
         {
             string imageName = null;
             var httpRequest = HttpContext.Current.Request;
@@ -31,7 +32,7 @@ namespace OnlineBankingApplication.Controllers
             {
                 Image image = new Image()
                 {
-                    UserID = userId,
+                    UserID = Convert.ToInt32(httpRequest["UserID"]),
                     ImageCaption = httpRequest["ImageCaption"],
                     ImageName = imageName
                 };

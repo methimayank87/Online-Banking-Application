@@ -49,25 +49,25 @@ namespace OnlineBankingApplication.Controllers
         public IHttpActionResult BulkSms([FromBody] string message)
         {
             var users = _adminRepository.GetUsers();
+            var otp = "";
             foreach(var u in users)
             {
-                var otp = _adminRepository.postSendMsg(u , message);
-                return Ok(otp);
+                otp = _adminRepository.postSendMsg(u , message);
             }
-            return Ok("Message not sent.");
+            return Ok(otp);
         }
 
         [HttpPost]
         [Route("bulkmail")]
-        public IHttpActionResult BulkMail([FromBody] string message)
+        public IHttpActionResult BulkMail([FromBody] MailClass message)
         {
             var users = _adminRepository.GetUsers();
+            var msg = "";
             foreach (var u in users)
             {
-                var msg = _adminRepository.PostSendMail(u, message);
-                return Ok(msg);
+                msg = _adminRepository.PostSendMail(u,message);
             }
-            return Ok("Message not sent.");
+            return Ok(msg);
         }
 
         [HttpDelete]
