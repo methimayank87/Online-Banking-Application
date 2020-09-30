@@ -3,7 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from"@angular/forms";
 import {Router} from"@angular/router";
 // import { UserService } from 'src/app/services/user.service';
 // import { User } from 'src/app/model/User';
-// import { AccountService } from 'src/app/services/account.service';
+import { AccountService } from 'src/app/services/account.service';
 // import { Account } from 'src/app/model/Account';
 import { LoginService } from 'src/app/services/login.service';
 @Component({
@@ -17,7 +17,7 @@ export class UserloginComponent implements OnInit {
   userOtpForm: FormGroup;
   current: Number;
   loggedIn: boolean = false;
-  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService, private accountService: AccountService) {
 
     this.userloginForm = this.formBuilder.group({
       userid:new FormControl('', Validators.required),
@@ -38,6 +38,10 @@ export class UserloginComponent implements OnInit {
         console.log(data);
           this.loggedIn = true;
           this.current = data;
+          localStorage.setItem('UserId',form.value.userid)
+          this.accountService.getAccountById(form.value.userid).subscribe(data => {
+            localStorage.setItem('Accno', data.AccountNumber);
+          })
       })
     // this.accountService.getAccountById(form.value.userid).subscribe(data => {
     //   try{

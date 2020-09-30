@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Account } from 'src/app/model/Account';
-
+import { Beneficiary } from 'src/app/model/Beneficiary';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,5 +32,15 @@ export class AccountService {
   }
   updateAccount(account : Account){
     return this._http.put(this.baseUrl + '/' + account.UserID,JSON.stringify(account),this.httpOptions);
+  }
+
+  addBeneficiary(data){
+    const accno = localStorage.getItem('Accno')
+    return this._http.post<Beneficiary>(this.baseUrl + '/' + accno + '/beneficiaries',JSON.stringify(data),this.httpOptions);
+  }
+
+  getAllBeneficiaries(){
+    const accno = localStorage.getItem('Accno')
+    return this._http.get<Beneficiary[]>(this.baseUrl + '/' + accno + '/beneficiaries')
   }
 }
