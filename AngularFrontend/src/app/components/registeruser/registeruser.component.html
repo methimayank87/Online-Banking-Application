@@ -364,13 +364,22 @@
                       
                         <div class="form-group">
                             <label for="title" class="font-weight-bold">Title</label><br/>
+
+                            <select class="form-control" id="title" formControlName="title">
+                                <option value="" disabled selected hidden>Select a title</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Miss">Miss</option>
+                            </select>
                                
-                            <input list="titles" name="title" id="title" formControlName="title" placeholder="Select a title" />
+                            <!-- <input list="titles" name="title" id="title" formControlName="title" placeholder="Select a title" />
+
                             <datalist id="titles">
                                 <option value="Ms">Ms</option>
                                 <option value="Mr">Mr</option>
                                 <option value="Mrs">Mrs</option>
-                            </datalist>
+                            </datalist> -->
+
                             <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
                                 <div *ngIf="f.title.errors.required">Title is required.</div>
                             </div>                                    
