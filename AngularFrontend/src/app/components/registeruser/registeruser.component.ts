@@ -19,6 +19,7 @@ export class RegisteruserComponent implements OnInit {
   submitted: boolean = false;
   invalidRegister: boolean = false;
   currentUserId:number = 0;
+  clicked:boolean=false;
   //image
   imageUrl: string = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
   fileToUpload: File = null;
@@ -41,13 +42,7 @@ export class RegisteruserComponent implements OnInit {
 
   onSubmit(form){
     this.submitted = true;
-    // if(this.openaccountForm.invalid)
-    // {
-    //   return;
-    // }
-    // else{
-    // this.invalidRegister = true;
-    // }
+   
     console.log(form.value)
     this.userService.registerUser(form.value).subscribe(data =>{
       this.currentUserId = data.UserID
@@ -119,23 +114,61 @@ export class RegisteruserComponent implements OnInit {
   }
   checkAddress(form)
   {
+   
+    console.log(form.value);
     // if(this.peraddrline2=""){
     // this.peraddrline2= ((document.getElementById("addrline1")as HTMLInputElement).value);
     // }
-
+    if(!this.clicked){
     ((document.getElementById("peraddrline1")as HTMLInputElement).value)=((document.getElementById("addrline1")as HTMLInputElement).value);
-    ((document.getElementById("peraddrline2")as HTMLInputElement).value)=((document.getElementById("addrline2")as HTMLInputElement).value);
-    ((document.getElementById("perlandmark")as HTMLInputElement).value)=((document.getElementById("landmark")as HTMLInputElement).value);
-    ((document.getElementById("perstate")as HTMLInputElement).value)=((document.getElementById("state")as HTMLInputElement).value);
-    ((document.getElementById("percity")as HTMLInputElement).value)=((document.getElementById("city")as HTMLInputElement).value);
-    ((document.getElementById("perpincode")as HTMLInputElement).value)=((document.getElementById("pincode")as HTMLInputElement).value);
+    (document.getElementById("peraddrline1")as HTMLInputElement).disabled=true;
 
-    form.value.peraddrline1 = form.value.addrline1;
-    form.value.peraddrline2 = form.value.addrline2;
-    form.value.perlandmark = form.value.landmark;
-    form.value.perstate = form.value.state;
-    form.value.percity = form.value.city;
-    form.value.perpincode = form.value.pincode;
+    ((document.getElementById("peraddrline2")as HTMLInputElement).value)=((document.getElementById("addrline2")as HTMLInputElement).value);
+    (document.getElementById("peraddrline2")as HTMLInputElement).disabled=true;
+
+    ((document.getElementById("perlandmark")as HTMLInputElement).value)=((document.getElementById("landmark")as HTMLInputElement).value);
+    (document.getElementById("perlandmark")as HTMLInputElement).disabled=true;
+
+    ((document.getElementById("perstate")as HTMLInputElement).value)=((document.getElementById("state")as HTMLInputElement).value);
+    (document.getElementById("perstate")as HTMLInputElement).disabled=true;
+
+    ((document.getElementById("percity")as HTMLInputElement).value)=((document.getElementById("city")as HTMLInputElement).value);
+    (document.getElementById("percity")as HTMLInputElement).disabled=true;
+
+    ((document.getElementById("perpincode")as HTMLInputElement).value)=((document.getElementById("pincode")as HTMLInputElement).value);
+    (document.getElementById("perpincode")as HTMLInputElement).disabled=true;
+    }
+    else
+    {
+      (document.getElementById("peraddrline1")as HTMLInputElement).value="";
+      (document.getElementById("peraddrline1")as HTMLInputElement).disabled=false;
+
+      (document.getElementById("peraddrline2")as HTMLInputElement).value="";
+      (document.getElementById("peraddrline2")as HTMLInputElement).disabled=false;
+
+      (document.getElementById("perlandmark")as HTMLInputElement).value="";
+      (document.getElementById("perlandmark")as HTMLInputElement).disabled=false;
+
+      (document.getElementById("perstate")as HTMLInputElement).value="";
+      (document.getElementById("perstate")as HTMLInputElement).disabled=false;
+
+      (document.getElementById("percity")as HTMLInputElement).value="";
+      (document.getElementById("percity")as HTMLInputElement).disabled=false;
+
+      (document.getElementById("perpincode")as HTMLInputElement).value="";
+      (document.getElementById("perpincode")as HTMLInputElement).disabled=false;
+      
+
+    }
+
+    this.clicked=!this.clicked;
+
+    // form.value.peraddrline1 = form.value.addrline1;
+    // form.value.peraddrline2 = form.value.addrline2;
+    // form.value.perlandmark = form.value.landmark;
+    // form.value.perstate = form.value.state;
+    // form.value.percity = form.value.city;
+    // form.value.perpincode = form.value.pincode;
     
   }
 
