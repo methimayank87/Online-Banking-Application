@@ -1,0 +1,109 @@
+body {
+    overflow-x: hidden;
+  }
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+  }
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  #sidebar-wrapper .list-group{
+    width: 15rem;
+  }
+  .list-group-item{
+    list-style-type: none;
+  }
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+  .dropdown{
+      margin-right: 0;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .user-body
+  {
+       -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      background-color: rgb(209, 209, 228); 
+   
+  
+      margin-left: 20px;
+      margin-right: 20px;
+     
+  
+      /* padding-left: 20px;
+      padding-right: 20px;  */
+  
+      height: auto;
+      padding-left: 20px;
+      text-align: center;
+  }
+  
+  
+   
+    .dropdown{
+        margin-right: 0;
+    }
+  
+    .bgpic{
+       background-position: center;
+       background-repeat: no-repeat; 
+       background-size: cover;
+  
+       background-image: url("https://1635839773.rsc.cdn77.org/sites/default/files/6Spring.jpg"); 
+  
+     
+       height:100%;
+  
+       
+      
+     
+    
+   }
+  
+  
+   
+  
+    .profile-img
+  {
+      padding-top: 6px;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 10px;
+      display: block;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      
+  }

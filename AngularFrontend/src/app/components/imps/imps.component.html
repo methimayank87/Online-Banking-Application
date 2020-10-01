@@ -1,0 +1,254 @@
+
+<div class="d-flex" id="wrapper">
+    <app-sidebar></app-sidebar>
+    <div id="page-content-wrapper" >
+         <app-dashboardnavbar></app-dashboardnavbar>
+         <div class="bg">
+            <br/>
+            <h4 class="text-center login-title text-white font-weight-bold">INITIATE IMPS PAYMENT</h4>
+
+           
+           
+            <div class="admin-body">
+               
+
+                <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
+        
+                            <form [formGroup]="impsForm" class="form-signin" (ngSubmit)="onSubmit(impsForm)" *ngIf="!showOtp">
+                              
+
+                                <div class="form-group">
+                                        <label for="toaccount" class="font-weight-bold">To Account : <button type="btn btn-success" routerLink="/addpayee">Add New+</button></label>
+                                        <select class="form-control" id="toaccount" formControlName="toaccount">
+                                            <option value="" disabled selected hidden>Choose Beneficiary...</option>
+                                          <option *ngFor="let ben of listBeneficiaries" (click)="setBen(ben)">{{ben.Name}}</option>
+                                        </select>
+                                     <div *ngIf="f.toaccount.touched && f.toaccount.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.toaccount.errors.required">This field is required.</div>
+                                        </div> 
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="amount" class="font-weight-bold">
+                                        Amount : </label>
+                                    <input type="number" class="form-control" placeholder="Amount" formControlName="amount" />
+        
+                                     <div *ngIf="f.amount.touched && f.amount.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.amount.errors.required">Amount is required.</div>
+                                        <div *ngIf="f.amount.errors.pattern">Only numbers are allowed.</div>
+
+                                        </div> 
+        
+                                </div>
+                              
+
+                                <div class="form-group">
+                                    <label for="instructions" class="font-weight-bold">
+                                        Maturity Instructions : </label>
+                                    <input type="text" class="form-control" placeholder="Maturity Instructions" >
+        
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="remark" class="font-weight-bold">
+                                       Remark : </label>
+                                    <input type="text" class="form-control" placeholder="Remark"  formControlName="remark">
+        
+                                </div>
+                                <div class="form-group">
+                                    <label for="transactionpwd" class="font-weight-bold">
+                                       Set Transaction Password : </label>
+                                    <input type="password" class="form-control" placeholder="Set Transaction Password" formControlName="transactionpwd" id="transactionpwd"/>
+        
+                                    <div *ngIf="f.transactionpwd.touched && f.transactionpwd.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.transactionpwd.errors.required">Transaction password is required.</div>
+                                    </div>
+        
+        
+                                </div>
+                                
+                                 <button class="btn btn-success" type="reset"> Save</button> &nbsp; &nbsp;
+                                 <button class="btn btn-danger" type="reset"> Reset</button>  &nbsp;
+                                 <button class="btn btn-success" type="reset"> Save as Template</button><br/> <br/>
+                                
+                                 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                                <button class="btn btn-primary" type="submit"  [disabled]="!impsForm.valid"  >Continue</button>
+                               <br/><br/>
+        
+                               
+                            </form>
+                            <form [formGroup]="otpForm" (ngSubmit)="onSubmit2(otpForm)" class="form-signin" *ngIf="showOtp">
+                                <div class="form-group">
+                                    <label for="otp" class="font-weight-bold">
+                                        Enter OTP : </label>
+                                    <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
+        
+        
+                                    <div *ngIf="f2.otp.touched && f2.otp.invalid" class="alert alert-danger">
+                                        <div *ngIf="f2.otp.errors.required">OTP is required.</div>
+                                        <div *ngIf="f2.otp.errors.minlength">OTP should be of 4 digits.</div>
+                                        <div *ngIf="f2.otp.errors.maxlength">OTP should be of 4 digits.</div>
+                                        <div *ngIf="f2.otp.errors.pattern">Enter only numbers.</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-success" type="submit" [disabled]="!otpForm.valid">Proceed</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                                <button class="btn btn-primary" routerLink="/"> Back</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-danger" type="reset"> Cancel</button>
+                            </form>
+                </div>
+ 
+          
+          
+        </div>
+
+    </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="d-flex" id="wrapper">
+    <div  id="sidebar-wrapper" style="background-color: rgb(158, 180, 190);">
+        <div class="sidebar-heading" style="color: black;" align="center">Dashboard</div>
+        <div class="list-group list-group-flush" >
+            <ul class ="list-group-item list-group-item-action" style="background-color: rgb(158, 180, 190);">
+              <li><a routerLink="/userprofile" class ="list-group-item list-group-item-action" style="background-color: rgb(69, 69, 71);color: white;">Account Details</a></li>
+                <li><a class ="list-group-item list-group-item-action" style="background-color: rgb(94, 94, 109);color: white;">Account Summary</a></li>
+                <li><a routerLink="/fundstransfer" class ="list-group-item list-group-item-action" style="background-color: rgb(133, 133, 155);color: white;">Funds Transfer</a></li>
+                <li><a class ="list-group-item list-group-item-action bg-light">Account Statement</a></li>
+          </ul>
+        </div>
+    </div>
+    <div id="page-content-wrapper" >
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(75, 75, 134);">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <a href="#" class="navbar-brand">Online Banking Application</a>
+              
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: white;">Services</a> 
+                    <div class="dropdown-menu">
+                        <a  href="#" class="dropdown-item">Account Statement</a>
+                        <a routerLink="/fundstransfer" class="dropdown-item">Funds Transfer</a>
+                        <a  routerLink="/userprofile" class="dropdown-item">User Profile</a>
+                        <a  href="#" class="dropdown-item">Change UserID Password</a>
+                    </div>
+            </div>
+            
+            </div>
+            <marquee behavior="scroll" direction="right" class="navbar-brand">Welcome User!</marquee>
+        </nav>
+       
+  
+  
+        <div class="bg">
+            <br/>
+            <h4 class="text-center login-title text-white font-weight-bold">INITIATE IMPS PAYMENT</h4>
+
+           
+           
+            <div class="admin-body">
+               
+
+                <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
+        
+                            <form [formGroup]="impsForm" class="form-signin" (ngSubmit)="onSubmit(impsForm)">
+                              
+
+                                <div class="form-group">
+                                        <label for="toaccount" class="font-weight-bold">To Account : <button type="btn btn-success" routerLink="/addpayee">Add New+</button></label>
+                                        <select class="form-control" id="toaccount" formControlName="toaccount">
+                                            <option value="" disabled selected hidden>Choose Beneficiary...</option>
+                                          <option *ngFor="let ben of listBeneficiaries" (click)="setBen(ben)">{{ben.Name}}</option>
+                                        </select>
+                                     <div *ngIf="f.toaccount.touched && f.toaccount.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.toaccount.errors.required">This field is required.</div>
+                                        </div> 
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="amount" class="font-weight-bold">
+                                        Amount : </label>
+                                    <input type="number" class="form-control" placeholder="Amount" formControlName="amount" />
+        
+                                     <div *ngIf="f.amount.touched && f.amount.invalid" class="alert alert-danger">
+                                        <div *ngIf="f.amount.errors.required">Amount is required.</div>
+                                        <div *ngIf="f.amount.errors.pattern">Only numbers are allowed.</div>
+
+                                        </div> 
+        
+                                </div>
+                              
+
+                                <div class="form-group">
+                                    <label for="instructions" class="font-weight-bold">
+                                        Maturity Instructions : </label>
+                                    <input type="text" class="form-control" placeholder="Maturity Instructions" >
+        
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="remark" class="font-weight-bold">
+                                       Remark : </label>
+                                    <input type="text" class="form-control" placeholder="Remark"  formControlName="remark">
+        
+                                </div>
+                               
+                                 
+
+                                 <button class="btn btn-success" type="reset"> Save</button> &nbsp; &nbsp;
+                                 <button class="btn btn-danger" type="reset"> Reset</button>  &nbsp;
+                                 <button class="btn btn-success" type="reset"> Save as Template</button><br/> <br/>
+                                
+                                 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                                <button class="btn btn-primary" type="submit"  [disabled]="!impsForm.valid"  >Continue</button>
+                               <br/><br/>
+        
+                               
+                            </form>
+                </div>
+ 
+          
+          
+        </div>
+    </div>
+  </div>
+   -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+

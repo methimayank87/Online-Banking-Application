@@ -1,0 +1,122 @@
+<app-navbar></app-navbar>
+<div class="bgpic">
+    <div class="container">
+        <br/>
+        <br/>
+       
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+                <h3 class="text-center login-title text-white font-weight-bold">LOGIN TO ADMIN ACCOUNT</h3>
+                <div class="account-wall">
+                  
+                    
+                    <!-- <img class="profile-img" src="assets/images/user1.png" alt="User Icon"> -->
+                    <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
+
+                    <form [formGroup]="adminloginForm"  class="form-signin">
+                      
+                        <div class="form-group">
+                            <label for="adminid" class="font-weight-bold">
+                                Enter Admin ID : </label>
+                            <input type="text" class="form-control" placeholder="Admin ID" formControlName="adminid" >
+
+                            <div *ngIf="f.adminid.touched && f.adminid.invalid" class="alert alert-danger">
+                                <div *ngIf="f.adminid.errors.required">Admin ID is required.</div>
+                                </div>
+                           
+
+
+                        </div>
+
+                     
+                        <div class="form-group">
+                            <label for="password" class="font-weight-bold">
+                                 Password : </label>
+                            <input type="password" class="form-control" placeholder="Enter Password"  formControlName="password" >
+
+
+                            <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                                <div *ngIf="f.password.errors.required">Password is required.</div>
+                            </div>
+
+                           
+                            
+                        </div>
+                        &nbsp; &nbsp;&nbsp;
+                        
+                        <button class="btn btn-success" routerLink="/"> Back</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <button class="btn btn-primary" type="submit" [disabled]="!adminloginForm.valid" (click)="DoLogin()">Login</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                       
+
+                        <button class="btn btn-danger" type="reset"> Cancel</button><br/><br/>
+
+                       
+                    </form>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+            <br/>
+            <br/>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <br/>
+
+<div class="border border-info" style="margin-left:20% ; margin-right: 20%;">
+    <br/>
+    <h3 align="center">Login to Admin account </h3>
+
+<br/><br/>
+
+<form [formGroup]="adminloginForm">
+<div class="form-group row">
+    <label for="adminid" class="col-sm-2 col-form-label">AdminID</label>
+    <div class="col-sm-10">
+        <input type="text" [(ngModel)]="username"class="form-control" id="adminid" placeholder="Admin ID">
+    </div>
+    <div class="text-danger" *ngIf="adminloginForm.controls.adminid.errors.required">Password is required</div>
+</div>
+<div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+        <input type="password" [(ngModel)]="password" class="form-control"  id="inputPassword"  placeholder="Password">
+        <div class="text-danger" *ngIf="adminloginForm.controls.inputPassword.errors.required">User ID is required</div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <label class="form-check-label"><input type="checkbox"> Remember me</label>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-10 offset-sm-2">
+        <button (click)="DoLogin()" type="submit" class="btn btn-primary">Login</button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        
+    </div>
+</div>
+<br/>
+
+
+</form>
+</div> -->
+
+

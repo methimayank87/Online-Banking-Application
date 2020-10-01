@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/services/account.service';
+import { Beneficiary } from 'src/app/model/Beneficiary';
 
 @Component({
   selector: 'app-fundstranfer',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fundstranfer.component.css']
 })
 export class FundstranferComponent implements OnInit {
-
-  constructor() { }
+  listBeneficiaries: Beneficiary[];
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.getBeneficiaries()
+  }
+  getBeneficiaries(){
+    this.accountService.getAllBeneficiaries().subscribe(data => this.listBeneficiaries = data);
   }
 
 }

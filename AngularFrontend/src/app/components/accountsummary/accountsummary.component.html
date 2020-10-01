@@ -1,1 +1,43 @@
-<p>accountsummary works!</p>
+<div class="d-flex" id="wrapper">
+    <app-sidebar></app-sidebar>
+    <div id="page-content-wrapper" >
+         <app-navbar></app-navbar>
+         <div class="bgpic">
+            <br/><br/>
+            <h4 class="text-left login-title text-white font-weight-bold" style="padding-left: 20px; ">ACCOUNT SUMMARY</h4>
+  
+  
+              <div class="user-body">
+                <br/>
+                <!-- <button type="submit" class="btn btn-success" style="float: left;">Add new beneficiary</button>&nbsp;&nbsp; -->
+               
+                  <table class="table table-striped" style="margin-left:auto;margin-right:auto; width:80%; background-color: rgb(218, 201, 201);">
+                    <thead>
+                          <tr>
+                              <th>Account UserID</th>
+                              <th>Account Number</th>
+                              <th>Account Type</th>
+                              <th>Balance</th>
+                              
+                             
+                          </tr>
+                   </thead>
+                    
+                      <tbody>
+                          <tr>
+                               <td>{{account.UserID}}</td>
+                              <td>{{account.AccountNumber }}</td>
+                              <td>Savings</td>
+                              <td>{{account.Balance}}</td>
+              
+                          </tr>
+                      </tbody> 
+  
+  
+                  </table>
+  
+              </div>
+              
+             </div>
+    </div>
+</div> 

@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-<br/>
+
+
+
 <div class="bgpic">
     <div class="container">
         <br/>
@@ -7,71 +9,58 @@
        
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
-                <h3 class="text-center login-title text-black font-weight-bold">FORGOT USER ID</h3>
+                <h3 class="text-center login-title text-white font-weight-bold">FORGOT USER ID</h3>
                 <div class="account-wall">
                   
                     
-                    <img class="profile-img" src="assets/images/user1.png" alt="User Icon">
+                    <!-- <img class="profile-img" src="assets/images/user1.png" alt="User Icon"> -->
+                    <img class="profile-img" src="https://th.bing.com/th/id/OIP.UKNL75fij1tEbQw1ofhSCAHaHa?pid=Api&rs=1" alt="User Icon">
 
-                    <form [formGroup]="forgotuseridForm" (ngSubmit)="onSubmit()" class="form-signin">
+                    <form [formGroup]="forgotuseridForm" (ngSubmit)="onSubmit(forgotuseridForm)" class="form-signin" *ngIf="!requestSent">
                       
                         <div class="form-group">
-                            <label for="userid" class="font-weight-bold">
-                                Enter User ID : </label>
-                            <input type="text" class="form-control" placeholder="User ID" formControlName="userid" />
+                            <label for="accountnumber" class="font-weight-bold">
+                                Enter Account Number : </label>
+                            <input type="text" class="form-control" placeholder="Account Number" formControlName="accountnumber" />
 
-                            <div *ngIf="submitted  &&  forgotuseridForm.controls.userid.errors">
-                                <div class="alert alert-danger" *ngIf="forgotuseridForm.controls.userid.errors.required">
-                                    UserID is required !
-                                </div>
+                            <div *ngIf="f.accountnumber.touched && f.accountnumber.invalid" class="alert alert-danger">
+                                <div *ngIf="f.accountnumber.errors.required">Account Number is required.</div>
+                                <div *ngIf="f.accountnumber.errors.minlength">Account Number should be of 14 digits.</div>
+                                <div *ngIf="f.accountnumber.errors.maxlength">Account Number should be of 14 digits.</div>
+                                <div *ngIf="f.accountnumber.errors.pattern">Only numbers are allowed.</div>
                             </div>
-                           
-
-
                         </div>
+                        <button class="btn btn-success" type="submit" [disabled]="!forgotuseridForm.valid">Proceed</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                        <button class="btn btn-primary" routerLink="/"> Back</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                     
+                        <button class="btn btn-danger" type="reset"> Cancel</button>
+
+                        </form>
+                     <form [formGroup]="otpForm" (ngSubmit)="onSubmit2(otpForm)" class="form-signin" *ngIf="requestSent">
                         <div class="form-group">
                             <label for="otp" class="font-weight-bold">
                                 Enter OTP : </label>
-                            <input type="number" class="form-control" placeholder="Enter OTP" maxlength="6" [formControlName]="otp" #otp >
+                            <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" >
 
 
-                            <!-- <div *ngIf="submitted  &&  forgotuseridForm.controls.otp.errors">
-                                <div class="alert alert-danger" *ngIf="forgotuseridForm.controls.otp.errors.required">
-                                    OTP is required !
-                                </div>
-                                <div class="alert alert-danger" *ngIf="forgotuseridForm.controls.otp.errors.maxlength">
-                                    OTP must be of 6 digits!
-                                </div>
-                            </div> -->
-
-                            <div *ngIf="submitted && forgotuseridForm.get('otp').invalid  && (forgotuseridForm.get('otp').dirty || forgotuseridForm.get('otp').touched )">
-                                <div class="alert alert-danger" *ngIf="forgotuseridForm.get('otp').errors.required">
-                                    OTP is required !
-                                </div>
-                                <div class="alert alert-danger" *ngIf="forgotuseridForm.get('otp').errors.maxlength">
-                                    OTP must be of 6 digits!
-                                </div>
-                            
-                            
-                            
+                            <div *ngIf="f2.otp.touched && f2.otp.invalid" class="alert alert-danger">
+                                <div *ngIf="f2.otp.errors.required">OTP is required.</div>
+                                <div *ngIf="f2.otp.errors.min">OTP is not valid.</div>
+                                <div *ngIf="f2.otp.errors.max">OTP is not valid.</div>
+                                <div *ngIf="f2.otp.errors.pattern">OTP is not valid.</div>
                             </div>
-                            
                         </div>
 
-                        <button class="btn btn-success" type="submit">Proceed</button>
+                        <button class="btn btn-success" type="submit" [disabled]="!otpForm.valid">Proceed</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                        <button class="btn btn-primary" routerLink="/homepage"> Back</button>
+                        <button class="btn btn-primary" routerLink="/"> Back</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <button class="btn btn-danger" type="reset"> Cancel</button>
                         
-                        <div class="error" *ngIf="invalidLogin">
-                            <div class="text-danger">
-                                Invalid UserID Id or OTP !
-                            </div>
-                        </div>
+                       
                     </form>
                 </div>
                 <br/>
@@ -85,6 +74,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 
 

@@ -1,0 +1,774 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="gladiatorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AadharFile">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="FileCaption" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountNumber" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="AccountNumber" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Balance" Type="bigint" Nullable="false" />
+          <Property Name="LoginPassword" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="TransactionPassword" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" Nullable="false" />
+          <Property Name="AdminPassword" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminApproval">
+          <Key>
+            <PropertyRef Name="ApprovalID" />
+          </Key>
+          <Property Name="ApprovalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ApprovalStatus" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ApprovalDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Beneficiary">
+          <Key>
+            <PropertyRef Name="BenAccountNumber" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BenAccountNumber" Type="bigint" Nullable="false" />
+          <Property Name="NickName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserAccountNumber" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ImageCaption" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageName" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAddress">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="AddressLine2" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Landmark" Type="varchar" MaxLength="200" />
+          <Property Name="State1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pincode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAddress">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="AddressLine2" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Landmark" Type="varchar" MaxLength="200" />
+          <Property Name="State1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pincode" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionMode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SenderAccount" Type="bigint" Nullable="false" />
+          <Property Name="ReceiverAccount" Type="bigint" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="TransactionDate" Type="date" Nullable="false" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FatherName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="OccupationType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SourceOfIncome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AnnualIncome" Type="int" Nullable="false" />
+          <Property Name="DebitCardOpted" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NetBankingOpted" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DateOfApplication" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AadharFil__UserI__412EB0B6">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="AadharFile" Type="Self.AadharFile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AadharFile">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Account__UserID__267ABA7A">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdminAppr__Admin__31EC6D26">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="AdminApproval">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdminAppr__UserI__30F848ED">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AdminApproval">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Beneficia__BenAc__2A4B4B5E">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Beneficiary">
+              <PropertyRef Name="BenAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Beneficia__UserA__29572725">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Beneficiary">
+              <PropertyRef Name="UserAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Image__UserID__3E52440B">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PAddress__UserID__3B75D760">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="PAddress" Type="Self.PAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PAddress">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAddress__UserID__38996AB5">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="RAddress" Type="Self.RAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="RAddress">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Recei__35BCFE0A">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="ReceiverAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Sende__34C8D9D1">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="SenderAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gladiatorDBModelStoreContainer">
+          <EntitySet Name="AadharFile" EntityType="Self.AadharFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminApproval" EntityType="Self.AdminApproval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Beneficiary" EntityType="Self.Beneficiary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAddress" EntityType="Self.PAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAddress" EntityType="Self.RAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AadharFil__UserI__412EB0B6" Association="Self.FK__AadharFil__UserI__412EB0B6">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AadharFile" EntitySet="AadharFile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Account__UserID__267ABA7A" Association="Self.FK__Account__UserID__267ABA7A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdminAppr__Admin__31EC6D26" Association="Self.FK__AdminAppr__Admin__31EC6D26">
+            <End Role="Admin" EntitySet="Admin" />
+            <End Role="AdminApproval" EntitySet="AdminApproval" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdminAppr__UserI__30F848ED" Association="Self.FK__AdminAppr__UserI__30F848ED">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AdminApproval" EntitySet="AdminApproval" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Beneficia__BenAc__2A4B4B5E" Association="Self.FK__Beneficia__BenAc__2A4B4B5E">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Beneficiary" EntitySet="Beneficiary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Beneficia__UserA__29572725" Association="Self.FK__Beneficia__UserA__29572725">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Beneficiary" EntitySet="Beneficiary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Image__UserID__3E52440B" Association="Self.FK__Image__UserID__3E52440B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PAddress__UserID__3B75D760" Association="Self.FK__PAddress__UserID__3B75D760">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PAddress" EntitySet="PAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAddress__UserID__38996AB5" Association="Self.FK__RAddress__UserID__38996AB5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RAddress" EntitySet="RAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Recei__35BCFE0A" Association="Self.FK__Transacti__Recei__35BCFE0A">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Sende__34C8D9D1" Association="Self.FK__Transacti__Sende__34C8D9D1">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gladiatorDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AadharFile">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="FileCaption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__AadharFil__UserI__412EB0B6" FromRole="AadharFile" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccountNumber" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="AccountNumber" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Balance" Type="Int64" Nullable="false" />
+          <Property Name="LoginPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransactionPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Account__UserID__267ABA7A" FromRole="Account" ToRole="Users" />
+          <NavigationProperty Name="Beneficiary" Relationship="Self.FK__Beneficia__BenAc__2A4B4B5E" FromRole="Account" ToRole="Beneficiary" />
+          <NavigationProperty Name="Beneficiaries" Relationship="Self.FK__Beneficia__UserA__29572725" FromRole="Account" ToRole="Beneficiary" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK__Transacti__Recei__35BCFE0A" FromRole="Account" ToRole="Transactions" />
+          <NavigationProperty Name="Transactions1" Relationship="Self.FK__Transacti__Sende__34C8D9D1" FromRole="Account" ToRole="Transactions" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AdminApprovals" Relationship="Self.FK__AdminAppr__Admin__31EC6D26" FromRole="Admin" ToRole="AdminApproval" />
+        </EntityType>
+        <EntityType Name="AdminApproval">
+          <Key>
+            <PropertyRef Name="ApprovalID" />
+          </Key>
+          <Property Name="ApprovalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ApprovalStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApprovalDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK__AdminAppr__Admin__31EC6D26" FromRole="AdminApproval" ToRole="Admin" />
+          <NavigationProperty Name="User" Relationship="Self.FK__AdminAppr__UserI__30F848ED" FromRole="AdminApproval" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Beneficiary">
+          <Key>
+            <PropertyRef Name="BenAccountNumber" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BenAccountNumber" Type="Int64" Nullable="false" />
+          <Property Name="NickName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserAccountNumber" Type="Int64" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Beneficia__BenAc__2A4B4B5E" FromRole="Beneficiary" ToRole="Account" />
+          <NavigationProperty Name="Account1" Relationship="Self.FK__Beneficia__UserA__29572725" FromRole="Beneficiary" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ImageCaption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Image__UserID__3E52440B" FromRole="Image" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="PAddress">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Landmark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="State1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pincode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__PAddress__UserID__3B75D760" FromRole="PAddress" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="RAddress">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Landmark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="State1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pincode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__RAddress__UserID__38996AB5" FromRole="RAddress" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionMode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SenderAccount" Type="Int64" Nullable="false" />
+          <Property Name="ReceiverAccount" Type="Int64" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Transacti__Recei__35BCFE0A" FromRole="Transactions" ToRole="Account" />
+          <NavigationProperty Name="Account1" Relationship="Self.FK__Transacti__Sende__34C8D9D1" FromRole="Transactions" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OccupationType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SourceOfIncome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AnnualIncome" Type="Int32" Nullable="false" />
+          <Property Name="DebitCardOpted" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NetBankingOpted" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfApplication" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="AadharFile" Relationship="Self.FK__AadharFil__UserI__412EB0B6" FromRole="Users" ToRole="AadharFile" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__UserID__267ABA7A" FromRole="Users" ToRole="Account" />
+          <NavigationProperty Name="AdminApprovals" Relationship="Self.FK__AdminAppr__UserI__30F848ED" FromRole="Users" ToRole="AdminApproval" />
+          <NavigationProperty Name="Image" Relationship="Self.FK__Image__UserID__3E52440B" FromRole="Users" ToRole="Image" />
+          <NavigationProperty Name="PAddress" Relationship="Self.FK__PAddress__UserID__3B75D760" FromRole="Users" ToRole="PAddress" />
+          <NavigationProperty Name="RAddress" Relationship="Self.FK__RAddress__UserID__38996AB5" FromRole="Users" ToRole="RAddress" />
+        </EntityType>
+        <Association Name="FK__AadharFil__UserI__412EB0B6">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="AadharFile" Type="Self.AadharFile" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AadharFile">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Account__UserID__267ABA7A">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Beneficia__BenAc__2A4B4B5E">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Beneficiary">
+              <PropertyRef Name="BenAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Beneficia__UserA__29572725">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Beneficiary" Type="Self.Beneficiary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Beneficiary">
+              <PropertyRef Name="UserAccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Recei__35BCFE0A">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="ReceiverAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Sende__34C8D9D1">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="SenderAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdminAppr__Admin__31EC6D26">
+          <End Role="Admin" Type="Self.Admin" Multiplicity="1" />
+          <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admin">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="AdminApproval">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdminAppr__UserI__30F848ED">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="AdminApproval" Type="Self.AdminApproval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AdminApproval">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Image__UserID__3E52440B">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PAddress__UserID__3B75D760">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="PAddress" Type="Self.PAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="PAddress">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RAddress__UserID__38996AB5">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="RAddress" Type="Self.RAddress" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="RAddress">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gladiatorDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AadharFiles" EntityType="Self.AadharFile" />
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="AdminApprovals" EntityType="Self.AdminApproval" />
+          <EntitySet Name="Beneficiaries" EntityType="Self.Beneficiary" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="PAddresses" EntityType="Self.PAddress" />
+          <EntitySet Name="RAddresses" EntityType="Self.RAddress" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__AadharFil__UserI__412EB0B6" Association="Self.FK__AadharFil__UserI__412EB0B6">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AadharFile" EntitySet="AadharFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Account__UserID__267ABA7A" Association="Self.FK__Account__UserID__267ABA7A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Beneficia__BenAc__2A4B4B5E" Association="Self.FK__Beneficia__BenAc__2A4B4B5E">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Beneficiary" EntitySet="Beneficiaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Beneficia__UserA__29572725" Association="Self.FK__Beneficia__UserA__29572725">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Beneficiary" EntitySet="Beneficiaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Recei__35BCFE0A" Association="Self.FK__Transacti__Recei__35BCFE0A">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Sende__34C8D9D1" Association="Self.FK__Transacti__Sende__34C8D9D1">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdminAppr__Admin__31EC6D26" Association="Self.FK__AdminAppr__Admin__31EC6D26">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="AdminApproval" EntitySet="AdminApprovals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdminAppr__UserI__30F848ED" Association="Self.FK__AdminAppr__UserI__30F848ED">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AdminApproval" EntitySet="AdminApprovals" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Image__UserID__3E52440B" Association="Self.FK__Image__UserID__3E52440B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PAddress__UserID__3B75D760" Association="Self.FK__PAddress__UserID__3B75D760">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PAddress" EntitySet="PAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RAddress__UserID__38996AB5" Association="Self.FK__RAddress__UserID__38996AB5">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RAddress" EntitySet="RAddresses" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gladiatorDBModelStoreContainer" CdmEntityContainer="gladiatorDBEntities">
+          <EntitySetMapping Name="AadharFiles">
+            <EntityTypeMapping TypeName="gladiatorDBModel.AadharFile">
+              <MappingFragment StoreEntitySet="AadharFile">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FileCaption" ColumnName="FileCaption" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="gladiatorDBModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+                <ScalarProperty Name="TransactionPassword" ColumnName="TransactionPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="gladiatorDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminApprovals">
+            <EntityTypeMapping TypeName="gladiatorDBModel.AdminApproval">
+              <MappingFragment StoreEntitySet="AdminApproval">
+                <ScalarProperty Name="ApprovalID" ColumnName="ApprovalID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+                <ScalarProperty Name="ApprovalDate" ColumnName="ApprovalDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Beneficiaries">
+            <EntityTypeMapping TypeName="gladiatorDBModel.Beneficiary">
+              <MappingFragment StoreEntitySet="Beneficiary">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BenAccountNumber" ColumnName="BenAccountNumber" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="UserAccountNumber" ColumnName="UserAccountNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="gladiatorDBModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ImageCaption" ColumnName="ImageCaption" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAddresses">
+            <EntityTypeMapping TypeName="gladiatorDBModel.PAddress">
+              <MappingFragment StoreEntitySet="PAddress">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="Landmark" ColumnName="Landmark" />
+                <ScalarProperty Name="State1" ColumnName="State1" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RAddresses">
+            <EntityTypeMapping TypeName="gladiatorDBModel.RAddress">
+              <MappingFragment StoreEntitySet="RAddress">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="Landmark" ColumnName="Landmark" />
+                <ScalarProperty Name="State1" ColumnName="State1" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="gladiatorDBModel.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="TransactionMode" ColumnName="TransactionMode" />
+                <ScalarProperty Name="SenderAccount" ColumnName="SenderAccount" />
+                <ScalarProperty Name="ReceiverAccount" ColumnName="ReceiverAccount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="gladiatorDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="OccupationType" ColumnName="OccupationType" />
+                <ScalarProperty Name="SourceOfIncome" ColumnName="SourceOfIncome" />
+                <ScalarProperty Name="AnnualIncome" ColumnName="AnnualIncome" />
+                <ScalarProperty Name="DebitCardOpted" ColumnName="DebitCardOpted" />
+                <ScalarProperty Name="NetBankingOpted" ColumnName="NetBankingOpted" />
+                <ScalarProperty Name="DateOfApplication" ColumnName="DateOfApplication" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,4 +1,134 @@
 <div class="d-flex" id="wrapper">
+    <div  id="sidebar-wrapper" style="background-color: rgb(158, 180, 190);">
+        <div class="sidebar-heading" style="color: black;" align="center">Dashboard</div>
+        <div class="list-group list-group-flush" >
+            <ul class ="list-group-item list-group-item-action" style="background-color: rgb(158, 180, 190);">
+                <li><a  class ="list-group-item list-group-item-action" style="background-color: rgb(69, 69, 71);color: white;">Menu</a></li>
+                <li><a  href ="#" class ="list-group-item list-group-item-action" style="background-color: rgb(94, 94, 109);color: white;"  data-toggle="modal" data-target="#myModal1">Bulk Mail</a></li>
+                <li><a href="#" class ="list-group-item list-group-item-action" style="background-color: rgb(133, 133, 155);color: white;" data-toggle="modal" data-target="#myModal2">Bulk SMS</a></li>
+                <li><a class ="list-group-item list-group-item-action bg-light">Logout</a></li>
+          </ul>
+        </div>
+    </div>
+    <div id="page-content-wrapper" >
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(75, 75, 134);">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <a href="#" class="navbar-brand">Online Banking Application</a>
+              
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: white;">Filters</a> 
+                    <div class="dropdown-menu">
+                      <button class="dropdown-item" (click)="setApproved('approved')">Approved</button>
+                      <button class="dropdown-item" (click)="setApproved('pending')">Pending</button>
+                      <button class="dropdown-item">Others</button>
+                    </div>
+            </div>
+            
+            </div>
+            <marquee behavior="scroll" direction="right" class="navbar-brand">Welcome Admin!</marquee>
+        </nav>
+       
+
+
+        <div class="bg">
+            <br/>
+            <div class="admin-body">
+        <h3 align="center">Requests</h3><br/>
+        <table border="1px" style="width: 80%;" align="center" >
+            <tr align="center">
+                <th>Reference Number</th>
+                <th>User Id</th>
+                <th>Approval Status</th>
+                <th>Approval Date</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let request of listRequests">
+              <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalID}}</td>
+              <td *ngIf="request.ApprovalStatus===isPending">{{request.UserID}}</td>
+              <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalStatus}}</td>
+              <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalDate}}</td>
+                
+              <td *ngIf="request.ApprovalStatus===isPending">
+                <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-success" (click)="approveRequest(request.ApprovalID,request.UserID)">Approve</button>
+                </td>
+
+            </tr> 
+        </table>
+        </div> 
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal1" class="modal" tabindex="-1" role="dialog" style="margin-top: 8%; margin-left:8%">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form [formGroup]="bulkMailForm" (ngSubmit)="onSubmit(bulkMailForm)">
+        <div class="modal-header">
+          <div class="form-group">
+          <input type="text" class="form-control" id="text" placeholder="Enter the subject" formControlName="mailsub">
+        </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+          <textarea class="form-control" style="height:auto; width:100%;"placeholder="Enter body here" formControlName="mailbody"></textarea>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal2" class="modal" tabindex="-1" role="dialog" style="margin-top: 8%; margin-left:8%">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form [formGroup]="bulkSmsForm" (ngSubmit)="onSubmit2(bulkSmsForm)">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+          <textarea class="form-control" style="height:auto; width:100%;"placeholder="Enter body here" formControlName="smsbody"></textarea>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="d-flex" id="wrapper">
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">Welcome @AdminName </div>
         <div class="list-group list-group-flush">
@@ -30,19 +160,23 @@
         </nav>
         <table border="1px" style="width: 80%;" align="center" >
             <tr>
-                <th>Approval Id</th>
+                <th>Reference Number</th>
                 <th>User Id</th>
-                <th>User Name</th>
                 <th>Approval Status</th>
+                <th>Approval Date</th>
                 <th>Action</th>
             </tr>
-            <tr height=20px>
-                <td>hvhj</td>
-                <td>fjbgkjdfbg</td>
-                <td>dknsgns</td>
-                <td>jngksj</td>
-                <td><button class="btn btn-primary">View Details</button></td>
+            <tr height=20px *ngFor="let request of listRequests">
+                <td>{{request.ApprovalID}}</td>
+                <td>{{request.UserID}}</td>
+                <td>{{request.ApprovalStatus}}</td>
+                <td>{{request.ApprovalDate}}</td>
+                <td>
+                    <button class="btn btn-primary">View Details</button>&nbsp;&nbsp;
+                    <button class="btn btn-success" (click)="approveRequest(request.ApprovalID,request.UserID)">Approve</button>
+                </td>
+
             </tr>
         </table> 
     </div>
-</div>
+</div> -->

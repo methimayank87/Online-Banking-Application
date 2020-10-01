@@ -1,1 +1,178 @@
-<p>fundstranfer works!</p>
+<div class="d-flex" id="wrapper">
+  <app-sidebar></app-sidebar>
+  <div id="page-content-wrapper" >
+       <app-dashboardnavbar></app-dashboardnavbar>
+       <div class="bgpic">
+
+        <br/><br/>
+        <h4 class="text-left login-title text-white font-weight-bold" style="padding-left: 20px; ">VIEW BENEFICIARY DETAILS</h4>
+
+
+            <div class="user-body">
+            <br/>
+           
+                <table class="table table-striped" style="margin-left:auto;margin-right:auto; width:50%; background-color: rgb(218, 201, 201);">
+                  <thead>
+                        <tr>
+                            <th>Beneficiary account number</th>
+                            <th>Beneficiary name</th>
+                        </tr>
+                 </thead>
+                  
+                    <tbody>
+                        <tr *ngFor="let ben of listBeneficiaries">
+                            <td>{{ben.BenAccountNumber }}</td>
+                            <td>{{ben.Name }}</td>
+                        </tr>
+                        <tr *ngIf="!listBeneficiaries || listBeneficiaries.length==0">
+                            <th colspan="5">
+                                <p class="text-right text-danger">Sorry no beneficiary details available</p>
+                            </th>
+                        </tr>
+                    </tbody> 
+                </table>
+                <button type="submit" class="btn btn-success"  routerLink="/addpayee">Add new beneficiary</button>&nbsp;&nbsp;
+
+            </div>
+            
+       
+
+<br/><br/><br/>
+
+
+
+
+
+<h5 class="text-center login-title  font-weight-bold" style="padding-left: 20px; color:rgb(111, 111, 189); "><mark>FUNDS TRANSFER OPTIONS</mark></h5><br/><br/>
+
+
+
+          
+            <div class="first-div" >
+               
+                <img class="profile-img" src="https://images.assettype.com/swarajya/2018-09/dad96140-8d75-43c4-9be3-d363c41261b5/7a72036a_94b9_4e79_879e_0e5cce435683.jpg?w=1280&q=100&fmt=pjpeg&auto=format" alt="User Icon"><br/>
+               <button type="button" class="btn btn-primary" routerLink="/imps">Initiate IMPS Payment</button> 
+            </div> 
+            <div class="second-div">
+              
+                <img class="profile-img" src="https://www.bhavnagardcb.in/images/service/rtgs.png"  alt="User Icon"><br/>
+                <button type="button" class="btn btn-success" routerLink="/rtgs">Initiate RTGS Payment</button> 
+
+
+            </div>  
+            <div class="third-div">
+                <img class="profile-img"  src="https://indiamls.com/assets/images/NEFT_icon.png" alt="User Icon"><br/>
+                <button type="button" class="btn btn-info" routerLink="/neft">Initiate NEFT Payment</button> 
+
+            </div>
+
+
+         </div>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(75, 75, 134);">
+    
+    <a href="#" class="navbar-brand">Online Banking Application</a>
+    
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Accounts </a>
+            </li>
+           
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Transfers</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Bill Payments</a>
+              </li>
+           
+          </ul>
+        </div>
+
+</nav>
+
+<div class="bgpic">
+
+        <br/><br/>
+        <h4 class="text-left login-title text-white font-weight-bold" style="padding-left: 20px; ">VIEW BENEFICIARY DETAILS</h4>
+
+
+            <div class="user-body">
+            <br/>
+            <button type="submit" class="btn btn-success" style="float: left;" routerLink="/addpayee">Add new beneficiary</button>&nbsp;&nbsp;
+            <button class="btn btn-danger" style="float:right;">LogOut</button>
+            <br/><br/>
+                <table class="table table-striped" style="margin-left:auto;margin-right:auto; width:50%; background-color: rgb(218, 201, 201);">
+                  <thead>
+                        <tr>
+                            <th>Beneficiary account number</th>
+                            <th>Beneficiary name</th>
+                        </tr>
+                 </thead>
+                  
+                    <tbody>
+                        <tr *ngFor="let ben of listBeneficiaries">
+                            <td>{{ben.BenAccountNumber }}</td>
+                            <td>{{ben.Name }}</td>
+                        </tr>
+                        <tr *ngIf="!listBeneficiaries || listBeneficiaries.length==0">
+                            <th colspan="5">
+                                <p class="text-right text-danger">Sorry no beneficiary details available</p>
+                            </th>
+                        </tr>
+                    </tbody> 
+                </table>
+            </div>
+            
+       
+
+<br/><br/><br/>
+
+
+
+
+
+<h5 class="text-center login-title  font-weight-bold" style="padding-left: 20px; color:rgb(111, 111, 189); "><mark>FUNDS TRANSFER OPTIONS</mark></h5><br/><br/>
+
+
+
+          
+            <div class="first-div" >
+               
+                <img class="profile-img" src="https://images.assettype.com/swarajya/2018-09/dad96140-8d75-43c4-9be3-d363c41261b5/7a72036a_94b9_4e79_879e_0e5cce435683.jpg?w=1280&q=100&fmt=pjpeg&auto=format" alt="User Icon"><br/>
+               <button type="button" class="btn btn-primary" routerLink="/imps">Initiate IMPS Payment</button> 
+            </div> 
+            <div class="second-div">
+              
+                <img class="profile-img" src="https://www.bhavnagardcb.in/images/service/rtgs.png"  alt="User Icon"><br/>
+                <button type="button" class="btn btn-success" routerLink="/rtgs">Initiate RTGS Payment</button> 
+
+
+            </div>  
+            <div class="third-div">
+                <img class="profile-img"  src="https://indiamls.com/assets/images/NEFT_icon.png" alt="User Icon"><br/>
+                <button type="button" class="btn btn-info" routerLink="/neft">Initiate NEFT Payment</button> 
+
+            </div>
+        
+</div> -->
+

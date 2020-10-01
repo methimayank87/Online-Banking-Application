@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, Form } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-forgotuserid',
   templateUrl: './forgotuserid.component.html',
@@ -10,46 +10,57 @@ import { Router } from '@angular/router';
 export class ForgotuseridComponent implements OnInit {
 
   forgotuseridForm:FormGroup;
-  submitted:boolean=false;
-  invalidLogin:boolean=false;
+  otpForm: FormGroup;
+  requestSent: boolean = false;
+  current: Number;
+  //submitted:boolean=false;
+  //invalidLogin:boolean=false;
 
-  // error_messages = {
-  //   'userid': [
-  //     { type: 'required', message: 'Account Number is required.' },
-  //   ],
-  // }
+ 
 
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { 
+    this.forgotuseridForm=this.formBuilder.group({
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
-
-
-
-  onSubmit()
-  {
-    this.submitted=true;
-    if(this.forgotuseridForm.valid)
-    {
-      this.router.navigate[('/userlogin')]
-    }
-    else{
-      this.invalidLogin=true
-    }
-    
+      accountnumber:new FormControl('', [Validators.required, Validators.minLength(14), Validators.maxLength(14), Validators.pattern("^[0-9]*$") ]),
+    })
+    this.otpForm = this.formBuilder.group({
+      otp: new FormControl('', [Validators.required, Validators.min(1000), Validators.max(9999), Validators.pattern("^[0-9]*$")])
+    })
   }
 
-  ngOnInit(): void {
-
-    this.forgotuseridForm = this.formBuilder.group({
-      userid: ['', Validators.required],
-     otp: new FormControl(['', Validators.required, Validators.maxLength(6), Validators.minLength(6)])
-     //otp:(['', Validators.required])
-      
-     });
-
-    
 
 
  
+  ngOnInit(): void {
+ 
+}
+
+
+onSubmit(form)
+{
+  this.userService.forgotUserId(form.value.accountnumber).subscribe(data => {
+    console.log(data);
+      this.requestSent = true;
+      this.current = data;
+  })
+}
+
+onSubmit2(form){
+  try{
+    if(this.current === form.value.otp){
+      alert("Check your mail for your user id!");
+      this.router.navigate(['']);
+    }
+  }catch{
+    alert("Incorrect OTP");
+  }
+}
+
+get f(){
+  return this.forgotuseridForm.controls;
+}
+get f2(){
+  return this.otpForm.controls;
 }
 
 }
