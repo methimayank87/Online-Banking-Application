@@ -1,5 +1,5 @@
 export class Paddress {
-    UserId: number;
+    UserID: number;
     AddressLine1: string;
     AddressLine2: string;
     Landmark: string;

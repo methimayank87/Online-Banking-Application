@@ -6,7 +6,8 @@ import { RaddressService } from 'src/app/services/raddress.service';
 import { PaddressService } from 'src/app/services/paddress.service';
 import { AdminApprovalService } from 'src/app/services/admin-approval.service';
 import { UploadImageService } from 'src/app/services/upload-image.service';
-
+import { Raddress } from 'src/app/model/Raddress';
+import { Paddress } from 'src/app/model/Paddress';
 @Component({
   selector: 'app-registeruser',
   templateUrl: './registeruser.component.html',
@@ -50,9 +51,32 @@ export class RegisteruserComponent implements OnInit {
     console.log(form.value)
     this.userService.registerUser(form.value).subscribe(data =>{
       this.currentUserId = data.UserID
-      this.raddressService.registerAddress(form.value,data.UserID);
-      this.paddressService.registerAddress(form.value,data.UserID);
-      alert("User added successfully");
+      const raddress = {
+        "AddressLine1": form.value.addrline1,
+        "AddressLine2": form.value.addrline2,
+        "Landmark": form.value.landmark,
+        "State1": form.value.state,
+        "City": form.value.city,
+        "Pincode": form.value.pincode,
+        "UserID": data.UserID,
+      }
+      this.raddressService.registerAddress(raddress).subscribe(data => {
+        console.log(data)
+        const paddress = {
+        "AddressLine1": form.value.addrline1,
+        "AddressLine2": form.value.addrline2,
+        "Landmark": form.value.landmark,
+        "State1": form.value.state,
+        "City": form.value.city,
+        "Pincode": form.value.pincode,
+        "UserID": data.UserID,
+      }
+        this.paddressService.registerAddress(paddress).subscribe(data => {
+          console.log(data)
+          alert("User added successfully");
+        });
+      });
+
       this.adminApprovalService.sendRequest(this.currentUserId).subscribe(data => {
         alert("Account Creation Request Generated");
         this.uploadImage = true;
