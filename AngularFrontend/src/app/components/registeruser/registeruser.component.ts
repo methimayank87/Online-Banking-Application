@@ -13,7 +13,6 @@ import { UploadImageService } from 'src/app/services/upload-image.service';
   styleUrls: ['./registeruser.component.css']
 })
 export class RegisteruserComponent implements OnInit {
-
   maxDate = "2010-12-31"
   openaccountForm:FormGroup;
   submitted: boolean = false;
@@ -22,9 +21,14 @@ export class RegisteruserComponent implements OnInit {
   clicked:boolean=false;
   //image
   imageUrl: string = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
+  imageUrl2: string = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
   fileToUpload: File = null;
+  fileToUpload2: File = null;
   imageForm: FormGroup;
+  imageForm2: FormGroup;
   uploadImage: boolean = false;
+  profileCaption: string;
+  aadharCaption:  string;
   //image
   constructor(private formBuilder: FormBuilder,
               private router: Router, 
@@ -51,6 +55,7 @@ export class RegisteruserComponent implements OnInit {
       alert("User added successfully");
       this.adminApprovalService.sendRequest(this.currentUserId).subscribe(data => {
         alert("Account Creation Request Generated");
+        this.uploadImage = true;
       })
     });
   }
@@ -101,14 +106,38 @@ export class RegisteruserComponent implements OnInit {
     reader.readAsDataURL(this.fileToUpload);
   }
 
-  OnSubmit2(Caption, Image) {
-    alert("Hello")
-    this.imageService.postFile(Caption.value, this.fileToUpload).subscribe(
+  handleFileInput2(file: FileList) {
+    this.fileToUpload2 = file.item(0);
+
+    //Show image preview
+    var reader = new FileReader();
+    reader.onload = (event: any) => {
+      this.imageUrl2 = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload2);
+  }
+
+  OnSubmit2( Image) {
+    
+    this.profileCaption = "Profile"
+    this.imageService.postFile(this.currentUserId.toString() ,this.profileCaption, this.fileToUpload).subscribe(
       data => {
         console.log('done');
-        Caption.value = null;
+        this.profileCaption = null;
         Image.value = null;
         this.imageUrl = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
+      }
+    );
+  }
+
+  OnSubmit3( Image2) {
+    this.aadharCaption = "Aadhar Card"
+    this.imageService.postAadhar(this.currentUserId.toString() ,this.aadharCaption, this.fileToUpload2).subscribe(
+      data => {
+        console.log('done');
+        this.aadharCaption = null;
+        Image2.value = null;
+        this.imageUrl2 = "https://cdn1.iconfinder.com/data/icons/ui-5/502/upload-512.png";
       }
     );
   }

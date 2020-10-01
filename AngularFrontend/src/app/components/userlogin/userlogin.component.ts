@@ -34,7 +34,11 @@ export class UserloginComponent implements OnInit {
 
   onSubmit(form)
   {
-      this.loginService.loginUser(form.value).subscribe(data => {
+    const login = {
+      "Id": form.value.userid,
+      "Password": form.value.password
+    }
+      this.loginService.loginUser(login).subscribe(data => {
         console.log(data);
           this.loggedIn = true;
           this.current = data;

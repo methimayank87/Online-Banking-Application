@@ -55,14 +55,21 @@ export class AdminComponent implements OnInit {
   }
 
   onSubmit(form){
-    this.adminService.sendBulkMail(form.value).subscribe(data => {
+    const mail = {
+      "subject": form.value.mailsub,
+      "message": form.value.mailbody
+    }
+    this.adminService.sendBulkMail(mail).subscribe(data => {
       console.log(data)
       alert("Mail sent successfully!")
     })
   }
 
   onSubmit2(form){
-    this.adminService.sendBulkSms(form.value).subscribe(data => {
+    const sms = {
+      "message": form.value.smsbody
+    }
+    this.adminService.sendBulkSms(sms).subscribe(data => {
       console.log(data)
       alert("Sms sent successfully!")
     })

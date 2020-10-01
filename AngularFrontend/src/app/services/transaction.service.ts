@@ -18,4 +18,12 @@ export class TransactionService {
   addTransaction(data){
     return this._http.post<Number>(this.baseUrl,JSON.stringify(data),this.httpOptions);
   }
+
+  getOtp(accountNumber){
+    return this._http.post<Number>(this.baseUrl + '/sendotp',accountNumber,this.httpOptions)
+  }
+
+  getTransactions(data,accountNumber){
+    return this._http.post<Transaction[]>(this.baseUrl + '/accounts/' + accountNumber + '/getbydate',data,this.httpOptions)
+  }
 }

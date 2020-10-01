@@ -1,81 +1,71 @@
-<h1 align="center" style="padding-top: 1%;">Account Statement</h1>
 <div class="d-flex" id="wrapper">
-    <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Dashboard </div>
-      <div class="list-group list-group-flush">
-          <ul class ="list-group-item list-group-item-action bg-light">
-               <li> <a routerLink="/accountdetails" class ="list-group-item list-group-item-action bg-light">Account Details</a></li>
-                <li><a routerLink="/accountsummary" class ="list-group-item list-group-item-action bg-light">Account Summary</a></li>
-       <li> <a routerLink="/fundstransfer" class ="list-group-item list-group-item-action bg-light">Funds Transfer</a></li>
-       <li> <a routerLink="/accountstatement" class ="list-group-item list-group-item-action bg-light">Account Statement</a></li>
-        </ul>
-      </div>
-    </div>
+  <app-sidebar></app-sidebar>
+  <div id="page-content-wrapper" >
+       <app-dashboardnavbar></app-dashboardnavbar>
+       <div class="bgpic"><br/>
 
-    <!-- /#sidebar-wrapper -->
-    <!-- Page Content -->
-
-    <div id="page-content-wrapper" >
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
-      <div class="container-fluid" style="text-align: center;">
-
-        <form [formGroup]="accountstatementform" (ngSubmit)="onSubmit()">
        
-        <h4 class="mt-4"> Statement from &nbsp; <input onfocus="(this.type='date')" placeholder="Select Start Date" id="startdate"  />
-            to &nbsp;<input onfocus="(this.type='date')" placeholder="Select End Date" id="enddate" /></h4><br><br>
-
-            <!-- <div *ngIf="submitted && accountstatementdate.controls.startdate.errors && accountstatementdate.controls.enddate.errors" class="error">
-                <div class="text-danger" *ngIf="accountstatementdate.controls.startdate.errors.required && accountstatementdate.controls.enddate.errors.required">Please select a date</div>
-            </div>  -->
-        
-            <br><br><br><br>
+<div style="text-align: center;">
+          <form [formGroup]="accountstatementform" (ngSubmit)="onSubmit(accountstatementform)">
          
-            <input type="submit" class="btn btn-primary" style="width: 10%;">
+          <h5 style="color:lightgoldenrodyellow;"> Statement from &nbsp; <input  type="date" placeholder="Select Start Date" id="startdate" formControlName="startdate" />
+              to &nbsp;<input type="date" placeholder="Select End Date" id="enddate" formControlName="enddate"/></h5><br><br>
+  
+          
+              <br><br><br>
+           
+            <button type="submit" class="btn btn-primary" style="width: 10%;" [hidden]="inboundClick" (click)="inboundClick = !inboundClick"  href="">Submit</button>
+
             </form>
 
-            <div *ngIf="submitted">
+            <div *ngIf="inboundClick">
                 
-            <br><br><br><br>
-
-            
-
-           <table border="1px" style="width: 80%;" align="center" >
-                <tr>
-                    <th>Select</th>
-                    <th>Account Number</th>
-                    <th>Name</th>
-                    <th>Account Type</th>
-                    <th>Balance</th>
-                </tr>
-                <tr height=20px>
-                    <td><input type="radio" id="select" name="select"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table> 
-            </div>
-
-        </div>
-
-      
-
-           
-        
-      </div>
-
-     
-    </div>
-    <!-- /#page-content-wrapper -->
+              <br><br>
     
-  
- 
+           
+              <table class="table table-striped" style="margin-left:auto;margin-right:auto; width:50%; background-color: #dedede;">
+                <thead>
+                      <tr>
+                          <th>Transaction Date</th>
+                          <th> Sending Account</th>
+                          <th>Receiver Account</th>
+                          <th>Amount</th>
+                          <th>Remarks</th>
+                          
+                         
+                      </tr>
+                </thead>
+                
+                  <tbody>
+                      <tr *ngFor="let tran of trans">
+                          <td>{{tran.TransactionDate }}</td>
+                          <td>{{tran.SenderAccount }}</td>
+                          <td>{{tran.ReceiverAccount}}</td>
+                          <td>{{tran.Amount}}</td>
+                          <td>{{tran.Remarks}}</td>
+                      </tr>
+                      <tr *ngIf="!trans || trans.length==0">
+                          <th colspan="5">
+                              <p class="text-right text-danger">Sorry no account statements available available</p>
+                          </th>
+                      </tr>
+                  </tbody> 
+                </table>
+              </div>
+         </div>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
 
 

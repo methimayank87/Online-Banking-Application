@@ -15,10 +15,10 @@ export class AdminService {
   constructor(private _http : HttpClient) { }
 
   sendBulkMail(data){
-    return this._http.post(this.baseUrl + '/bulkmail',data.mailbody,this.httpOptions);
+    return this._http.post(this.baseUrl + '/bulkmail',data);
   }
 
   sendBulkSms(data){
-    return this._http.post(this.baseUrl + '/bulksms',data.smsbody,this.httpOptions);
+    return this._http.post(this.baseUrl + '/bulksms',data);
   }
 }

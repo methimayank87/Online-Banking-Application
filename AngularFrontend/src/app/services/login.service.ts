@@ -14,10 +14,6 @@ export class LoginService {
   baseUrl:string = "https://localhost:44306/api/login";
   constructor(private _http : HttpClient) { }
   loginUser(data){
-    const credentials = {
-      UserID: data.userid,
-      Password:data.password
-    }
-    return this._http.post<Number>(this.baseUrl,credentials,this.httpOptions);
+    return this._http.post<Number>(this.baseUrl,data,this.httpOptions);
   }
 }

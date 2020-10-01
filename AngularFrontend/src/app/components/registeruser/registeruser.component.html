@@ -17,23 +17,41 @@
                         <div class="card-panel teal lighten-2">
                             <h4 class="center white-text">Files To Upload</h4>
                         </div>
-                        <form #imageForm=ngForm (ngSubmit)="OnSubmit2(Caption,Image)">
+                        <form #imageForm=ngForm (ngSubmit)="OnSubmit2(Image)">
                             <div class="row">
-                                <div class="input-field col s12">
-                                    <!-- <input type="text" #Caption ngModel name="Caption" id="Caption" required> -->
+                                <div class="input-field col s12"><p class="font-weight-bold">Profile Image</p></div>
+                                    <!-- <input type="text" #Caption ngModel name="Caption" id="Caption" required>
                                     <label for="Caption">Caption</label>
                                     <select name="Caption" #Caption ngModel name="Caption" id="Caption" required>
                                         <option value="Adhar">Adhar</option>
                                         <option value="Pan">Pan</option>
                                         <option value="Profile">Profile Image</option>
                                     </select>
-            
-                                </div>
+                                </div> -->
                             </div>
-                            <img [src]="imageUrl" style="width:250px;height:200px">
                             <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
-                            <button type="submit" class="btn-large btn-submit">Submit</button>
+                            
+                            
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+                        <form #imageForm2=ngForm (ngSubmit)="OnSubmit3(Image2)">
+                            <div class="row">
+                                <div class="input-field col s12"><p class="font-weight-bold">Aadhar Card</p></div>
+                                    <!-- <input type="text" #Caption ngModel name="Caption" id="Caption" required>
+                                    <label for="Caption">Caption</label>
+                                    <select name="Caption" #Caption ngModel name="Caption" id="Caption" required>
+                                        <option value="Adhar">Adhar</option>
+                                        <option value="Pan">Pan</option>
+                                        <option value="Profile">Profile Image</option>
+                                    </select>
+                                </div> -->
+                            </div>
+                            <input type="file" #Image2 accept="image/*" (change)="handleFileInput2($event.target.files)">
+                            
+                            
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <button class="btn btn-primary" routerLink="/userlogin">Complete Registration</button>
                     </div>
                     
                    <!-- <img class="profile-img" src="https://image.flaticon.com/icons/png/512/72/72648.png" alt="User Icon">-->
