@@ -16,7 +16,6 @@ export class RtgsComponent implements OnInit {
   beneficiary: Beneficiary;
   constructor(private router:Router,private formBuilder: FormBuilder, private accountService: AccountService,private transactionService: TransactionService) { 
     this.rtgsForm = this.formBuilder.group({
-      fromaccount: new FormControl('',Validators.required),
       toaccount: new FormControl('',Validators.required),
       amount: new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
       date: new FormControl('', Validators.required),

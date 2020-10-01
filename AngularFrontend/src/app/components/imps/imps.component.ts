@@ -18,7 +18,6 @@ export class ImpsComponent implements OnInit {
   constructor(private router:Router,private formBuilder: FormBuilder, private accountService: AccountService,  private transactionService: TransactionService) {
 
     this.impsForm = this.formBuilder.group({
-      fromaccount: new FormControl('',Validators.required),
       toaccount: new FormControl('',Validators.required),
       amount: new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
       remark: new FormControl('')
