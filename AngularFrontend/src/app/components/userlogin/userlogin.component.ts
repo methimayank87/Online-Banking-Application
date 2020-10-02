@@ -43,6 +43,7 @@ export class UserloginComponent implements OnInit {
           this.loggedIn = true;
           this.current = data;
           localStorage.setItem('UserId',form.value.userid)
+          sessionStorage.setItem('userData', JSON.stringify(data));
           this.accountService.getAccountById(form.value.userid).subscribe(data => {
             localStorage.setItem('Accno', data.AccountNumber);
           })

@@ -13,7 +13,7 @@
                     <!-- <img class="profile-img" src="assets/images/user1.png" alt="User Icon"> -->
                     <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
 
-                    <form [formGroup]="adminloginForm"  class="form-signin">
+                    <form [formGroup]="adminloginForm"  class="form-signin" (ngSubmit)="doLogin()">
                       
                         <div class="form-group">
                             <label for="adminid" class="font-weight-bold">
@@ -47,7 +47,7 @@
                         <button class="btn btn-success" routerLink="/"> Back</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                        <button class="btn btn-primary" type="submit" [disabled]="!adminloginForm.valid" (click)="DoLogin()">Login</button>
+                        <button class="btn btn-primary" type="submit" [disabled]="!adminloginForm.valid" >Login</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                        
 

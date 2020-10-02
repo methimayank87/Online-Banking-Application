@@ -17,10 +17,9 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
 import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
-
+import { AuthguardService } from 'src/app/services/auth-guard.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
-import {AuthserviceService} from 'src/app/services/authservice.service';
 import { NetbankingComponent } from './components/netbanking/netbanking.component';
 import { AddpayeeComponent } from './components/addpayee/addpayee.component';
 import { ImpsComponent } from './components/imps/imps.component';
@@ -28,7 +27,7 @@ import { NeftComponent } from './components/neft/neft.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardnavbarComponent } from './components/dashboardnavbar/dashboardnavbar.component';
-
+import { BnNgIdleService } from 'bn-ng-idle';
 
 @NgModule({
   declarations: [
@@ -65,7 +64,9 @@ import { DashboardnavbarComponent } from './components/dashboardnavbar/dashboard
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthserviceService],
+  providers: [AuthguardService,
+    BnNgIdleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

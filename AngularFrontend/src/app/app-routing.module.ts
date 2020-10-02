@@ -18,15 +18,15 @@ import { ImpsComponent } from './components/imps/imps.component';
 import { AddpayeeComponent } from './components/addpayee/addpayee.component';
 import { NeftComponent } from './components/neft/neft.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
+import { AuthenticationGuard } from './authentication.guard';
+import { Authentication1Guard } from './authentication1.guard';
 
 const routes: Routes = [
-  {path:'dashboard', component:DashboardComponent},
   {path:'accountstatement', component:AccountstatementComponent},
   {path:'fundstransfer', component:FundstranferComponent},
   {path:'userprofile', component:UserprofileComponent},
   {path:'accountdetails', component:AccountdetailsComponent},
   {path:'accountsummary', component:AccountsummaryComponent},
-  {path: 'admin', component:AdminComponent},
   {path: 'userlogin', component:UserloginComponent},
   {path:'registeruser', component:RegisteruserComponent},
   {path:'forgotuserid', component:ForgotuseridComponent},
@@ -37,8 +37,9 @@ const routes: Routes = [
   {path:'addpayee', component:AddpayeeComponent},
   {path:'imps', component:ImpsComponent},
   {path:'neft',component:NeftComponent},
-  {path:'rtgs',component: RtgsComponent}
-
+  {path:'rtgs',component: RtgsComponent},
+  {path: 'admin', component:AdminComponent,canActivate:[AuthenticationGuard]},
+  {path:'dashboard', component:DashboardComponent,canActivate:[Authentication1Guard]},
 
 ];
 
