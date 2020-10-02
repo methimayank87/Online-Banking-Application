@@ -20,6 +20,7 @@ export class ImpsComponent implements OnInit {
   transaction: Transaction; 
   showOtp: boolean = false;
   currentOtp: Number;
+  correctOtp : boolean = false;
   constructor(private router:Router,private formBuilder: FormBuilder, private accountService: AccountService,  private transactionService: TransactionService) {
 
     this.impsForm = this.formBuilder.group({
@@ -83,8 +84,8 @@ export class ImpsComponent implements OnInit {
       if(this.currentOtp === form.value.otp){
           this.transactionService.addTransaction(this.transaction).subscribe(data => {
           if(data === 200){
-            alert("Transaction successful")
-            this.router.navigate(['fundstransfer'])
+            this.correctOtp = true;
+            //this.router.navigate(['fundstransfer'])
           }else{
             alert("Transaction failed")
           }
@@ -95,6 +96,10 @@ export class ImpsComponent implements OnInit {
     }catch{
       alert("Incorrect OTP");
     }
+  }
+
+  navigate(){
+    this.router.navigate(['fundstransfer'])
   }
 
 }
