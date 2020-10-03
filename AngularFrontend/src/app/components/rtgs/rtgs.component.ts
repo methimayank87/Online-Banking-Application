@@ -20,7 +20,8 @@ export class RtgsComponent implements OnInit {
   transaction: Transaction;
   currentOtp: Number;
   correctOtp : boolean = false;
-
+  STran: Transaction;
+  tranId: Number;
   constructor(private router:Router,private formBuilder: FormBuilder, private accountService: AccountService,private transactionService: TransactionService) { 
     this.rtgsForm = this.formBuilder.group({
       toaccount: new FormControl('',Validators.required),
@@ -81,12 +82,22 @@ export class RtgsComponent implements OnInit {
     try{
       if(this.currentOtp === form.value.otp){
           this.transactionService.addTransaction(this.transaction).subscribe(data => {
-          if(data === 200){
-            this.correctOtp = true;
-            //alert("Transaction successful")
-           // this.router.navigate(['fundstransfer'])
-          }else{
+          if(data === 500){
             alert("Transaction failed")
+          }else{
+            this.tranId = data;
+            this.transactionService.getTransactionById(this.tranId).subscribe(data => {
+              this.STran = {
+                "TransactionMode": "IMPS",
+                "SenderAccount": data.SenderAccount,
+                "ReceiverAccount": data.ReceiverAccount,
+                "Amount": data.Amount,
+                "TransactionDate": data.TransactionDate,
+                "Remarks": data.Remarks
+              }
+            })
+            this.correctOtp = true;
+            //this.router.navigate(['fundstransfer'])
           }
           
         })

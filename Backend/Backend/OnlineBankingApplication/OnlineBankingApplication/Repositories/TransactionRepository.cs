@@ -30,11 +30,11 @@ namespace OnlineBankingApplication.Repositories
         public IEnumerable<Transaction> GetAll(long id)
         {
             var transactions = from trans in _projectContext.transactions
-                        where (trans.SenderAccount == id || trans.ReceiverAccount == id)
-                        select trans;
+                               where (trans.SenderAccount == id || trans.ReceiverAccount == id)
+                               select trans;
             return transactions.ToList();
         }
-        public IEnumerable<Transaction> GetByDate(DateClass date,long id)
+        public IEnumerable<Transaction> GetByDate(DateClass date, long id)
         {
             var transactions = from trans in _projectContext.transactions
                                where ((trans.SenderAccount == id && (trans.TransactionDate >= date.startDate && trans.TransactionDate <= date.endDate)) || (trans.ReceiverAccount == id && (trans.TransactionDate >= date.startDate && trans.TransactionDate <= date.endDate)))
@@ -42,7 +42,14 @@ namespace OnlineBankingApplication.Repositories
                                select trans;
             return transactions.ToList();
         }
-
+        public IEnumerable<Transaction> GetLastTen(long id)
+        {
+            var trans = (from temp in _projectContext.transactions
+                         where (temp.SenderAccount == id || temp.ReceiverAccount == id)
+                         orderby temp.TransactionDate descending
+                         select temp).Take(10);
+            return trans.ToList();
+        }
 
         public int UpdateBalance(Transaction transaction)
         {
@@ -52,7 +59,7 @@ namespace OnlineBankingApplication.Repositories
             var recAcc = _projectContext.Accounts
                                 .Where(acc => acc.AccountNumber == transaction.ReceiverAccount)
                                 .FirstOrDefault();
-            if(sendAcc.Balance >= transaction.Amount)
+            if (sendAcc.Balance >= transaction.Amount)
             {
                 sendAcc.Balance -= transaction.Amount;
                 recAcc.Balance += transaction.Amount;
@@ -62,7 +69,10 @@ namespace OnlineBankingApplication.Repositories
             {
                 return 500;
             }
-            return 200;
+            var refid = (from temp in _projectContext.transactions
+                         orderby temp.TransactionID descending
+                         select temp.TransactionID).FirstOrDefault();
+            return refid;
         }
         public string postSendOtp(long num)
         {

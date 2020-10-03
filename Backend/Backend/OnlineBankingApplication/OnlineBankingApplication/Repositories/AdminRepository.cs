@@ -63,7 +63,7 @@ namespace OnlineBankingApplication.Repositories
         {
             return _projectContext.Users.ToList();
         }
-        public string postSendMsg(User user , string message)
+        public string postSendMsg(User user, string message)
         {
             string number = user.Phone;
             string msg = message;
@@ -91,7 +91,7 @@ namespace OnlineBankingApplication.Repositories
                 return "error:" + ex.ToString();
             }
         }
-        public string PostSendMail(User user,MailClass temp)
+        public string PostSendMail(User user, MailClass temp)
         {
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;

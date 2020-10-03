@@ -47,4 +47,9 @@ export class UserService {
   getUserById(userid){
     return this._http.get<User>(this.baseUrl + '/' + userid,this.httpOptions);
   }
+
+  updateUser(user){
+    const userid = parseInt(localStorage.getItem('UserId'))
+    return this._http.put(this.baseUrl + '/' + userid,user,this.httpOptions)
+  }
 }

@@ -21,12 +21,19 @@
 
                 <table style="width: 90%;" >
                     <tr>
-                        <th colspan="2"><h4>Personal Details <button type="button" class="btn btn-success" style="width: 45px; float:right;"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
+                        <th colspan="2"><h4>Personal Details <button type="button" class="btn btn-primary" style="width: 45px; float:right;" routerLink="/edituser"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
                     </tr>
                     <br/>
                     <tr>
                         <th style="width:30%">First Name : </th>
                         <td>{{user.FirstName}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Middle Name : </th>
+                        <td>{{user.MiddleName}}</td>
                     </tr>
                     <tr>
                         <td colspan="2"><hr/></td>
@@ -55,10 +62,10 @@
                     <!-- <tr>
                         <th>Aadhar Card Number : </th>
                         <td></td>
-                    </tr> -->
+                    </tr> 
                     <tr>
                         <td colspan="2"><hr/></td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <th>Date Of Birth : </th>
                         <td>{{user.DOB}}</td>
@@ -69,7 +76,7 @@
                     </tr>
                    <br/>
                    <tr>
-                    <th colspan="2"><h4>Residential Address <button type="button" class="btn btn-success" style="width: 45px; float:right;"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
+                    <th colspan="2"><h4>Residential Address <button type="button" class="btn btn-success" style="width: 45px; float:right;" routerLink="/editraaddress"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
                    </tr>
                    <br/>
                     <tr>
@@ -120,7 +127,7 @@
                     </tr>
                     <br/>
                     <tr>
-                        <th colspan="2"><h4>Permanent Address <button type="button" class="btn btn-success" style="width: 45px; float:right;"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
+                        <th colspan="2"><h4>Permanent Address <button type="button" class="btn btn-success" style="width: 45px; float:right;" routerLink="/editpaaddress"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
                     </tr>
                     <br/>
                     <tr>
