@@ -85,31 +85,19 @@ export class RtgsComponent implements OnInit {
           if(data === 500){
             alert("Transaction failed")
           }else{
+            console.log(data)
             this.tranId = data;
-            this.transactionService.getTransactionById(this.tranId).subscribe(data => {
-              this.STran = {
-                "TransactionMode": "IMPS",
-                "SenderAccount": data.SenderAccount,
-                "ReceiverAccount": data.ReceiverAccount,
-                "Amount": data.Amount,
-                "TransactionDate": data.TransactionDate,
-                "Remarks": data.Remarks
-              }
-            })
-            this.correctOtp = true;
-            //this.router.navigate(['fundstransfer'])
+            localStorage.setItem('tranId', data.toString())
+            this.router.navigate(['transactionSuccess', this.tranId])
           }
-          
         })
-        
-      }
-    }catch{
-      alert("Incorrect OTP");
+      }      
     }
+    catch{
+      alert("Incorrect OTP");
+    }  
   }
-  navigate(){
-    this.router.navigate(['fundstransfer'])
-  }
+  
 
 
 }

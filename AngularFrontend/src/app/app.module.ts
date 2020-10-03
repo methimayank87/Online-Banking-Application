@@ -32,6 +32,7 @@ import { NgxCaptchaModule } from  'ngx-captcha';
 import { EdituserComponent } from './components/edituser/edituser.component';
 import { EditraddressComponent } from './components/editraddress/editraddress.component';
 import { EditpaddressComponent } from './components/editpaddress/editpaddress.component';
+import { TsuccessComponent } from './components/tsuccess/tsuccess.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { EditpaddressComponent } from './components/editpaddress/editpaddress.co
     DashboardnavbarComponent,
     EdituserComponent,
     EditraddressComponent,
-    EditpaddressComponent
+    EditpaddressComponent,
+    TsuccessComponent
   ],
   imports: [
     BrowserModule,

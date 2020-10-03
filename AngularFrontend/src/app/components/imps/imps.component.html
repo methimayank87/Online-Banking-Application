@@ -1,174 +1,174 @@
 
 <div class="d-flex" id="wrapper">
-    <app-sidebar></app-sidebar>
-    <div id="page-content-wrapper" >
-         <app-dashboardnavbar></app-dashboardnavbar>
-         <div class="bg">
-            <br/>
-            <h4 class="text-center login-title text-white font-weight-bold">INITIATE IMPS PAYMENT</h4>
+  <app-sidebar></app-sidebar>
+  <div id="page-content-wrapper" >
+       <app-dashboardnavbar></app-dashboardnavbar>
+       <div class="bg">
+          <br/>
+          <h4 class="text-center login-title text-white font-weight-bold">INITIATE IMPS PAYMENT</h4>
 
-           
-           
-            <div class="admin-body">
-               
+         
+         
+          <div class="admin-body">
+             
 
-                <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
-        
-                            <form [formGroup]="impsForm" class="form-signin" (ngSubmit)="onSubmit(impsForm)" *ngIf="!showOtp">
+              <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
+      
+                          <form [formGroup]="impsForm" class="form-signin" (ngSubmit)="onSubmit(impsForm)" *ngIf="!showOtp">
+                            
+
+                              <div class="form-group">
+                                      <label for="toaccount" class="font-weight-bold">To Account : <button type="btn btn-success" routerLink="/addpayee">Add New+</button></label>
+                                      <select class="form-control" id="toaccount" formControlName="toaccount">
+                                          <option value="" disabled selected hidden>Choose Beneficiary...</option>
+                                        <option *ngFor="let ben of listBeneficiaries" (click)="setBen(ben)">{{ben.Name}}</option>
+                                      </select>
+                                   <div *ngIf="f.toaccount.touched && f.toaccount.invalid" class="alert alert-danger">
+                                      <div *ngIf="f.toaccount.errors.required">This field is required.</div>
+                                      </div> 
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="amount" class="font-weight-bold">
+                                      Amount : </label>
+                                  <input type="number" class="form-control" placeholder="Amount" formControlName="amount" />
+      
+                                   <div *ngIf="f.amount.touched && f.amount.invalid" class="alert alert-danger">
+                                      <div *ngIf="f.amount.errors.required">Amount is required.</div>
+                                      <div *ngIf="f.amount.errors.pattern">Only numbers are allowed.</div>
+
+                                      </div> 
+      
+                              </div>
+                            
+
+                              <div class="form-group">
+                                  <label for="instructions" class="font-weight-bold">
+                                      Maturity Instructions : </label>
+                                  <input type="text" class="form-control" placeholder="Maturity Instructions" >
+      
+                              </div>
+
+                              <div class="form-group">
+                                  <label for="remark" class="font-weight-bold">
+                                     Remark : </label>
+                                  <input type="text" class="form-control" placeholder="Remark"  formControlName="remark">
+      
+                              </div>
+                              <div class="form-group">
+                                  <label for="transactionpwd" class="font-weight-bold">
+                                     Set Transaction Password : </label>
+                                  <input type="password" class="form-control" placeholder="Set Transaction Password" formControlName="transactionpwd" id="transactionpwd"/>
+      
+                                  <div *ngIf="f.transactionpwd.touched && f.transactionpwd.invalid" class="alert alert-danger">
+                                      <div *ngIf="f.transactionpwd.errors.required">Transaction password is required.</div>
+                                  </div>
+      
+      
+                              </div>
                               
-
-                                <div class="form-group">
-                                        <label for="toaccount" class="font-weight-bold">To Account : <button type="btn btn-success" routerLink="/addpayee">Add New+</button></label>
-                                        <select class="form-control" id="toaccount" formControlName="toaccount">
-                                            <option value="" disabled selected hidden>Choose Beneficiary...</option>
-                                          <option *ngFor="let ben of listBeneficiaries" (click)="setBen(ben)">{{ben.Name}}</option>
-                                        </select>
-                                     <div *ngIf="f.toaccount.touched && f.toaccount.invalid" class="alert alert-danger">
-                                        <div *ngIf="f.toaccount.errors.required">This field is required.</div>
-                                        </div> 
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="amount" class="font-weight-bold">
-                                        Amount : </label>
-                                    <input type="number" class="form-control" placeholder="Amount" formControlName="amount" />
-        
-                                     <div *ngIf="f.amount.touched && f.amount.invalid" class="alert alert-danger">
-                                        <div *ngIf="f.amount.errors.required">Amount is required.</div>
-                                        <div *ngIf="f.amount.errors.pattern">Only numbers are allowed.</div>
-
-                                        </div> 
-        
-                                </div>
+                               <button class="btn btn-success" type="reset"> Save</button> &nbsp; &nbsp;
+                               <button class="btn btn-danger" type="reset"> Reset</button>  &nbsp;
+                               <button class="btn btn-success" type="reset"> Save as Template</button><br/> <br/>
                               
+                               &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                              <button class="btn btn-primary" type="submit"  [disabled]="!impsForm.valid"   >Continue</button>
+                             <br/><br/>
+      
+                             
+                          </form>
+                          <form [formGroup]="otpForm" (ngSubmit)="onSubmit2(otpForm)" class="form-signin" *ngIf="showOtp">
+                              <div class="form-group">
+                                  <label for="otp" class="font-weight-bold">
+                                      Enter OTP : </label>
+                                  <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
+      
+      
+                                  <div *ngIf="f2.otp.touched && f2.otp.invalid" class="alert alert-danger">
+                                      <div *ngIf="f2.otp.errors.required">OTP is required.</div>
+                                      <div *ngIf="f2.otp.errors.minlength">OTP should be of 4 digits.</div>
+                                      <div *ngIf="f2.otp.errors.maxlength">OTP should be of 4 digits.</div>
+                                      <div *ngIf="f2.otp.errors.pattern">Enter only numbers.</div>
+                                  </div>
+                              </div>
+                              <button class="btn btn-success" type="submit" [disabled]="!otpForm.valid">Proceed</button>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                              <button class="btn btn-primary" routerLink="/"> Back</button>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <button class="btn btn-danger" type="reset"> Cancel</button>
+                          </form>
+              </div>
 
-                                <div class="form-group">
-                                    <label for="instructions" class="font-weight-bold">
-                                        Maturity Instructions : </label>
-                                    <input type="text" class="form-control" placeholder="Maturity Instructions" >
         
-                                </div>
+        
+      </div>
 
-                                <div class="form-group">
-                                    <label for="remark" class="font-weight-bold">
-                                       Remark : </label>
-                                    <input type="text" class="form-control" placeholder="Remark"  formControlName="remark">
-        
-                                </div>
-                                <div class="form-group">
-                                    <label for="transactionpwd" class="font-weight-bold">
-                                       Set Transaction Password : </label>
-                                    <input type="password" class="form-control" placeholder="Set Transaction Password" formControlName="transactionpwd" id="transactionpwd"/>
-        
-                                    <div *ngIf="f.transactionpwd.touched && f.transactionpwd.invalid" class="alert alert-danger">
-                                        <div *ngIf="f.transactionpwd.errors.required">Transaction password is required.</div>
-                                    </div>
-        
-        
-                                </div>
-                                
-                                 <button class="btn btn-success" type="reset"> Save</button> &nbsp; &nbsp;
-                                 <button class="btn btn-danger" type="reset"> Reset</button>  &nbsp;
-                                 <button class="btn btn-success" type="reset"> Save as Template</button><br/> <br/>
-                                
-                                 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                                <button class="btn btn-primary" type="submit"  [disabled]="!impsForm.valid"   >Continue</button>
-                               <br/><br/>
-        
-                               
-                            </form>
-                            <form [formGroup]="otpForm" (ngSubmit)="onSubmit2(otpForm)" class="form-signin" *ngIf="showOtp">
-                                <div class="form-group">
-                                    <label for="otp" class="font-weight-bold">
-                                        Enter OTP : </label>
-                                    <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
-        
-        
-                                    <div *ngIf="f2.otp.touched && f2.otp.invalid" class="alert alert-danger">
-                                        <div *ngIf="f2.otp.errors.required">OTP is required.</div>
-                                        <div *ngIf="f2.otp.errors.minlength">OTP should be of 4 digits.</div>
-                                        <div *ngIf="f2.otp.errors.maxlength">OTP should be of 4 digits.</div>
-                                        <div *ngIf="f2.otp.errors.pattern">Enter only numbers.</div>
-                                    </div>
-                                </div>
-                                <button class="btn btn-success" type="submit" [disabled]="!otpForm.valid"  data-toggle="modal" data-target="#myModal1">Proceed</button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                                <button class="btn btn-primary" routerLink="/"> Back</button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-danger" type="reset"> Cancel</button>
-                            </form>
-                </div>
- 
-          
-          
-        </div>
-
-    </div>
+  </div>
 </div> 
 
 
 
-<div id="myModal1" class="modal" tabindex="-1" role="dialog" style="margin-top: 8%; margin-left:8%" *ngIf="correctOtp">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" >
-        <div class="modal-header" >
-         <h4>Transfer Successful</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="navigate()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        
-        </div>
-        <div class="modal-body">
-          <table  style="width: 90%;">
-            <tr>
-              <th>Reference ID </th>
-              <td style="float:right;">{{tranId}}</td>
-            </tr>
-            <tr>
-              <td colspan="2"><hr/></td>
+<!-- <div id="myModal1" class="modal" tabindex="-1" role="dialog" style="margin-top: 8%; margin-left:8%" *ngIf="correctOtp">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" >
+      <div class="modal-header" >
+       <h4>Transfer Successful</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="navigate()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      
+      </div>
+      <div class="modal-body">
+        <table  style="width: 90%;">
+          <tr>
+            <th>Reference ID </th>
+            <td style="float:right;">{{tranId}}</td>
           </tr>
-            <tr>
-              <th>Mode</th>
-              <td style="float:right;">{{STran.TransactionMode}}</td>
-            </tr>
-            <tr>
-              <td colspan="2"><hr/></td>
+          <tr>
+            <td colspan="2"><hr/></td>
+        </tr>
+          <tr>
+            <th>Mode</th>
+            <td style="float:right;">{{STran.TransactionMode}}</td>
           </tr>
-            <tr>
-              <th>Paid to Account</th>
-              <td style="float:right;">{{STran.ReceiverAccount}}</td>
-            </tr>
-            <tr>
-              <td colspan="2"><hr/></td>
+          <tr>
+            <td colspan="2"><hr/></td>
+        </tr>
+          <tr>
+            <th>Paid to Account</th>
+            <td style="float:right;">{{STran.ReceiverAccount}}</td>
           </tr>
-            <tr>
-              <th>Amount</th>
-              <td style="float:right;">{{STran.Amount}}</td>
-            </tr>
-            <tr>
-              <td colspan="2"><hr/></td>
+          <tr>
+            <td colspan="2"><hr/></td>
+        </tr>
+          <tr>
+            <th>Amount</th>
+            <td style="float:right;">{{STran.Amount}}</td>
           </tr>
-            <tr>
-              <th>On</th>
-              <td style="float:right;">{{STran.TransactionDate}}</td>
-            </tr>
-            <tr>
-              <td colspan="2"><hr/></td>
+          <tr>
+            <td colspan="2"><hr/></td>
+        </tr>
+          <tr>
+            <th>On</th>
+            <td style="float:right;">{{STran.TransactionDate}}</td>
           </tr>
-            <tr>
-              <th>Remarks</th>
-              <td style="float:right;">{{STran.Remarks}}</td>
-            </tr>
-            
-            </table>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Download as PDF</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="navigate()">Close</button>
-        </div>
+          <tr>
+            <td colspan="2"><hr/></td>
+        </tr>
+          <tr>
+            <th>Remarks</th>
+            <td style="float:right;">{{STran.Remarks}}</td>
+          </tr>
+          
+          </table>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Download as PDF</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="navigate()">Close</button>
       </div>
     </div>
   </div>
+</div> -->
 
 
 
@@ -182,32 +182,32 @@
 
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

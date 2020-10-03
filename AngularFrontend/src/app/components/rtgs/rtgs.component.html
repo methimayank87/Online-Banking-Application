@@ -104,7 +104,7 @@
                                         <div *ngIf="f2.otp.errors.pattern">Enter only numbers.</div>
                                     </div>
                                 </div>
-                                <button class="btn btn-success" type="submit" [disabled]="!otpForm.valid"  data-toggle="modal" data-target="#myModal1">Proceed</button>
+                                <button class="btn btn-success" type="submit" [disabled]="!otpForm.valid">Proceed</button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                                 <button class="btn btn-primary" routerLink="/"> Back</button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -120,7 +120,7 @@
 </div> 
 
 
-<div id="myModal1" class="modal" tabindex="-1" role="dialog" style="margin-top: 8%; margin-left:8%"  *ngIf="correctOtp">
+<!-- <div id="myModal1" class="modal" tabindex="-1" role="dialog" style="margin-top: 8%; margin-left:8%"  *ngIf="correctOtp">
     <div class="modal-dialog" role="document">
       <div class="modal-content" >
         <div class="modal-header" >
@@ -180,7 +180,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
