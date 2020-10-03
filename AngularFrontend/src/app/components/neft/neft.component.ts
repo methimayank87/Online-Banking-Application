@@ -19,6 +19,8 @@ export class NeftComponent implements OnInit {
   showOtp: boolean = false;
   currentOtp: Number;
   transaction: Transaction;
+  correctOtp : boolean = false;
+
   constructor(private router:Router,private formBuilder: FormBuilder, private accountService: AccountService,private transactionService: TransactionService) { 
     this.neftForm = this.formBuilder.group({
       toaccount: new FormControl('',Validators.required),
@@ -80,8 +82,9 @@ export class NeftComponent implements OnInit {
       if(this.currentOtp === form.value.otp){
           this.transactionService.addTransaction(this.transaction).subscribe(data => {
           if(data === 200){
-            alert("Transaction successful")
-            this.router.navigate(['fundstransfer'])
+            this.correctOtp = true;
+            //alert("Transaction successful")
+            //this.router.navigate(['fundstransfer'])
           }else{
             alert("Transaction failed")
           }
@@ -93,4 +96,8 @@ export class NeftComponent implements OnInit {
       alert("Incorrect OTP");
     }
   }
+  navigate(){
+    this.router.navigate(['fundstransfer'])
+  }
+
 }

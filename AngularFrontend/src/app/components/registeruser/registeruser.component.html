@@ -341,25 +341,41 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="netbanking" class="font-weight-bold"><input type="checkbox" id="netbanking" name="netbanking"  value="yes"> Opt for Net Banking</label>
+                    <label for="netbanking" class="font-weight-bold"><input type="checkbox" id="netbanking" name="netbanking" formControlName="netbanking"  value="yes"> Opt for Net Banking</label>
                        
                 </div>
                 <br/>
                 <hr/>
                 <div class="form-group">
-                    <label class="font-weight-bold "><input type="checkbox" id="agree" required> I agree to have read all the <a href="#">terms and conditions</a> properly and to entering all the information correctly</label>
-                       
+                    <ngx-recaptcha2 #captchaElem
+                        [siteKey]="siteKey"
+                        (reset)="handleReset()"
+                        (expire)="handleExpire()"
+                        (load)="handleLoad()"
+                        (success)="handleSuccess($event)"
+                        [useGlobalDomain]="false"
+                        [size]="size"
+                        [hl]="lang"
+                        [theme]="theme"
+                        [type]="type"
+                        formControlName="recaptcha">
+                    </ngx-recaptcha2>
+                </div>
+                <hr/>
+                <div class="form-group">
+                    <label class="font-weight-bold "><input type="checkbox" id="agree" name="agree" formControlName="agree" value="yes" > I agree to have read all the <a href="#">terms and conditions</a> properly and to entering all the information correctly</label>
+                    <div *ngIf="f.agree.touched && f.agree.invalid" class="alert alert-danger">
+                        <div *ngIf="f.agree.errors.required">Please confirm this.</div>
+                    </div>  
                 </div>
                 
                      
                  &nbsp; &nbsp;   
                 <button class="btn btn-success" routerLink="/"> Back</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary" type="submit" >Submit</button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                       
-
-                        <button class="btn btn-danger" type="reset"> Cancel</button>
+                <button class="btn btn-primary" type="submit" >Submit</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                <button class="btn btn-danger" type="reset"> Cancel</button>
                         
                        
                     </form>

@@ -84,6 +84,7 @@ export class ImpsComponent implements OnInit {
       if(this.currentOtp === form.value.otp){
           this.transactionService.addTransaction(this.transaction).subscribe(data => {
           if(data === 200){
+            
             this.correctOtp = true;
             //this.router.navigate(['fundstransfer'])
           }else{

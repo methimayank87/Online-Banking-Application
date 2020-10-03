@@ -114,12 +114,12 @@
 </div> 
 
 
-<div id="myModal1" class="modal" tabindex="-1" role="dialog" style="margin-top: 8%; margin-left:8%">
+<div id="myModal1" class="modal" tabindex="-1" role="dialog" style="margin-top: 8%; margin-left:8%"  *ngIf="correctOtp">
     <div class="modal-dialog" role="document">
       <div class="modal-content" >
         <div class="modal-header" >
          <h4>Transfer Successfull</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="navigate()">
             <span aria-hidden="true">&times;</span>
           </button>
         
@@ -170,7 +170,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Download as PDF</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="navigate()">Close</button>
         </div>
       </div>
     </div>

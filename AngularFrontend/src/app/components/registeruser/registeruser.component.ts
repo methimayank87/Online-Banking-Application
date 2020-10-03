@@ -8,6 +8,7 @@ import { AdminApprovalService } from 'src/app/services/admin-approval.service';
 import { UploadImageService } from 'src/app/services/upload-image.service';
 import { Raddress } from 'src/app/model/Raddress';
 import { Paddress } from 'src/app/model/Paddress';
+import { ReCaptchaV3Service } from 'ngx-captcha';
 @Component({
   selector: 'app-registeruser',
   templateUrl: './registeruser.component.html',
@@ -31,13 +32,28 @@ export class RegisteruserComponent implements OnInit {
   profileCaption: string;
   aadharCaption:  string;
   //image
+  //captcha
+  public readonly siteKey = '6LcvoUgUAAAAAJJbhcXvLn3KgG-pyULLusaU4mL1';
+
+  public captchaIsLoaded = false;
+  public captchaSuccess = false;
+  public captchaIsExpired = false;
+  public captchaResponse?: string;
+
+  public theme: 'light' | 'dark' = 'dark';
+  public size: 'compact' | 'normal' = 'normal';
+  public lang = 'en';
+  public type: 'image' | 'audio';
+  public useGlobalDomain: boolean = false;
+  //captcha
   constructor(private formBuilder: FormBuilder,
               private router: Router, 
               private userService: UserService, 
               private raddressService: RaddressService, 
               private paddressService: PaddressService, 
               private adminApprovalService: AdminApprovalService,
-              private imageService: UploadImageService
+              private imageService: UploadImageService,
+              private reCaptchaV3Service: ReCaptchaV3Service
              ) {
               this.imageForm = new FormGroup({
                 // Income_ID:new FormControl('',[Validators.required]),
@@ -114,7 +130,9 @@ export class RegisteruserComponent implements OnInit {
       sourceofincome: new FormControl ('',Validators.required),
       annualincome: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
        debitCard: new FormControl (''),
-       netbanking: new FormControl ('')
+       netbanking: new FormControl (''),
+       agree: new FormControl ('', Validators.required),
+       recaptcha: new FormControl('', Validators.required)
     })
 
   }
@@ -230,7 +248,32 @@ export class RegisteruserComponent implements OnInit {
   }
 
   //image
+  //captcha
+  handleReset(): void {
+    this.captchaSuccess = false;
+    this.captchaResponse = undefined;
+    this.captchaIsExpired = false;
+  }
 
+  handleSuccess(captchaResponse: string): void {
+    this.captchaSuccess = true;
+    this.captchaResponse = captchaResponse;
+    this.captchaIsExpired = false;
+  }
+
+  handleLoad(): void {
+    this.captchaIsLoaded = true;
+    this.captchaIsExpired = false;
+  }
+
+  handleExpire(): void {
+    this.captchaSuccess = false;
+    this.captchaIsExpired = true;
+  }
+
+  handleError(){
+
+  }
 
 
 }

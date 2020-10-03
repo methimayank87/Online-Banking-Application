@@ -28,7 +28,7 @@ import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardnavbarComponent } from './components/dashboardnavbar/dashboardnavbar.component';
 import { BnNgIdleService } from 'bn-ng-idle';
-
+import { NgxCaptchaModule } from  'ngx-captcha';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +62,8 @@ import { BnNgIdleService } from 'bn-ng-idle';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxCaptchaModule
   ],
   providers: [AuthguardService,
     BnNgIdleService
