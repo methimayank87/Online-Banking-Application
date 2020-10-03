@@ -30,4 +30,8 @@ export class TransactionService {
   getTransactionById(accountNumber){
     return this._http.get<Transaction>(this.baseUrl + '/' + accountNumber, this.httpOptions)
   }
+
+  getLast(accountNumber){
+    return this._http.get<Transaction[]>(this.baseUrl + '/accounts/' + accountNumber + '/getlastten',this.httpOptions)
+  }
 }
