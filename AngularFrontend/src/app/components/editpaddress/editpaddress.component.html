@@ -1,0 +1,91 @@
+<div class="d-flex" id="wrapper">
+    <app-sidebar></app-sidebar>
+    <div id="page-content-wrapper" >
+         <app-navbar></app-navbar>
+         <div class="bg">
+             <br/>
+             <h4 class="text-center login-title text-white font-weight-bold">EDIT PERMANENT ADDRESS DETAILS </h4><br/>
+
+            <div class="admin-body" >
+
+                <img class="profile-img" src="https://image.flaticon.com/icons/png/512/72/72648.png" alt="User Icon"><br/>
+        
+                <form [formGroup]="editpaddressForm" (ngSubmit)="onSubmit(editpaddressForm)" class="form-signin">
+                  
+                    <h4>Permanent Address</h4><hr/>
+                  
+                    <div class="form-group">
+                        <label for="peraddrline1" class="font-weight-bold">Address Line 1<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="peraddrline1" formControlName="peraddrline1"  placeholder="Address Line 1" />  
+                                <div *ngIf="f.peraddrline1.touched && f.peraddrline1.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.peraddrline1.errors.required">Address is required.</div>
+                                </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="peraddrline2" class="font-weight-bold">Address Line 2<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="peraddrline2" formControlName="peraddrline2"  placeholder="Address Line 2" />  
+                                <div *ngIf="f.peraddrline2.touched && f.peraddrline2.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.peraddrline2.errors.required">Address is required.</div>
+                                </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="perlandmark" class="font-weight-bold">Landmark<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="perlandmark" formControlName="perlandmark"  placeholder="Landmark" />  
+                                <div *ngIf="f.perlandmark.touched && f.perlandmark.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.perlandmark.errors.required">Landmark is required.</div>
+                                </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="perstate" class="font-weight-bold">State<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="perstate" formControlName="perstate"  placeholder="State" />  
+                                <div *ngIf="f.perstate.touched && f.perstate.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.perstate.errors.required">State is required.</div>
+                                </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="percity" class="font-weight-bold">City<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="percity" formControlName="percity"  placeholder="City" />  
+                                <div *ngIf="f.percity.touched && f.percity.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.percity.errors.required">City is required.</div>
+                                </div>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="perpincode" class="font-weight-bold">Pincode<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="perpincode" formControlName="perpincode"  placeholder="Pincode" />  
+                                <div *ngIf="f.perpincode.touched && f.perpincode.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.perpincode.errors.required">Pincode is required.</div>
+                                    <div *ngIf="f.perpincode.errors.minlength">Pincode should be of 6 digits.</div>
+                                    <div *ngIf="f.perpincode.errors.maxlength">Pincode should be of 6 digits.</div>
+                                    <div *ngIf="f.perpincode.errors.pattern">Only numbers are allowed.</div>
+                                    
+                                </div>
+                    </div>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <button class="btn btn-success" routerLink="/homepage"> Back</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <button class="btn btn-primary" type="submit" >Submit</button>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                         
+              
+                          <button class="btn btn-danger" type="reset"> Cancel</button>
+
+                    </form>
+                    </div>
+             </div>
+    </div>
+</div> 
+  
+  
+
+
+

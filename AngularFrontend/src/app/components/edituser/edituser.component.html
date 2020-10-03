@@ -1,0 +1,169 @@
+<div class="d-flex" id="wrapper">
+    <app-sidebar></app-sidebar>
+    <div id="page-content-wrapper" >
+         <app-navbar></app-navbar>
+         <div class="bg">
+             <br/>
+             <h4 class="text-center login-title text-white font-weight-bold">EDIT PERSONAL DETAILS AND OCCUPATION DETAILS</h4><br/>
+
+            <div class="admin-body" >
+
+                <img class="profile-img" src="https://image.flaticon.com/icons/png/512/72/72648.png" alt="User Icon"><br/>
+        
+                <form [formGroup]="edituserForm" (ngSubmit)="onSubmit(edituserForm)" class="form-signin">
+                    <hr/><h4>Personal Details</h4><br/>
+                  
+                    <div class="form-group">
+                        <label for="title" class="font-weight-bold">Title<span class="required" style="color: rgb(177, 53, 53);">*</span></label>&nbsp;&nbsp;
+                           
+                        <select class="form-control" id="title" formControlName="title">
+                            <option value="" disabled selected hidden>Select a title</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Miss">Miss</option>
+                        </select>
+                        <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
+                            <div *ngIf="f.title.errors.required">Title is required.</div>
+                        </div>                                    
+                    </div>
+        
+                   
+                    <div class="form-group">
+                        <label for="firstname" class="font-weight-bold">First Name<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="firstname" formControlName="firstname"  placeholder="First Name" />  
+                                <div *ngIf="f.firstname.touched && f.firstname.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.firstname.errors.required">Firstname is required.</div>
+                                    <div *ngIf="f.firstname.errors.pattern">Only letters are allowed.</div>
+                                </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="middlename" class="font-weight-bold">Middle Name</label>
+                           
+                                <input type="text" class="form-control" id="middlename"  placeholder="Middle Name" />  
+                               
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="lastname" class="font-weight-bold">Last Name<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="lastname" formControlName="lastname"  placeholder="Last Name" />  
+                                <div *ngIf="f.lastname.touched && f.lastname.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.lastname.errors.required">Lastname is required.</div>
+                                    <div *ngIf="f.lastname.errors.pattern">Only letters are allowed.</div>
+                                </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="gender" class="font-weight-bold">Gender<span class="required" style="color: rgb(177, 53, 53);">*</span></label><br/>
+                           
+                        <input type="radio" name="gender" formControlName="gender" value="female" />Female<br/>
+                        <input type="radio" name="gender" formControlName="gender" value="male" />Male<br/>
+                        <input type="radio" name="gender" formControlName="gender"  value="others" />Others<br/>
+                        <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
+                            <div *ngIf="f.gender.errors.required">Gender is required.</div>
+                        </div>
+                
+                        
+                    </div>
+        
+        
+        
+                    <div class="form-group">
+                        <label for="fathername" class="font-weight-bold">Father's Name<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="fathername" formControlName="fathername"  placeholder="Father's Name" />  
+                                <div *ngIf="f.fathername.touched && f.fathername.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.fathername.errors.required">Father's name is required.</div>
+                                    <div *ngIf="f.fathername.errors.pattern">Only letters are allowed.</div>
+                                </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="mobilenumber" class="font-weight-bold">Mobile Number<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="mobilenumber" formControlName="mobilenumber"  placeholder="Mobile number" />  
+                                <div *ngIf="f.mobilenumber.touched && f.mobilenumber.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.mobilenumber.errors.required">Mobile number is required.</div>
+                                    <div *ngIf="f.mobilenumber.errors.pattern">Mobile number is not valid.</div>
+                                </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="email" class="font-weight-bold">Email ID</label>
+                           
+                                <input type="email" class="form-control" id="email"  placeholder="Email" formControlName="email" />  
+                        
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="aadharnumber" class="font-weight-bold">Aadhar Card Number<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="text" class="form-control" id="aadharnumber" formControlName="aadharnumber"  placeholder="Aadhar number" />  
+                                <div *ngIf="f.aadharnumber.touched && f.aadharnumber.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.aadharnumber.errors.required">Aadhar card number is required.</div>
+                                    <div *ngIf="f.aadharnumber.errors.pattern">Aadhar card number is not valid.</div>
+                                </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="dob" class="font-weight-bold">Date of birth<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                           
+                                <input type="date" class="form-control" id="dob" formControlName="dob"  placeholder="Date of Birth" />  
+                                <div *ngIf="f.dob.touched && f.dob.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.dob.errors.required">Date of Birth is required.</div>
+                                </div>
+                    </div>
+        
+                    <br/>
+
+
+                    <hr/>
+                    <h4>Occupation Details </h4>
+                    <br/>
+                    <div class="form-group">
+                      <label for="occupationtype" class="font-weight-bold">Occupation Type<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                         
+                              <input type="text" class="form-control" id="occupationtype" formControlName="occupationtype"  placeholder="Occupation Type" />  
+                              <div *ngIf="f.occupationtype.touched && f.occupationtype.invalid" class="alert alert-danger">
+                                  <div *ngIf="f.occupationtype.errors.required">Occupation type is required.</div>
+                              </div>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="sourceofincome" class="font-weight-bold">Source Of Income<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                         
+                              <input type="text" class="form-control" id="sourceofincome" formControlName="sourceofincome"  placeholder="Source of income" />  
+                              <div *ngIf="f.sourceofincome.touched && f.sourceofincome.invalid" class="alert alert-danger">
+                                  <div *ngIf="f.sourceofincome.errors.required">Source of income is required.</div>
+                              </div>
+                  </div>
+              
+                  <div class="form-group">
+                      <label for="annualincome" class="font-weight-bold">Gross Annual Income<span class="required" style="color: rgb(177, 53, 53);">*</span></label>
+                         
+                              <input type="text" class="form-control" id="annualincome" formControlName="annualincome"  placeholder="Gross Annual Income" />  
+                              <div *ngIf="f.annualincome.touched && f.annualincome.invalid" class="alert alert-danger">
+                                  <div *ngIf="f.annualincome.errors.required">Source of income is required.</div>
+                                  <div *ngIf="f.annualincome.errors.pattern">Only numbers are allowed.</div>
+              
+                              </div>
+                  </div>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <button class="btn btn-success" routerLink="/homepage"> Back</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <button class="btn btn-primary" type="submit" >Submit</button>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                         
+              
+                          <button class="btn btn-danger" type="reset"> Cancel</button>
+
+                    </form>
+                    </div>
+             </div>
+    </div>
+</div> 
+  
+  
+

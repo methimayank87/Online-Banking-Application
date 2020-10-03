@@ -29,6 +29,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardnavbarComponent } from './components/dashboardnavbar/dashboardnavbar.component';
 import { BnNgIdleService } from 'bn-ng-idle';
 import { NgxCaptchaModule } from  'ngx-captcha';
+import { EdituserComponent } from './components/edituser/edituser.component';
+import { EditraddressComponent } from './components/editraddress/editraddress.component';
+import { EditpaddressComponent } from './components/editpaddress/editpaddress.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +58,10 @@ import { NgxCaptchaModule } from  'ngx-captcha';
     NeftComponent,
     RtgsComponent,
     SidebarComponent,
-    DashboardnavbarComponent
+    DashboardnavbarComponent,
+    EdituserComponent,
+    EditraddressComponent,
+    EditpaddressComponent
   ],
   imports: [
     BrowserModule,
