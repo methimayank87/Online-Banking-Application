@@ -66,15 +66,15 @@
       
       
                               </div>
-                              
-                               <button class="btn btn-success" type="reset"> Save</button> &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
                                <button class="btn btn-danger" type="reset"> Reset</button>  &nbsp;
-                               <button class="btn btn-success" type="reset"> Save as Template</button><br/> <br/>
                               
-                               &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
                               <button class="btn btn-primary" type="submit"  [disabled]="!impsForm.valid"   >Continue</button>
                              <br/><br/>
-      
+                             <h6>Please Note:</h6>
+                                 <br>
+                              <p class="italic">1) Within 24 hours of adding a beneficiary, maximum of Rs. 25,000 (in full or parts) can be transferred to that beneficiary. Post that Third Party Transfer limits will apply.</p>
+                               <p class="italic ">2) Also, a beneficiary added previously to whom no funds are transferred for more than 24 months, is treated as a new beneficiary in all respects. </p>
                              
                           </form>
                           <form [formGroup]="otpForm" (ngSubmit)="onSubmit2(otpForm)" class="form-signin" *ngIf="showOtp">
