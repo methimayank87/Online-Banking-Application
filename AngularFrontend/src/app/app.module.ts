@@ -28,6 +28,9 @@ import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardnavbarComponent } from './components/dashboardnavbar/dashboardnavbar.component';
 import { BnNgIdleService } from 'bn-ng-idle';
+import { EdituserComponent } from './components/edituser/edituser.component';
+import { EditraddressComponent } from './components/editraddress/editraddress.component';
+import { EditpaddressComponent } from './components/editpaddress/editpaddress.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { BnNgIdleService } from 'bn-ng-idle';
     NeftComponent,
     RtgsComponent,
     SidebarComponent,
-    DashboardnavbarComponent
+    DashboardnavbarComponent,
+    EdituserComponent,
+    EditraddressComponent,
+    EditpaddressComponent
   ],
   imports: [
     BrowserModule,
