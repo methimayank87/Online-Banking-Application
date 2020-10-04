@@ -24,6 +24,7 @@ export class AdminComponent implements OnInit {
     })
   }
   listRequests: AdminApproval[] = [];
+  pending: string = "pending";
   request: AdminApproval;
   isPending: string = "pending";
   bulkMailForm:FormGroup;

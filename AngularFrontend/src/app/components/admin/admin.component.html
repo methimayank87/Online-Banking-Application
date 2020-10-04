@@ -39,19 +39,17 @@
                 <th>Reference Number</th>
                 <th>User Id</th>
                 <th>Approval Status</th>
-                <th>Approval Date</th>
                 <th>Action</th>
             </tr>
             <tr *ngFor="let request of listRequests">
               <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalID}}</td>
               <td *ngIf="request.ApprovalStatus===isPending">{{request.UserID}}</td>
               <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalStatus}}</td>
-              <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalDate}}</td>
               
               <td *ngIf="request.ApprovalStatus===isPending">
                 <button class="btn btn-primary" (click)="viewDetails(request.UserID)"><i class="fa  fa-th-list" style="font-size: 25px;"></i></button>
-                    <button class="btn btn-success" (click)="approveRequest(request.ApprovalID,request.UserID)"><i class="fa   fa-check-square-o" style="font-size: 25px;"></i></button>
-                    <button class="btn btn-danger" (click)="rejectRequest(request.ApprovalID,request.UserID)"><i class="fa  fa-trash" style="font-size: 25px;"></i></button>
+                    <button class="btn btn-success" *ngIf="request.ApprovalStatus===pending" (click)="approveRequest(request.ApprovalID,request.UserID)"><i class="fa   fa-check-square-o" style="font-size: 25px;"></i></button>
+                    <button class="btn btn-danger" *ngIf="request.ApprovalStatus===pending" (click)="rejectRequest(request.ApprovalID,request.UserID)"><i class="fa  fa-trash" style="font-size: 25px;"></i></button>
                 </td>
 
             </tr> 
