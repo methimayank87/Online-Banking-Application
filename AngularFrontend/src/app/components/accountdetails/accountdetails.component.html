@@ -1,1 +1,242 @@
-<p>accountdetails works!</p>
+
+
+<div class="d-flex" id="wrapper">
+    <app-sidebar></app-sidebar>
+    <div id="page-content-wrapper" >
+        <app-navbar></app-navbar>
+       
+  
+  
+        <div class="bg">
+            <br/>
+            <h4 class="text-center login-title text-white font-weight-bold">USER PROFILE</h4>
+
+            <div class="admin-body" >
+
+                <img class="profile-img" src="http://cdn.onlinewebfonts.com/svg/download_568656.png" alt="User Icon">
+
+               
+
+                <br/>
+                <div style="padding-left: 100px; padding-right: 20px;">
+
+                <table style="width: 90%;" >
+                    <tr>
+                        <th colspan="2"><h4>Personal Details <button type="button" class="btn btn-primary" style="width: 45px; float:right;" routerLink="/edituser"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <th style="width:30%">First Name : </th>
+                        <td>{{user.FirstName}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Middle Name : </th>
+                        <td>{{user.MiddleName}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Last Name : </th>
+                        <td>{{user.LastName}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Father's Name : </th>
+                        <td>{{user.FatherName}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Mobile Number : </th>
+                        <td>{{user.Phone}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <!-- <tr>
+                        <th>Aadhar Card Number : </th>
+                        <td></td>
+                    </tr> 
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr> -->
+                    <tr>
+                        <th>Date Of Birth : </th>
+                        <td>{{user.DOB}}</td>
+                    </tr>
+
+                   <tr>
+                    <td colspan="2"><hr/></td>
+                    </tr>
+                   <br/>
+                   <tr>
+                    <th colspan="2"><h4>Residential Address <button type="button" class="btn btn-success" style="width: 45px; float:right;" routerLink="/editraaddress"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
+                   </tr>
+                   <br/>
+                    <tr>
+                        <th>Address Line 1 : </th>
+                        <td>{{raddress.AddressLine1}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+
+                    <tr>
+                        <th>Address Line 2 : </th>
+                        <td>{{raddress.AddressLine2}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Landmark : </th>
+                        <td>{{raddress.Landmark}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+
+                    <tr>
+                        <th>State : </th>
+                        <td>{{raddress.State1}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>City : </th>
+                        <td>{{raddress.City}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Pincode : </th>
+                        <td>{{raddress.Pincode}}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <th colspan="2"><h4>Permanent Address <button type="button" class="btn btn-success" style="width: 45px; float:right;" routerLink="/editpaaddress"><i class="fa fa-edit" style="font-size: 25px;"></i></button></h4></th>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <th>Address Line 1 : </th>
+                        <td>{{paddress.AddressLine1}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+
+                    <tr>
+                        <th>Address Line 2 : </th>
+                        <td>{{paddress.AddressLine2}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Landmark : </th>
+                        <td>{{paddress.Landmark}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+
+                    <tr>
+                        <th>State : </th>
+                        <td>{{paddress.State1}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>City : </th>
+                        <td>{{paddress.City}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Pincode : </th>
+                        <td>{{paddress.Pincode}}</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <th colspan="2"><h4>Occupation Details</h4></th>
+                       </tr>
+                    <tr>
+                        <th>Occupation Type : </th>
+                        <td>{{user.OccupationType}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+
+                    <tr>
+                        <th>Source Of Income : </th>
+                        <td>{{user.SourceOfIncome}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+                    <tr>
+                        <th>Gross Annual Income : </th>
+                        <td>{{user.AnnualIncome}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr/></td>
+                    </tr>
+
+                  
+
+                </table>
+                </div>
+      
+        </div>  
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+  

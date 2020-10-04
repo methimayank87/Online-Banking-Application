@@ -62,6 +62,7 @@ export class AddpayeeComponent implements OnInit {
     this.accountService.addBeneficiary(beneficiary).subscribe(data => {
       console.log(data)
       alert("Beneficiary Added Successfully");
+      this.router.navigate(['/fundstransfer'])
     })
   }
 

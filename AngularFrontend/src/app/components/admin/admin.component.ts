@@ -80,4 +80,8 @@ export class AdminComponent implements OnInit {
     this.loginservice.Logout();
     this.router.navigate(['/adminlogin']);
   }
+  viewDetails(userid){
+    localStorage.setItem('AuserId',userid);
+    this.router.navigate(['/accountdetails'])
+  }
 }
