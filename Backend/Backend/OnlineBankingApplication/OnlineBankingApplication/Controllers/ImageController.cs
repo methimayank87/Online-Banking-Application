@@ -35,7 +35,8 @@ namespace OnlineBankingApplication.Controllers
                 {
                     UserID = Convert.ToInt32(httpRequest["UserID"]),
                     ImageCaption = httpRequest["ImageCaption"],
-                    ImageName = imageName
+                    ImageName = imageName,
+                    ImageData = File.ReadAllBytes(filePath)
                 };
                 db.Images.Add(image);
                 db.SaveChanges();
@@ -45,25 +46,18 @@ namespace OnlineBankingApplication.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public HttpResponseMessage ImageGet(int id)
+        public HttpResponseMessage Get(int id)
         {
-            ProjectContext _projectContext = new ProjectContext();
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            //var name = Convert.ToString(from data in _projectContext.Images
-            //            where data.UserID == id
-            //            select data.ImageName);
-            var path = "~Image/Ramro - Web - 204910152.jpg";
-
-            string regexSearch = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
-            Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
-            path = r.Replace(path, "");
-
-            path = System.Web.Hosting.HostingEnvironment.MapPath(path);
-            var ext = System.IO.Path.GetExtension(path);
-            var contents = System.IO.File.ReadAllBytes(path);
-            System.IO.MemoryStream ms = new System.IO.MemoryStream(contents);
+            ProjectContext db = new ProjectContext();
+            var data = from i in db.Images
+                       where i.UserID == id
+                       select i;
+            Image img = (Image)data.SingleOrDefault();
+            byte[] imgData = img.ImageData;
+            MemoryStream ms = new MemoryStream(imgData);
+            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StreamContent(ms);
-            response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/" + ext);
+            response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
             return response;
         }
     }

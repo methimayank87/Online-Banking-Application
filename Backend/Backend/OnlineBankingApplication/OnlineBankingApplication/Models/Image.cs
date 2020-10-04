@@ -17,6 +17,7 @@ namespace OnlineBankingApplication.Models
         public int UserID { get; set; }
         public string ImageCaption { get; set; }
         public string ImageName { get; set; }
+        public byte[] ImageData { get; set; }
     
         public virtual User User { get; set; }
     }

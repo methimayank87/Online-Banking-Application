@@ -7,6 +7,7 @@
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="FileCaption" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="FileName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="FileData" Type="varbinary(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Account">
     <Key>
@@ -51,6 +52,7 @@
     <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="ImageCaption" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ImageName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ImageData" Type="varbinary(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="PAddress">
     <Key>
@@ -108,7 +110,7 @@
     <Property Name="NetBankingOpted" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="DateOfApplication" Type="date" Nullable="false" />
   </EntityType>
-  <Association Name="FK__AadharFil__UserI__412EB0B6">
+  <Association Name="FK__AadharFil__UserI__5FB337D6">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="AadharFile" Type="Self.AadharFile" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -180,7 +182,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Image__UserID__3E52440B">
+  <Association Name="FK__Image__UserID__5CD6CB2B">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -251,7 +253,7 @@
     <EntitySet Name="RAddress" EntityType="Self.RAddress" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__AadharFil__UserI__412EB0B6" Association="Self.FK__AadharFil__UserI__412EB0B6">
+    <AssociationSet Name="FK__AadharFil__UserI__5FB337D6" Association="Self.FK__AadharFil__UserI__5FB337D6">
       <End Role="Users" EntitySet="Users" />
       <End Role="AadharFile" EntitySet="AadharFile" />
     </AssociationSet>
@@ -275,7 +277,7 @@
       <End Role="Account" EntitySet="Account" />
       <End Role="Beneficiary" EntitySet="Beneficiary" />
     </AssociationSet>
-    <AssociationSet Name="FK__Image__UserID__3E52440B" Association="Self.FK__Image__UserID__3E52440B">
+    <AssociationSet Name="FK__Image__UserID__5CD6CB2B" Association="Self.FK__Image__UserID__5CD6CB2B">
       <End Role="Users" EntitySet="Users" />
       <End Role="Image" EntitySet="Image" />
     </AssociationSet>
