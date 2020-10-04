@@ -30,7 +30,8 @@ export class UserService {
         "SourceOfIncome": data.sourceofincome,
         "AnnualIncome": data.annualincome,
         "DebitCardOpted":( data.debitCard) ? "yes" : "no",
-        "NetBankingOpted": (data.netbanking) ? "yes" : "no"
+        "NetBankingOpted": (data.netbanking) ? "yes" : "no",
+        "DateOfApplication": new Date()
     }
     console.log(user)
     return this._http.post<User>(this.baseUrl,JSON.stringify(user),this.httpOptions)

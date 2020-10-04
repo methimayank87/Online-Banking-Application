@@ -17,7 +17,7 @@ export class AccountdetailsComponent implements OnInit {
   raddress: Raddress;
   paddress: Paddress;
   baseUrl: string = "https://localhost:44306/api/UploadImage/";
-  profileImage: string;
+  profileImage: string = "http://cdn.onlinewebfonts.com/svg/download_568656.png";
   ngOnInit(): void {
     this.getUser();
     this.getRaddress();

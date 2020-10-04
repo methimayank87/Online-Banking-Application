@@ -24,6 +24,7 @@ import { EditpaddressComponent } from './components/editpaddress/editpaddress.co
 import { EditraddressComponent } from './components/editraddress/editraddress.component';
 import { EdituserComponent } from './components/edituser/edituser.component';
 import { TsuccessComponent } from './components/tsuccess/tsuccess.component';
+import { UserstatisticsComponent } from './components/userstatistics/userstatistics.component';
 
 const routes: Routes = [
   {path:'accountstatement', component:AccountstatementComponent},
@@ -47,7 +48,8 @@ const routes: Routes = [
   {path:'edituser', component:EdituserComponent},
   {path:'editraddress', component:EditraddressComponent},
   {path:'editpaddress', component:EditpaddressComponent},
-  {path:'transactionSuccess/:id',component:TsuccessComponent}
+  {path:'transactionSuccess/:id',component:TsuccessComponent},
+  {path:'userstatistics', component:UserstatisticsComponent}
 ];
 
 @NgModule({

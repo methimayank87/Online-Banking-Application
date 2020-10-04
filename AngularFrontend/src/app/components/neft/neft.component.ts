@@ -52,7 +52,7 @@ export class NeftComponent implements OnInit {
     const sender = parseInt(localStorage.getItem('Accno'));
     console.log(this.beneficiary);
     this.transaction = {
-      "TransactionMode": "IMPS",
+      "TransactionMode": "NEFT",
       "SenderAccount": sender,
       "ReceiverAccount": this.beneficiary.BenAccountNumber,
       "Amount": form.value.amount,

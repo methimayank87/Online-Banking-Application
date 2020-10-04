@@ -52,7 +52,7 @@ export class RtgsComponent implements OnInit {
     const sender = parseInt(localStorage.getItem('Accno'));
     console.log(this.beneficiary);
     this.transaction = {
-      "TransactionMode": "IMPS",
+      "TransactionMode": "RTGS",
       "SenderAccount": sender,
       "ReceiverAccount": this.beneficiary.BenAccountNumber,
       "Amount": form.value.amount,

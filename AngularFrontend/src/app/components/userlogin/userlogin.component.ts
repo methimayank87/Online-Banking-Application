@@ -12,7 +12,7 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./userlogin.component.css']
 })
 export class UserloginComponent implements OnInit {
-
+  loginCounter: number = 0;
   userloginForm:FormGroup;
   userOtpForm: FormGroup;
   current: Number;
@@ -69,7 +69,9 @@ export class UserloginComponent implements OnInit {
     try{
       if(this.current === form.value.otp){
         alert("Successfully logged in!");
+        this.loginCounter = 0;
         this.router.navigate(['dashboard']);
+
       }
     }catch{
       alert("Incorrect OTP");
@@ -77,6 +79,21 @@ export class UserloginComponent implements OnInit {
   }
   get f(){
     return this.userloginForm.controls;
+  }
+  setLogin() {
+    this.loginCounter += 1;
+    console.log(this.loginCounter)
+    localStorage.setItem('logCount', this.loginCounter.toString());
+    if (this.loginCounter >= 3 )
+    {
+      alert("Account Locked!");
+      this.router.navigate(['/forgotpassword']);
+
+    }
+    else 
+    {
+      this.loginCounter+=1;
+    }
   }
 
 

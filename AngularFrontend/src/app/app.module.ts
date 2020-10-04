@@ -33,6 +33,7 @@ import { EdituserComponent } from './components/edituser/edituser.component';
 import { EditraddressComponent } from './components/editraddress/editraddress.component';
 import { EditpaddressComponent } from './components/editpaddress/editpaddress.component';
 import { TsuccessComponent } from './components/tsuccess/tsuccess.component';
+import { UserstatisticsComponent } from './components/userstatistics/userstatistics.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { TsuccessComponent } from './components/tsuccess/tsuccess.component';
     EdituserComponent,
     EditraddressComponent,
     EditpaddressComponent,
-    TsuccessComponent
+    TsuccessComponent,
+    UserstatisticsComponent
   ],
   imports: [
     BrowserModule,
