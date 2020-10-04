@@ -20,7 +20,7 @@
                     <div class="dropdown-menu">
                       <button class="dropdown-item" (click)="setApproved('approved')">Approved</button>
                       <button class="dropdown-item" (click)="setApproved('pending')">Pending</button>
-                      <button class="dropdown-item">Others</button>
+                      <button class="dropdown-item" (click)="setApproved('cancelled')">Cancelled</button>
                     </div>
             </div>
             
@@ -47,10 +47,11 @@
               <td *ngIf="request.ApprovalStatus===isPending">{{request.UserID}}</td>
               <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalStatus}}</td>
               <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalDate}}</td>
-                
+              
               <td *ngIf="request.ApprovalStatus===isPending">
-                <button class="btn btn-primary" (click)="viewDetails(request.UserID)">View Details</button>
-                    <button class="btn btn-success" (click)="approveRequest(request.ApprovalID,request.UserID)">Approve</button>
+                <button class="btn btn-primary" (click)="viewDetails(request.UserID)"><i class="fa  fa-th-list" style="font-size: 25px;"></i></button>
+                    <button class="btn btn-success" (click)="approveRequest(request.ApprovalID,request.UserID)"><i class="fa   fa-check-square-o" style="font-size: 25px;"></i></button>
+                    <button class="btn btn-danger" (click)="rejectRequest(request.ApprovalID,request.UserID)"><i class="fa  fa-trash" style="font-size: 25px;"></i></button>
                 </td>
 
             </tr> 

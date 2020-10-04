@@ -59,7 +59,7 @@ namespace OnlineBankingApplication.Repositories
         {
             _projectContext.Entry(updateApproval).State = EntityState.Modified;
             _projectContext.SaveChanges();
-            if (updateApproval.ApprovalStatus == "pending")
+            if (updateApproval.ApprovalStatus == "cancelled")
             {
                 var user = _projectContext.Users
                                     .Where(u => u.UserID == updateApproval.UserID)

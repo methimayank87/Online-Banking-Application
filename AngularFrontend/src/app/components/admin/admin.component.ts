@@ -47,11 +47,11 @@ export class AdminComponent implements OnInit {
        this.adminApprovalService.updateRequestStatus(data).subscribe(data => {
          this.getRequests();
         alert("Request Aprroved");
+        this.accountService.createAccount(userId).subscribe(data => {
+          alert("account creation process initiated");
+        });
       })
       });
-    this.accountService.createAccount(userId).subscribe(data => {
-      alert("account creation process initiated");
-    });
   }
 
   onSubmit(form){
@@ -83,5 +83,13 @@ export class AdminComponent implements OnInit {
   viewDetails(userid){
     localStorage.setItem('AuserId',userid);
     this.router.navigate(['/accountdetails'])
+  }
+  rejectRequest(requestId,userId){
+    this.adminApprovalService.getRequestById(requestId).subscribe(data => {
+      this.adminApprovalService.rejectRequestStatus(data).subscribe(data => {
+        this.getRequests();
+       alert("Request Reject");
+     })
+     });
   }
 }

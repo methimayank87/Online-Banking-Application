@@ -16,6 +16,8 @@ export class AccountdetailsComponent implements OnInit {
   user : User;
   raddress: Raddress;
   paddress: Paddress;
+  baseUrl: string = "https://localhost:44306/api/UploadImage/";
+  profileImage: string;
   ngOnInit(): void {
     this.getUser();
     this.getRaddress();
@@ -23,6 +25,7 @@ export class AccountdetailsComponent implements OnInit {
   }
   getUser(){
     const userid = localStorage.getItem('AuserId')
+    this.profileImage = this.baseUrl + userid;
     this.userService.getUserById(userid).subscribe(data => {
       this.user = data;
     })
