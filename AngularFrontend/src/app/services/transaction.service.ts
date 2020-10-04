@@ -26,4 +26,12 @@ export class TransactionService {
   getTransactions(data,accountNumber){
     return this._http.post<Transaction[]>(this.baseUrl + '/accounts/' + accountNumber + '/getbydate',data,this.httpOptions)
   }
+
+  getTransactionById(accountNumber){
+    return this._http.get<Transaction>(this.baseUrl + '/' + accountNumber, this.httpOptions)
+  }
+
+  getLast(accountNumber){
+    return this._http.get<Transaction[]>(this.baseUrl + '/accounts/' + accountNumber + '/getlastten',this.httpOptions)
+  }
 }

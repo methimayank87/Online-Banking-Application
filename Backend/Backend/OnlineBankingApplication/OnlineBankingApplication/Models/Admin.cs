@@ -11,10 +11,7 @@ namespace OnlineBankingApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Security.Cryptography.Xml;
-    using Newtonsoft.Json;
-
-    //[JsonObject(IsReference = false)]
+    
     public partial class Admin
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

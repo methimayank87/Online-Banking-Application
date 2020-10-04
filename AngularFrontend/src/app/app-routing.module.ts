@@ -20,6 +20,11 @@ import { NeftComponent } from './components/neft/neft.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { Authentication1Guard } from './authentication1.guard';
+import { EditpaddressComponent } from './components/editpaddress/editpaddress.component';
+import { EditraddressComponent } from './components/editraddress/editraddress.component';
+import { EdituserComponent } from './components/edituser/edituser.component';
+import { TsuccessComponent } from './components/tsuccess/tsuccess.component';
+import { UserstatisticsComponent } from './components/userstatistics/userstatistics.component';
 
 const routes: Routes = [
   {path:'accountstatement', component:AccountstatementComponent},
@@ -40,7 +45,11 @@ const routes: Routes = [
   {path:'rtgs',component: RtgsComponent},
   {path: 'admin', component:AdminComponent,canActivate:[AuthenticationGuard]},
   {path:'dashboard', component:DashboardComponent,canActivate:[Authentication1Guard]},
-
+  {path:'edituser', component:EdituserComponent},
+  {path:'editraddress', component:EditraddressComponent},
+  {path:'editpaddress', component:EditpaddressComponent},
+  {path:'transactionSuccess/:id',component:TsuccessComponent},
+  {path:'userstatistics', component:UserstatisticsComponent}
 ];
 
 @NgModule({

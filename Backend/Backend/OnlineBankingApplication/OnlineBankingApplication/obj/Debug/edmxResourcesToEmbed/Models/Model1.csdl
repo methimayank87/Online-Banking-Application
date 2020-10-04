@@ -7,7 +7,8 @@
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="FileCaption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK__AadharFil__UserI__412EB0B6" FromRole="AadharFile" ToRole="Users" />
+    <Property Name="FileData" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__AadharFil__UserI__5FB337D6" FromRole="AadharFile" ToRole="Users" />
   </EntityType>
   <EntityType Name="Account">
     <Key>
@@ -62,7 +63,8 @@
     <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="ImageCaption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ImageName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK__Image__UserID__3E52440B" FromRole="Image" ToRole="Users" />
+    <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Image__UserID__5CD6CB2B" FromRole="Image" ToRole="Users" />
   </EntityType>
   <EntityType Name="PAddress">
     <Key>
@@ -123,14 +125,14 @@
     <Property Name="DebitCardOpted" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NetBankingOpted" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DateOfApplication" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="AadharFile" Relationship="Self.FK__AadharFil__UserI__412EB0B6" FromRole="Users" ToRole="AadharFile" />
+    <NavigationProperty Name="AadharFile" Relationship="Self.FK__AadharFil__UserI__5FB337D6" FromRole="Users" ToRole="AadharFile" />
     <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__UserID__267ABA7A" FromRole="Users" ToRole="Account" />
     <NavigationProperty Name="AdminApprovals" Relationship="Self.FK__AdminAppr__UserI__30F848ED" FromRole="Users" ToRole="AdminApproval" />
-    <NavigationProperty Name="Image" Relationship="Self.FK__Image__UserID__3E52440B" FromRole="Users" ToRole="Image" />
+    <NavigationProperty Name="Image" Relationship="Self.FK__Image__UserID__5CD6CB2B" FromRole="Users" ToRole="Image" />
     <NavigationProperty Name="PAddress" Relationship="Self.FK__PAddress__UserID__3B75D760" FromRole="Users" ToRole="PAddress" />
     <NavigationProperty Name="RAddress" Relationship="Self.FK__RAddress__UserID__38996AB5" FromRole="Users" ToRole="RAddress" />
   </EntityType>
-  <Association Name="FK__AadharFil__UserI__412EB0B6">
+  <Association Name="FK__AadharFil__UserI__5FB337D6">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
     <End Role="AadharFile" Type="Self.AadharFile" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -226,7 +228,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Image__UserID__3E52440B">
+  <Association Name="FK__Image__UserID__5CD6CB2B">
     <End Role="Users" Type="Self.User" Multiplicity="1" />
     <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -273,7 +275,7 @@
     <EntitySet Name="RAddresses" EntityType="Self.RAddress" />
     <EntitySet Name="Transactions" EntityType="Self.Transaction" />
     <EntitySet Name="Users" EntityType="Self.User" />
-    <AssociationSet Name="FK__AadharFil__UserI__412EB0B6" Association="Self.FK__AadharFil__UserI__412EB0B6">
+    <AssociationSet Name="FK__AadharFil__UserI__5FB337D6" Association="Self.FK__AadharFil__UserI__5FB337D6">
       <End Role="Users" EntitySet="Users" />
       <End Role="AadharFile" EntitySet="AadharFiles" />
     </AssociationSet>
@@ -305,7 +307,7 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="AdminApproval" EntitySet="AdminApprovals" />
     </AssociationSet>
-    <AssociationSet Name="FK__Image__UserID__3E52440B" Association="Self.FK__Image__UserID__3E52440B">
+    <AssociationSet Name="FK__Image__UserID__5CD6CB2B" Association="Self.FK__Image__UserID__5CD6CB2B">
       <End Role="Users" EntitySet="Users" />
       <End Role="Image" EntitySet="Images" />
     </AssociationSet>

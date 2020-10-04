@@ -18,7 +18,7 @@ export class AddpayeeComponent implements OnInit {
     this.addpayeeForm = this.formbuilder.group({
       beneficiaryname: new FormControl('',Validators.required),
       beneficiarynumber: new FormControl('',[Validators.required, Validators.pattern("^[0-9]*$")]),
-      savebeneficiarynumber: new FormControl('',Validators.required),
+      //savebeneficiarynumber: new FormControl('',Validators.required),
       rebeneficiarynumber: new FormControl('',Validators.required),
       nickname: new FormControl('',Validators.required)
     },
@@ -62,6 +62,7 @@ export class AddpayeeComponent implements OnInit {
     this.accountService.addBeneficiary(beneficiary).subscribe(data => {
       console.log(data)
       alert("Beneficiary Added Successfully");
+      this.router.navigate(['/fundstransfer'])
     })
   }
 

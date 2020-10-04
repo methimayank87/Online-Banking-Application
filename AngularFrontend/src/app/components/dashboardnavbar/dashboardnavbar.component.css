@@ -37,6 +37,11 @@ body {
   .dropdown{
       margin-right: 0;
   }
+
+  .name {
+    display: inline-flex;
+    flex-direction: row;
+  }
   
   
   

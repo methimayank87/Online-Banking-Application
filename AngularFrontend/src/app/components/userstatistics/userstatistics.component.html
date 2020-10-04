@@ -1,0 +1,64 @@
+<div class="d-flex" id="wrapper">
+    <div  id="sidebar-wrapper" style="background-color: rgb(158, 180, 190);">
+        <div class="sidebar-heading" style="color: black;" align="center">Dashboard</div>
+        <div class="list-group list-group-flush" >
+            <ul class ="list-group-item list-group-item-action" style="background-color: rgb(158, 180, 190);">
+                <li><a  routerLink="/userstatistics" class ="list-group-item list-group-item-action" style="background-color: rgb(69, 69, 71);color: white;">User Statistics</a></li>
+                <li><a class ="list-group-item list-group-item-action bg-light" (click)="Logout()">Logout</a></li>
+          </ul>
+        </div>
+    </div>
+    <div id="page-content-wrapper" >
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(75, 75, 134);">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <a href="#" class="navbar-brand">Online Banking Application</a>
+            </div>
+            <marquee behavior="scroll" direction="right" class="navbar-brand">Welcome Admin!</marquee>
+        </nav>
+        <div class="bg">
+            <div style="text-align: center;">
+                <form [formGroup]="userstatisticsform" (ngSubmit)="onSubmit(userstatisticsform)">
+               
+                <h5 style="color:lightgoldenrodyellow;"> Statistics from &nbsp; <input  type="date" placeholder="Select Start Date" id="startdate" formControlName="startdate" />
+                    to &nbsp;<input type="date" placeholder="Select End Date" id="enddate" formControlName="enddate"/></h5><br><br>
+        
+                
+                    <br><br><br>
+                 
+                  <button type="submit" class="btn btn-primary" style="width: 10%;" (click)="inboundClick = !inboundClick"  href="">Submit</button>
+      
+                  </form>
+      
+                  <div *ngIf="inboundClick">
+                      
+                    <br><br>
+          
+                 
+                    <table class="table table-striped" style="margin-left:auto;margin-right:auto; width:50%; background-color: #dedede;">
+                      <thead>
+                            <tr>
+                                <th>No. of Users</th>
+                                <th>No. of Transactions</th>
+                                <th>Total Amount of IMPS Transactions</th>
+                                <th>Total Amount of RTGS Transactions</th>
+                                <th>Total Amount of NEFT Transactions</th>
+                                
+                               
+                            </tr>
+                      </thead>
+                      
+                        <tbody>
+                            <tr>
+                                <td>{{users }}</td>
+                                <td>{{trans }}</td>
+                                <td>{{imps}}</td>
+                                <td>{{rtgs}}</td>
+                                <td>{{neft}}</td>
+                            </tr>
+                        </tbody> 
+                      </table>
+                    </div>
+               </div>
+        </div>
+    </div>
+</div>

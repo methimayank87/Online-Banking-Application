@@ -31,15 +31,23 @@ export class AdminApprovalService {
     return this._http.get<AdminApproval>(this.baseUrl+'/'+requestId);
   }
   updateRequestStatus(request: AdminApproval){
-    // const adminApproval = {
-    //   "ApprovalID":requestId,
-    //   "AdminID": 2345,
-    //   "UserID": userId,
-    //   "ApprovalStatus": 'approved',
-    //   "ApprovalDate": new Date(),
-    // }
-    request.ApprovalStatus = "approved";
-    console.log(request)
-    return this._http.put(this.baseUrl+'/'+ request.ApprovalID ,request,this.httpOptions)
+    const adminApproval = {
+      "ApprovalID":request.ApprovalID,
+      "AdminID": request.AdminID,
+      "UserID": request.UserID,
+      "ApprovalStatus": 'approved',
+      "ApprovalDate": new Date(),
+    }
+    return this._http.put(this.baseUrl+'/'+ request.ApprovalID ,adminApproval,this.httpOptions)
+  }
+  rejectRequestStatus(request: AdminApproval){
+    const adminApproval = {
+      "ApprovalID":request.ApprovalID,
+      "AdminID": request.AdminID,
+      "UserID": request.UserID,
+      "ApprovalStatus": 'cancelled',
+      "ApprovalDate": new Date(),
+    }
+    return this._http.put(this.baseUrl+'/'+ request.ApprovalID ,adminApproval,this.httpOptions)
   }
 }

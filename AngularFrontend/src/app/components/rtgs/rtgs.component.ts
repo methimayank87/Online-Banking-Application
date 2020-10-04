@@ -19,6 +19,9 @@ export class RtgsComponent implements OnInit {
   showOtp: boolean = false;
   transaction: Transaction;
   currentOtp: Number;
+  correctOtp : boolean = false;
+  STran: Transaction;
+  tranId: Number;
   constructor(private router:Router,private formBuilder: FormBuilder, private accountService: AccountService,private transactionService: TransactionService) { 
     this.rtgsForm = this.formBuilder.group({
       toaccount: new FormControl('',Validators.required),
@@ -49,7 +52,7 @@ export class RtgsComponent implements OnInit {
     const sender = parseInt(localStorage.getItem('Accno'));
     console.log(this.beneficiary);
     this.transaction = {
-      "TransactionMode": "IMPS",
+      "TransactionMode": "RTGS",
       "SenderAccount": sender,
       "ReceiverAccount": this.beneficiary.BenAccountNumber,
       "Amount": form.value.amount,
@@ -79,19 +82,22 @@ export class RtgsComponent implements OnInit {
     try{
       if(this.currentOtp === form.value.otp){
           this.transactionService.addTransaction(this.transaction).subscribe(data => {
-          if(data === 200){
-            alert("Transaction successful")
-            this.router.navigate(['fundstransfer'])
-          }else{
+          if(data === 500){
             alert("Transaction failed")
+          }else{
+            console.log(data)
+            this.tranId = data;
+            localStorage.setItem('tranId', data.toString())
+            this.router.navigate(['transactionSuccess', this.tranId])
           }
-          
         })
-        
-      }
-    }catch{
-      alert("Incorrect OTP");
+      }      
     }
+    catch{
+      alert("Incorrect OTP");
+    }  
   }
+  
+
 
 }

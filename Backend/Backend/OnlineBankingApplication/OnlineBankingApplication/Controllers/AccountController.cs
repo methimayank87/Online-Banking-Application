@@ -12,7 +12,7 @@ namespace OnlineBankingApplication.Controllers
     [RoutePrefix("api/accounts")]
     public class AccountController : ApiController
     {
-        private IDataRepository<Account> _accountRepository;
+        private AccountRepository _accountRepository;
         public AccountController()
         {
             this._accountRepository = new AccountRepository(new ProjectContext());
@@ -57,6 +57,14 @@ namespace OnlineBankingApplication.Controllers
             {
                 throw ex;
             }
+            ProjectContext _projectContext = new ProjectContext();
+            var user = _projectContext.Users
+                            .Where(u => u.UserID == account.UserID)
+                            .FirstOrDefault();
+            MailClass mail = new MailClass();
+            mail.subject = "Account Approved";
+            mail.message = "Congratulations! Your account has been approved.\nUse these credentials to login into your account.\n" + "UserID : " + account.UserID + "\n" + "Login Password : " + account.LoginPassword;
+            string res = _accountRepository.PostSendMail(user, mail);
             return Ok(account);
         }
 

@@ -3,7 +3,7 @@
         <div class="sidebar-heading" style="color: black;" align="center">Dashboard</div>
         <div class="list-group list-group-flush" >
             <ul class ="list-group-item list-group-item-action" style="background-color: rgb(158, 180, 190);">
-                <li><a  class ="list-group-item list-group-item-action" style="background-color: rgb(69, 69, 71);color: white;">Menu</a></li>
+                <li><a  routerLink="/userstatistics" class ="list-group-item list-group-item-action" style="background-color: rgb(69, 69, 71);color: white;">User Statistics</a></li>
                 <li><a  href ="#" class ="list-group-item list-group-item-action" style="background-color: rgb(94, 94, 109);color: white;"  data-toggle="modal" data-target="#myModal1">Bulk Mail</a></li>
                 <li><a href="#" class ="list-group-item list-group-item-action" style="background-color: rgb(133, 133, 155);color: white;" data-toggle="modal" data-target="#myModal2">Bulk SMS</a></li>
                 <li><a class ="list-group-item list-group-item-action bg-light" (click)="Logout()">Logout</a></li>
@@ -20,7 +20,7 @@
                     <div class="dropdown-menu">
                       <button class="dropdown-item" (click)="setApproved('approved')">Approved</button>
                       <button class="dropdown-item" (click)="setApproved('pending')">Pending</button>
-                      <button class="dropdown-item">Others</button>
+                      <button class="dropdown-item" (click)="setApproved('cancelled')">Cancelled</button>
                     </div>
             </div>
             
@@ -39,18 +39,17 @@
                 <th>Reference Number</th>
                 <th>User Id</th>
                 <th>Approval Status</th>
-                <th>Approval Date</th>
                 <th>Action</th>
             </tr>
             <tr *ngFor="let request of listRequests">
               <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalID}}</td>
               <td *ngIf="request.ApprovalStatus===isPending">{{request.UserID}}</td>
               <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalStatus}}</td>
-              <td *ngIf="request.ApprovalStatus===isPending">{{request.ApprovalDate}}</td>
-                
+              
               <td *ngIf="request.ApprovalStatus===isPending">
-                <button class="btn btn-primary">View Details</button>
-                    <button class="btn btn-success" (click)="approveRequest(request.ApprovalID,request.UserID)">Approve</button>
+                <button class="btn btn-primary" (click)="viewDetails(request.UserID)"><i class="fa  fa-th-list" style="font-size: 25px;"></i></button>
+                    <button class="btn btn-success" *ngIf="request.ApprovalStatus===pending" (click)="approveRequest(request.ApprovalID,request.UserID)"><i class="fa   fa-check-square-o" style="font-size: 25px;"></i></button>
+                    <button class="btn btn-danger" *ngIf="request.ApprovalStatus===pending" (click)="rejectRequest(request.ApprovalID,request.UserID)"><i class="fa  fa-trash" style="font-size: 25px;"></i></button>
                 </td>
 
             </tr> 

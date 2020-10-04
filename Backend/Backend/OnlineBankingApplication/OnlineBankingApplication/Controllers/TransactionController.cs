@@ -31,7 +31,15 @@ namespace OnlineBankingApplication.Controllers
         [Route("accounts/{id}/getbydate")]
         public IEnumerable<Transaction> GettransactionsByDate([FromBody] DateClass date, long id)
         {
-            var trans = _transrepository.GetByDate(date,id);
+            var trans = _transrepository.GetByDate(date, id);
+            return trans;
+        }
+
+        [HttpGet]
+        [Route("accounts/{id}/getlastten")]
+        public IEnumerable<Transaction> GetLastTenTransactions(long id)
+        {
+            var trans = _transrepository.GetLastTen(id);
             return trans;
         }
 
