@@ -12,9 +12,10 @@ export class DashboardComponent implements OnInit {
   constructor(private bnIdle: BnNgIdleService, private router : Router) { // initiate it in your component constructor
     this.bnIdle.startWatching(600).subscribe((res) => {
       if(res) {
-          console.log("session expired");
+          alert("session expired");
           localStorage.removeItem('UserId');
           localStorage.removeItem('Accno');
+          this.bnIdle.stopTimer();
           this.router.navigate(['/userlogin']);
       }
     })

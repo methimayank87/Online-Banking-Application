@@ -73,7 +73,7 @@ namespace OnlineBankingApplication.Repositories
             {
                 byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
                 {
-                    {"apikey" , "W4fdhZ2wl6E-3exO4Gmo9wmjR8eNXAgsvS3tNsgNWT" },
+                    {"apikey" , "F4RG83Qf6es-DBgVJycCOneVmekb1unxZPgJh5AREo" },
                     {"numbers", number},
                     {"message", msg1 },
                     {"sender", "TXTLCL" }

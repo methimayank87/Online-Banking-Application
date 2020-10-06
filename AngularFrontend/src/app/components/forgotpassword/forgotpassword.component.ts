@@ -53,12 +53,14 @@ onSubmit(form)
 {
   this.currentUserId = form.value.userid;
   this.userService.forgotUserPassword(form.value.userid).subscribe(data => {
+    console.log(data)
       this.requestSent = true;
       this.current = data;
   })
 }
 
 onSubmit2(form){
+  console.log("hello")
   try{
     if(this.current === form.value.otp){
 
